@@ -4,20 +4,18 @@ import Image from 'next/image'
 import { title } from 'process'
 import parser from 'html-react-parser'
 
+import {FaGithub} from 'react-icons/fa'
+
+
 const SingleCard = styled.nav`
 width: 100%;
 display: column;
+margin-bottom: 100px;
 
 p {font-size: 16px;
     font-weight: 400;
     line-height: 27.2px}
-
-a {margin-right: 6px;
-    margin-top: 32px;
-    background-color: #ececec;
-padding: 12px;
-border-radius: 3px;}    
-margin-bottom: 64px;`
+`
 
 const TagLine = styled.h1`
 font-size: 48px;
@@ -26,10 +24,48 @@ line-height: 72px;
 `
 
 const SubTagLine = styled(TagLine)`
-font-size: 88px;
-font-weight: 400;
+font-size: 30px;
+font-weight: 600;
 line-height: 1.2;
-font-family: 'trap';
+font-family: trap;
+margin-bottom: 0px;
+padding-bottom: 0px;
+
+@media (min-width: 1000px) {
+    font-size: 50px;
+    }
+`
+
+const SubSubTagLine = styled(TagLine)`
+font-size: 30px;
+font-weight: 100;
+line-height: 1.2;
+font-family: trap;
+margin-top: 0px;
+padding-top: 0px;
+@media (min-width: 1000px) {
+    font-size: 50px;
+    }`
+
+const CardButton = styled.a`
+text-decoration: none;
+min-width: 36px;
+border: 1px solid #001AFF;
+color: #001AFF;
+background-color: #ffffff;
+
+border-radius: 50px;
+height: 36px;
+padding: 0 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-right: 18px;
+
+:hover {
+    color: #fff;
+    background-color: #001AFF;
+}
 `
 
 const HashTag = styled.span`
@@ -64,23 +100,35 @@ type Props = {
     image: string;
     fullText: string;
     cta: Array;
+    subtitle: string,
+    annotation: string,
 }
 
 export default function ProjectCard(props: Props) {
-  const {title, hashtags, image, fullText, cta} = props;
+  const {title, subtitle, hashtags, image, fullText, cta, annotation} = props;
 
   return (<SingleCard>
         <SubTagLine>{parser(title)}</SubTagLine>
-        {hashtags.map(e=>(<HashTag>{e}</HashTag>))}
-
-        {image !== null ? <div style={{maxWidth: '100%', aspectRatio: '1/0.6', position: 'relative', marginTop: "28px"}}>
+        <SubSubTagLine>{subtitle}</SubSubTagLine>
+        
+        {image !== null ?
+        <div style={{maxWidth: '100%', aspectRatio: '1/0.6', position: 'relative', marginBottom: "50px"}}>
             <Image src={image} fill alt="Project: Japanible"></Image>
         </div> : ''}
-
-        <div style={{marginTop: 112, marginBottom: 112, lineHeight: 1.2 }}>
-        {parser(fullText)}
+        <div style={{display: 'flex'}}>
+        {cta.map((e, i:Number)=>(<CardButton key={i} href={e.href} target={'_blank'}>{e.text}</CardButton>))}
+        <CardButton><FaGithub/></CardButton>
         </div>
-        {cta.map(e=>(<a href={e.href} target={'_blank'}>{e.text}</a>))}
+
+        <p>
+        <u>Project description -</u><br/>
+Japanible is a web 2 public blogging platform, catering to individuals who have something to say or are interested about Japan, its culture, and language.
+</p>
+<p><u>Technical description +</u></p>
+<p><u>Reflections +</u></p>
+        {/* <div style={{marginTop: 50, marginBottom: 112, lineHeight: 1.2 }}>
+        {parser(fullText)}
+        </div> */}
       </SingleCard>
   )
 }

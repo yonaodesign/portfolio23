@@ -11,8 +11,6 @@ import parser from "html-react-parser";
 const LMAO = styled.div`
 background-color: white;
 width: 400px;
-
-
 height: 400px;
 z-index: -9;
 position: absolute;
@@ -45,6 +43,7 @@ min-width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+color: #001AFF;
 
 p {font-size: 16px;
   font-weight: 400;
@@ -380,7 +379,7 @@ export default function Projects() {
             <NavBar style={{ width: '50%', display: 'flex' }}>intro <hr style={{ backgroundColor: 'black', border: 'none', height: '1px', width: '100%', marginLeft: 6, marginRight: 6 }}></hr></NavBar>
 
             <NavBar style={{ width: '50%', display: 'flex', justifyContent: 'space-between' }}>
-              {['intro', 'about', 'projects', 'resume', 'contact'].map((e) => (<span>{e}</span>))}</NavBar>
+              {['intro', 'about', 'projects', 'resume', 'contact'].map((e, i) => (<span key={"menuItem_"+i}>{e}</span>))}</NavBar>
           </div>
 
 
@@ -449,7 +448,7 @@ export default function Projects() {
               '2/ SMOSS - No-code Production Management System',
               '3/ SSKS - No-code Procurement Management System',
               '4/ Product Landing Page for B2B Buyers',
-              '5/ Corporate Site',].map((e, index) => (<div>{e}</div>))}
+              '5/ Corporate Site',].map((e, index) => (<div key={"projectItem_"+index}>{e}</div>))}
           </div>
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '24px', alignItems: 'center' }}>
             <NavBar style={{ width: '100%', display: 'flex' }}>projects <hr style={{ backgroundColor: 'black', border: 'none', height: '1px', width: '100%', marginLeft: 6, marginRight: 6 }}></hr></NavBar>
