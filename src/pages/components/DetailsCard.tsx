@@ -15,7 +15,6 @@ p {font-size: 16px;
 
 const Title = styled.h2`
 font-size: 26px;
-font-weight: 400;
 line-height: 40px;
 font-family: trap;
 font-weight: 600;

@@ -6,3 +6,18 @@ body,html {
   box-sizing: border-box;
   font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
+
+@font-face {
+  font-family: trap;
+  font-weight: 100;
+  src: url("/files/Trap-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: trap;
+  font-weight: 600;
+  src: url("/files/Trap-SemiBold.otf") format("opentype");
+}
+
+li {list-style-type: "\30FB";
+  margin-bottom: 18px}

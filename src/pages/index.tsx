@@ -48,9 +48,9 @@ const Wrapper = styled.div`
 position: relative;
 font-family: inter;
 padding: 0 32px;
-min-height: 100vh;
-min-width: 100vw;
-max-width: 100vw;
+min-height: 99vh;
+min-width: 99vw;
+max-width: 99vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
@@ -506,7 +506,7 @@ export default function Projects() {
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
 
             <NavBar style={{ width: '100%', display: 'flex' }}>
-              <DynamicLineRunningLeft /><span style={{ whiteSpace: 'nowrap' }}>2023</span>
+              <DynamicLineRunningLeft /><span style={{ whiteSpace: 'nowrap' }}>portfolio 2023</span>
             </NavBar>
 
           </div>
@@ -545,16 +545,16 @@ export default function Projects() {
             </SplitBar>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <ul style={{ display: 'flex', flexDirection: 'column' }}>
 
-            <p>I have a diverse background in art, languages, and manufacturing industry.</p>
-            <p>I am fluent in English, Japanese, and Czech.</p>
-            <p>I specialize in building applications in a JS based environment.</p>
-            <p>I use Adobe Photoshop, Figma, and Adobe Premier.</p>
-            <p>I am constantly exploring both time-tested and latest trends and new technologies to find best answers.</p>
-            <p>I care about saving businesses time with on point solutions and intuitive UX.</p>
+            <li>I have a diverse background in art, languages, and manufacturing industry.</li>
+            <li>I am fluent in English, Japanese, and Czech.</li>
+            <li>I specialize in building applications in a JS based environment.</li>
+            <li>I use Adobe Photoshop, Figma, and Adobe Premier.</li>
+            <li>I am constantly exploring both time-tested and latest trends and new technologies to find best answers.</li>
+            <li>I care about saving businesses time with on point solutions and intuitive UX.</li>
 
-          </div>
+          </ul>
 
           <SplitBar style={{ width: '100%', display: 'flex' }}>
             <span style={{ whiteSpace: 'nowrap' }}>projects</span>
@@ -589,7 +589,7 @@ export default function Projects() {
           </SplitBar>
 
           <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {ProjectsData.filter((x) => (x.type === 'business')).map((e, i) => (<div key={"business"+i}>
+            {ProjectsData.filter((x) => (x.type === 'business')).reverse().map((e, i) => (<div key={"business"+i}>
 
               <DetailsCard
                 title={e.title}
@@ -618,23 +618,36 @@ export default function Projects() {
 
           <ToolBox>
 
-            <p><u>Visual</u><br />
-              ・Figma<br />
-              ・Adobe Photoshop<br />
-              ・Adobe Premiere</p>
+            <div>
+              <u>Visual</u>
+            <ul>
+              <li>Figma</li>
+              <li>Adobe Photoshop</li>
+              <li>Adobe Premiere</li>
+              </ul>
+              </div>
 
-            <p><u>Development</u><br />
-              ・React.js<br />
-              ・Node.js<br />
-              ・PostgreSQL, MongoDB<br />
-              ・Firebase, Vercel, Render</p>
-            <p><u>SEO</u><br />
-              ・Google Analytics<br />
-              ・SEMrush<br />
-              ・Lighthouse</p>
+            <div>
+              <u>Development</u>
+              <ul>
+              <li>React.js</li>
+              <li>Node.js</li>
+              <li>PostgreSQL, MongoDB</li>
+              <li>Firebase, Vercel, Render</li>
+              <li>AWS S3, Firebase Storage</li>
+              
+              </ul>
+              </div>
+            <div>
+              <u>SEO</u><ul>
+              <li>Google Analytics</li>
+              <li>SEMrush</li>
+              <li>Lighthouse</li></ul>
+              </div>
           </ToolBox>
+          <Footer />
         </Main>
-        <Footer />
+
       </Wrapper>
     </>
   )
