@@ -2,29 +2,10 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
+import Navigation from './Navigation'
+import Footer from '../src/pages/components/Footer'
 import ProjectCard from './components/ProjectCard'
 import parser from "html-react-parser";
-
-
-const LMAO = styled.div`
-background-color: white;
-width: 400px;
-height: 400px;
-z-index: -9;
-position: absolute;
-border-radius: 500px;`
-
-const GRAD = styled.div`
-background: radial-gradient(#d9d9d9 10%, transparent 60%);
-width: 600px;
-
-height: 600px;
-z-index: -10;
-position: absolute;
-border-radius: 50px;`
-
 const BG = styled.div`
 position: fixed;
 left: 0px;
@@ -33,7 +14,6 @@ top:0px;
 bottom:0px;
 z-index: -10;
 background: url("./BG.png") no-repeat fixed right;
-filter: grayscale(1);
 `
 
 const Wrapper = styled.div`
@@ -43,7 +23,6 @@ min-width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-color: #001AFF;
 
 p {font-size: 16px;
   font-weight: 400;
@@ -58,28 +37,20 @@ margin: 0px auto;`
 
 
 const TagLine = styled.h1`
-font-size: 68px;
+font-size: 48px;
 font-weight: 400;
 line-height: 72px;
-font-family: trap;
-font-weight: 600;
 `
 const SubTagLine = styled(TagLine)`
 font-size: 32px;
 font-weight: 400;
-line-height: 48px;
+line-height: 48px
 `
 
-const NavBar = styled.div`
-font-family: trap;`
-
-
-
-
 const ProjectsData = [{
-  title: 'Japanible<br/>Community Blogging Platform',
+  title: 'Project: Japanible<br/>Community Blogging Platform',
   hashtags: ['blog', 'react.js', 'firebase'],
-  image: '/media/Group 15.png',
+  image: '/media/JAPANIBLE.png',
   fullText: `<div>
   <p>Japanible is a community blogging platform that I created as a solo project,
   catering to individuals interested in Japan, its culture, and language. The
@@ -255,7 +226,7 @@ const ProjectsData = [{
 
 {
   title: 'Project: Corporate Site<br/>Redesign of a Corporate Site',
-  hashtags: ['reallifeproject ', 'headlesscms ', 'html ', 'css ', 'vanillajs', '3rdpartyjs'],
+  hashtags: ['reallifeproject ','headlesscms ','html ','css ','vanillajs', '3rdpartyjs'],
   image: '/media/sensyo.webp',
   fullText: `<p>
   This project was a redesign of the main sales channel website for an
@@ -291,7 +262,7 @@ const ProjectsData = [{
 
 </p>
 `,
-  cta: [{ text: 'Go to live website', href: 'http://www.sensyo-ltd.co.jp' }, { text: 'Web Archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/' },]
+cta: [{ text: 'Go to live website', href: 'http://www.sensyo-ltd.co.jp' },{ text: 'Web Archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/' },]
 
 },
 
@@ -300,7 +271,7 @@ const ProjectsData = [{
 
 {
   title: 'Project: Product Page<br/>No-code Procurement Management System',
-  hashtags: ['spa ', 'reallifeproject ', 'next.js ', 'typescript ', 'styled-components ', 'vercel '],
+  hashtags: ['spa ','reallifeproject ','next.js ','typescript ','styled-components ','vercel '],
   image: '/media/PC.png',
   fullText: `<p>
   This project is a Single Page Application (SPA) for a product, designed to
@@ -333,12 +304,12 @@ const ProjectsData = [{
 </p>
 `,
 
-  cta: [{ text: 'Go to live website', href: 'http://www.sensyo-ltd.co.jp' }, { text: 'Web Archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/' },]
+cta: [{ text: 'Go to live website', href: 'http://www.sensyo-ltd.co.jp' },{ text: 'Web Archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/' },]
 },
 
 {
   title: 'Project: ERP<br/>ERP Data Aggregation Platform',
-  hashtags: ['hobby ', 'erp ', 'crm ', 'spa ', 'styled-components ', 'vercel '],
+  hashtags: ['hobby ','erp ','crm ','spa ','styled-components ','vercel '],
   image: '/media/erp.webp',
   fullText: `<p>
   This project is a web application that I have developed to aggregate company's data.
@@ -352,7 +323,7 @@ const ProjectsData = [{
   beneficial for my future projects.
 </p>
 `,
-  cta: [{ text: 'Go to live website', href: 'https://buyers.cher.jp' },]
+cta: [{ text: 'Go to live website', href: 'https://buyers.cher.jp' },]
 
 },
 
@@ -370,93 +341,13 @@ export default function Projects() {
         {/* <link rel="icon" href="/favicon.ico" /> */}
       </Head>
       <Wrapper>
-        <style>
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&display=swap');
-        </style>
-
+        <BG></BG>
+        <Navigation/>
         <Main>
-          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '24px', alignItems: 'center' }}>
-            <NavBar style={{ width: '50%', display: 'flex' }}>intro <hr style={{ backgroundColor: 'black', border: 'none', height: '1px', width: '100%', marginLeft: 6, marginRight: 6 }}></hr></NavBar>
-
-            <NavBar style={{ width: '50%', display: 'flex', justifyContent: 'space-between' }}>
-              {['intro', 'about', 'projects', 'resume', 'contact'].map((e, i) => (<span key={"menuItem_"+i}>{e}</span>))}</NavBar>
-          </div>
-
-
-          <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-
-
-            <TagLine style={{ width: '50%', marginTop: 112, marginBottom: 112, lineHeight: 1.2 }}><LMAO></LMAO><GRAD style={{ transform: 'translateY(-100px)' }}></GRAD>Creative<br />
-              Full Stack<br />
-              Software<br />
-              Developer<br />
-              & Linguist</TagLine>
-
-            <span style={{ fontSize: '30px', width: '50%', fontFamily: 'Inter' }}>Hi, don't you feel like making our world a better place today?</span>
-          </div>
-
-
-          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '24px', alignItems: 'center' }}>
-            <NavBar style={{ width: '100%', display: 'flex' }}>about <hr style={{ backgroundColor: 'black', border: 'none', height: '1px', width: '100%', marginLeft: 6, marginRight: 6 }}></hr></NavBar>
-          </div>
-
-          <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'center' }}>
-            <div style={{ width: '50%' }}>
-              <TagLine style={{ marginTop: 112, marginBottom: 112, lineHeight: 1.2 }}>
-                Jonas <br />
-                Volny</TagLine>
-            </div>
-            <span style={{ fontSize: '30px', width: '50%', fontFamily: 'Inter' }}>Hello, I’m Jonas.<br />
-              I help small and middle sized<br />
-              businesses to take on the world.</span>
-          </div>
-
-
-          <div style={{ display: 'flex', justifyContent: 'space-evenly', alignItems: 'flex-start' }}>
-            <div>
-              <span>
-                <p>Creative Skills<br />・Adobe Photoshop<br />・Figma<br />・Davinci Resolve</p>
-
-
-                <p>Technical Skills<br />・React.js<br />・Node.js<br />・PostgreSQL / MongoDB<br />・Firebase / Vercel / Render.com<br />・Javascript</p>
-
-                <p>Language Skills<br />・English / Japanese / Czech</p></span>
-            </div>
-
-
-            <p style={{ width: '50%', fontFamily: 'Inter' }}>Hello, I’m Jonas.<br />
-              I am a creative full stack developer with a diverse background in art, languages, and manufacturing industry.
-
-              I specialize in building applications in a Javascript based  environment using technologies like React.js, Node.js, databases like PostgreSQL, MongoDB or Firebase.
-
-              I have experience with RPA, SEO, and low-code. My Adobe Photoshop, Figma, and video editing skills allow me to create visually appealing designs and engaging videos that can be used to promote my clients work.
-
-              I am fluent in English, Japanese, and Czech, which allows me to communicate effectively with a diverse range of clients and colleagues.
-
-              I am currently experimenting with web3 and code-generated art. I am constantly exploring the latest trends and new technologies in these areas.
-
-              Feel free to contact me, if you have any questions here or on Twitter.
-
-              Best regards,
-              Jonas</p>
-          </div>
-          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '24px', alignItems: 'center' }}>
-            <NavBar style={{ width: '100%', display: 'flex' }}>projects <hr style={{ backgroundColor: 'black', border: 'none', height: '1px', width: '100%', marginLeft: 6, marginRight: 6 }}></hr></NavBar>
-          </div>
-          <div style={{ marginTop: 112, marginBottom: 112, lineHeight: 1.2, fontSize: 42, fontFamily: 'trap', fontWeight: 100 }}>
-            {['1/ Japanible - Community Hub',
-              '2/ SMOSS - No-code Production Management System',
-              '3/ SSKS - No-code Procurement Management System',
-              '4/ Product Landing Page for B2B Buyers',
-              '5/ Corporate Site',].map((e, index) => (<div key={"projectItem_"+index}>{e}</div>))}
-          </div>
-          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '24px', alignItems: 'center' }}>
-            <NavBar style={{ width: '100%', display: 'flex' }}>projects <hr style={{ backgroundColor: 'black', border: 'none', height: '1px', width: '100%', marginLeft: 6, marginRight: 6 }}></hr></NavBar>
-          </div>
-
+          <TagLine>Projects</TagLine>
           {ProjectsData.map((e) => (<ProjectCard title={e.title} hashtags={e.hashtags} image={e.image} fullText={e.fullText} cta={e.cta} />))}
         </Main>
-        <Footer />
+        <Footer/>
       </Wrapper>
     </>
   )

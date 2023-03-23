@@ -2,26 +2,21 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
+import Navigation from './Navigation'
+import Footer from '../src/pages/components/Footer'
 
 const Wrapper = styled.div`
 padding: 0 16px;
-height: 100vh;
+min-height: 100vh;
 min-width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
-`
 
-const BG = styled.div`
-position: fixed;
-left: 0px;
-right:0px;
-top:0px;
-bottom:0px;
-z-index: -10;
-background: url("./BG.png") no-repeat fixed right;
+p {font-size: 16px;
+  font-weight: 400;
+  line-height: 27.2px;
+  margin-bottom: 16px}
 `
 
 const Main = styled.main`
@@ -43,7 +38,7 @@ line-height: 48px
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Contact() {
   return (
     <>
       <Head>
@@ -55,23 +50,15 @@ export default function Home() {
 
 
       <Wrapper>
-        <BG>
-        </BG>
-
       
       <Navigation/>
 
        <Main>
-        <TagLine>
-
-          <div>👋</div>
-          <div>
-          Hi, I'm Jonas. Creative Full Stack SE Developer.
-          </div>
-        </TagLine>
-        <SubTagLine>
-        Let's make world better together.
-        </SubTagLine>
+        <TagLine>Contact me!</TagLine>
+        <a href='mailto:jonas.volny@gmail.com'>My mail!</a>
+        {/* <input></input>
+        <textarea></textarea> */}
+          
       </Main>
 
       <Footer/>
