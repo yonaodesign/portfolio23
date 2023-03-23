@@ -1,16 +1,6 @@
-:root {
-
-  color: rgb(74, 74, 74);
-
-@media (prefers-color-scheme: dark) {
-  }
-}
-
-
 body,html {
   margin: 0;
   padding: 0;
-  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap');
 }
 * {
   box-sizing: border-box;

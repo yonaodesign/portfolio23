@@ -2,21 +2,26 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
+import Navigation from './Navigation'
+import Footer from '../src/pages/components/Footer'
 
 const Wrapper = styled.div`
 padding: 0 16px;
-min-height: 100vh;
+height: 100vh;
 min-width: 100vw;
 display: flex;
 flex-direction: column;
 justify-content: space-between;
+`
 
-p {font-size: 16px;
-  font-weight: 400;
-  line-height: 27.2px;
-  margin-bottom: 16px}
+const BG = styled.div`
+position: fixed;
+left: 0px;
+right:0px;
+top:0px;
+bottom:0px;
+z-index: -10;
+background: url("./BG.png") no-repeat fixed right;
 `
 
 const Main = styled.main`
@@ -38,7 +43,7 @@ line-height: 48px
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Contact() {
+export default function Home() {
   return (
     <>
       <Head>
@@ -50,15 +55,23 @@ export default function Contact() {
 
 
       <Wrapper>
+        <BG>
+        </BG>
+
       
       <Navigation/>
 
        <Main>
-        <TagLine>Contact me!</TagLine>
-        <a href='mailto:jonas.volny@gmail.com'>My mail!</a>
-        {/* <input></input>
-        <textarea></textarea> */}
-          
+        <TagLine>
+
+          <div>👋</div>
+          <div>
+          Hi, I'm Jonas. Creative Full Stack SE Developer.
+          </div>
+        </TagLine>
+        <SubTagLine>
+        Let's make world better together.
+        </SubTagLine>
       </Main>
 
       <Footer/>

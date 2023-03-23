@@ -12,9 +12,8 @@ align-items: center;
 justify-content: flex-start;
 font-size: 16px;
 font-weight: 400;
-line-height: 24px
+line-height: 24px;
 `
-
 
 
 type Props = {}

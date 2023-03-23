@@ -2,8 +2,8 @@ import Head from 'next/head'
 import { Inter } from '@next/font/google'
 import Link from 'next/link'
 import styled from 'styled-components'
-import Navigation from './components/Navigation'
-import Footer from './components/Footer'
+import Navigation from './Navigation'
+import Footer from '../src/pages/components/Footer'
 import ProjectCard from './components/ProjectCard'
 import parser from "html-react-parser";
 const BG = styled.div`
