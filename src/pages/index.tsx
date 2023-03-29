@@ -657,8 +657,6 @@ export default function Projects() {
         </Main>
 
       </Wrapper>
-      <a title="GDPR-compliant Web Analytics" href="https://clicky.com/101403805">
-        <img alt="Clicky" src="//static.getclicky.com/media/links/badge.gif" border={0} /></a>
         <script async src="//static.getclicky.com/101403805.js"></script>
       <noscript>
         <p>
