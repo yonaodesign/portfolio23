@@ -1,4 +1,4 @@
-body,html {
+body, html {
   margin: 0;
   padding: 0;
 }
@@ -7,16 +7,22 @@ body,html {
   font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
 }
 
+*:focus-visible {
+  outline: 5px solid rgb(50, 109, 205);
+}
+
 @font-face {
   font-family: trap;
   font-weight: 100;
   src: url("/files/Trap-Light.otf") format("opentype");
+  font-display: swap;
 }
 
 @font-face {
   font-family: trap;
   font-weight: 600;
   src: url("/files/Trap-SemiBold.otf") format("opentype");
+  font-display: swap;
 }
 
 li {list-style-type: "\30FB";

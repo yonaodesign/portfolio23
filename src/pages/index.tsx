@@ -1,5 +1,5 @@
- // @ts-ignore
- import Head from 'next/head'
+// @ts-ignore
+import Head from 'next/head'
 // import { Inter } from '@next/font/google'
 // const inter = Inter({ subsets: ['latin'] })
 import styled from 'styled-components'
@@ -68,7 +68,8 @@ const Main = styled.main`
 width: 100%;
 max-width: 1000px;
 margin: 0px auto;
-overflow-x: hidden;`
+// overflow-x: hidden;
+`
 
 
 const TagLine = styled.h1`
@@ -105,11 +106,11 @@ height: 1px;
 margin-top: auto;
 width: 100%;
 margin-left: 32px;
-margin-right: -32px;
+margin-right: 0px;
 `
 
 const DynamicLineRunningLeft = styled(DynamicLine)`
-margin-left: -32px;
+margin-left: 0px;
 margin-right: 32px;`
 
 const NavBar = styled.div`
@@ -233,7 +234,7 @@ const ProjectsData = [{
       <p>Overall, Japanible was a challenging and rewarding project that allowed me to expand my skills in React.js and Firebase. I am excited to continue to develop my skills and take on new challenges in the future.</p>`,
   cta: [
     // { text: 'Video', href: '/img.png' },
-    { text: 'Live site', href: 'https://japanible.com' },
+    { text: 'Live site', href: 'https://japanible.com', aria: "Link to Japanible.com, that opens in a new window." },
   ]
 },
 {
@@ -407,7 +408,8 @@ app instead of a no-code base.
 
 </p>
 `,
-  cta: [{ text: 'Live site', href: 'http://www.sensyo-ltd.co.jp' }, { text: 'Web archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/' },]
+  cta: [{ text: 'Live site', href: 'http://www.sensyo-ltd.co.jp', aria: "Link to Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window."  },
+        { text: 'Web archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/', aria: "Link to an archived version of Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window."  },]
 
 },
 
@@ -426,8 +428,7 @@ app instead of a no-code base.
   projectDescription: `<p>
   This project is a Single Page Application (SPA) for a product, designed to
   provide a simple and user-friendly way to showcase the product and its features.
-</p><p>
-
+  </p><p>
   The goal of this project was to create an easy-to-use and visually appealing
   interface for the product, with a focus on providing a streamlined user
   experience. The application is designed to be fast and responsive, providing
@@ -484,14 +485,14 @@ app instead of a no-code base.
 </p>
 `,
 
-  cta: [{ text: 'Live site', href: 'http://www.cher.jp/en' },]
+  cta: [{ text: 'Live site', href: 'http://www.cher.jp/en', aria: "Link to a landing page of a brand called PUR CHER. Link opens in a new window."  },]
 }
 ]
 
 
 
 export default function Projects() {
- 
+
 
   return (
     <>
@@ -500,7 +501,7 @@ export default function Projects() {
         <meta name="description" content="Jonas Volny's Personal Website." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Wrapper style={{width: '100wv', overflowX: 'hidden'}}>
+      <Wrapper style={{ width: '100wv', overflowX: 'hidden' }}>
 
         <Main>
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
@@ -515,7 +516,7 @@ export default function Projects() {
           <div style={{ display: 'flex', flexDirection: 'column' }}>
 
 
-            <TagLine style={{ marginTop: 112, marginBottom: 20, lineHeight: 1.2, overflowX:'hidden' }}>
+            <TagLine style={{ marginTop: 112, marginBottom: 20, lineHeight: 1.2, overflowX: 'hidden' }}>
               <BG_GraphicSphere></BG_GraphicSphere>
               <BG_GraphicSphereShadow style={{ transform: 'translateY(-100px)' }} />
               Hi,<br />
@@ -530,8 +531,8 @@ export default function Projects() {
             </span>
 
             <span style={{ display: 'flex' }}>
-              <Button href="https://www.linkedin.com/in/jonas-volny/" target="_blank"><FaLinkedinIn /></Button>
-              <Button href="https://github.com/yonaodesign" target="_blank"><FaGithub /></Button>
+              <Button href="https://www.linkedin.com/in/jonas-volny/" target="_blank" aria-label="Link to Jonas' LinkedIn profile"><FaLinkedinIn /></Button>
+              <Button href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile"><FaGithub /></Button>
             </span>
           </div>
 
@@ -561,10 +562,13 @@ export default function Projects() {
             <DynamicLine />
           </SplitBar>
 
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {ProjectsData.filter((x) => (x.type === 'personal')).map((e, i) => (<div key={"personal"+i}>
-
-
+          <div
+            style={{ display: 'flex', flexDirection: 'column' }}
+            role="tablist"
+            aria-multiselectable="true">
+            
+            {ProjectsData.filter((x) => (x.type === 'personal')).map((e, i) => (
+            <div key={"personal" + i}>
               <DetailsCard
                 title={e.title}
                 hashtags={e.hashtags}
@@ -588,8 +592,12 @@ export default function Projects() {
             <DynamicLine />
           </SplitBar>
 
-          <div style={{ display: 'flex', flexDirection: 'column' }}>
-            {ProjectsData.filter((x) => (x.type === 'business')).reverse().map((e, i) => (<div key={"business"+i}>
+          <div
+            style={{ display: 'flex', flexDirection: 'column' }}
+            role="tablist"
+            aria-multiselectable="true">
+            
+            {ProjectsData.filter((x) => (x.type === 'business')).reverse().map((e, i) => (<div key={"business" + i}>
 
               <DetailsCard
                 title={e.title}
@@ -620,30 +628,30 @@ export default function Projects() {
 
             <div>
               <u>Visual</u>
-            <ul>
-              <li>Figma</li>
-              <li>Adobe Photoshop</li>
-              <li>Adobe Premiere</li>
+              <ul>
+                <li>Figma</li>
+                <li>Adobe Photoshop</li>
+                <li>Adobe Premiere</li>
               </ul>
-              </div>
+            </div>
 
             <div>
               <u>Development</u>
               <ul>
-              <li>React.js</li>
-              <li>Node.js</li>
-              <li>PostgreSQL, MongoDB</li>
-              <li>Firebase, Vercel, Render</li>
-              <li>AWS S3, Firebase Storage</li>
-              
+                <li>React.js</li>
+                <li>Node.js</li>
+                <li>PostgreSQL, MongoDB</li>
+                <li>Firebase, Vercel, Render</li>
+                <li>AWS S3, Firebase Storage</li>
+
               </ul>
-              </div>
+            </div>
             <div>
               <u>SEO</u><ul>
-              <li>Google Analytics</li>
-              <li>SEMrush</li>
-              <li>Lighthouse</li></ul>
-              </div>
+                <li>Google Analytics</li>
+                <li>SEMrush</li>
+                <li>Lighthouse</li></ul>
+            </div>
           </ToolBox>
           <Footer />
         </Main>

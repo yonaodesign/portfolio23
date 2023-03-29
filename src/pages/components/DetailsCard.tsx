@@ -1,5 +1,5 @@
- // @ts-ignore
- import React, {useState} from 'react'
+// @ts-ignore
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import Image from 'next/image'
 import parser from 'html-react-parser'
@@ -13,7 +13,9 @@ p {font-size: 16px;
     line-height: 27.2px}
 `
 
-const Title = styled.h2`
+const Title = styled.button`
+text-align: left;
+width: 100%;
 font-size: 26px;
 line-height: 40px;
 font-family: trap;
@@ -21,18 +23,26 @@ font-weight: 600;
 margin: 0px;
 transition: 0.5s;
 
-:hover {background-color: #001FAA;
-color: #ffffff;}
+&:hover {
+  background-color: #001FAA;
+  color: #ffffff;}
 
+&:focus-visible {
+    background-color: #001FAA;
+    color: #ffffff;
+  }
 
+border: none;
 border-top: 1px dotted #001FAA;
 border-bottom: 1px dotted #001FAA;
-background-color: #ffffff;
+background-color: transparent;
+cursor: pointer;
+color: #001AFF;
 
 @media (min-width: 1000px) {
   line-height: 72px;
   font-size: 40px;
-  }` 
+  }`
 const SubTitle = styled.span`
 font-weight: 100;
 margin-left: 18px;`
@@ -91,8 +101,15 @@ margin-right: 18px;
 margin-bottom: 50px;
 
 :hover {
-    color: #fff;
-    background-color: #001AFF;
+  color: #fff;
+  background-color: #001AFF;
+  border-color: #001AFF;
+}
+
+:focus-visible {
+  color: #fff;
+  background-color: #001AFF;
+  border-color: #001AFF;
 }
 `
 
@@ -140,23 +157,23 @@ flex-direction: column;
 `
 
 type Props = {
-    title: string| any;
-    hashtags: Array<String>;
-    image: string| any;
-    fullText: string| any;
-    cta: Array<CTA | any>;
-    subtitle: string| any,
-    annotation: string| any,
-    projectDescription: string| any,
-    technicalDescription: string| any,
-    reflections: string| any,   
-    year: string| any
+  title: string | any;
+  hashtags: Array<String>;
+  image: string | any;
+  fullText: string | any;
+  cta: Array<CTA | any>;
+  subtitle: string | any,
+  annotation: string | any,
+  projectDescription: string | any,
+  technicalDescription: string | any,
+  reflections: string | any,
+  year: string | any
 }
 
 
 type CTA = {
- key: Number,
- href: String,
+  key: Number,
+  href: String,
 }
 
 export default function DetailsCard(props: Props) {
@@ -172,36 +189,45 @@ export default function DetailsCard(props: Props) {
     technicalDescription,
     reflections,
     year
-    } = props;
+  } = props;
 
-    const [opened, setOpened] = useState(false)
+  const [opened, setOpened] = useState(false)
 
   return (<SingleCard>
-    <div  style={{cursor: 'pointer'}}  onClick={()=>{setOpened(!opened)}}>
-    <Title> {year} / {title}<SubTitle>{subtitle}</SubTitle></Title>
+    <div style={{ cursor: 'pointer' }}>
+      <Title
+        // onKeyDown={(event)=>{
+        //   if (event.keyCode === 13) setOpened(!opened);
+        //   // if (event.keyCode === 32) {
+        //   //   event.preventDefault();
+        //   //   setOpened(!opened);
+        //   // }
+        // }}
+        onClick={() => { setOpened(!opened) }} role="tab" aria-selected="true" aria-controls="section1" tabIndex="0"
+      > {year} / {title}<SubTitle>{subtitle}</SubTitle></Title>
     </div>
-   
-    {opened && <Body>
+
+    {opened && <Body role="tabpanel" id="section1" aria-hidden="false">
 
       <RESPONSIVEOUTERBOX style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
         <RESPONSIVEBOX>
           {image !== null ?
-          <IMAGEBOX style={{ maxWidth: '100%', aspectRatio: '1/0.6', position: 'relative', marginBottom: "50px", marginTop: 20 }}>
-            <Image src={image} fill alt="Project image"></Image>
-          </IMAGEBOX> : ''}
-          </RESPONSIVEBOX>
+            <IMAGEBOX style={{ maxWidth: '100%', aspectRatio: '1/0.6', position: 'relative', marginBottom: "50px", marginTop: 20 }}>
+              <Image src={image} fill alt="Project image"></Image>
+            </IMAGEBOX> : ''}
+        </RESPONSIVEBOX>
 
         <RESPONSIVEBOX>
           <p><u>Project description</u><br />
-          {projectDescription && parser(projectDescription)}</p>
+            {projectDescription && parser(projectDescription)}</p>
           <p><u>Technical description</u>
             {technicalDescription && parser(technicalDescription)}</p>
           <div style={{ display: 'flex' }}>
-            {cta.map((e, i: Number) => (<CardButton key={i} href={e.href} target={'_blank'}>{e.text}</CardButton>))}
+            {cta.map((e, i: Number) => (<CardButton key={i} href={e.href} target={'_blank'} aria-label={e.aria}>{e.text}</CardButton>))}
           </div>
         </RESPONSIVEBOX>
       </RESPONSIVEOUTERBOX>
-        </Body>}
-      </SingleCard>
+    </Body>}
+  </SingleCard>
   )
 }
