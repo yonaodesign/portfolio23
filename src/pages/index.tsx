@@ -98,13 +98,16 @@ font-weight: 600;
 // const SubTitle = styled.span`
 // font-weight: 100;
 // margin-left: 18px;`
-
 const DynamicLine = styled.hr`
 background-color: #001AFF;
 border: none;
 height: 1px;
 margin-top: auto;
 width: 100%;
+margin-left: 0px;
+margin-right: 0px;
+`
+const DynamicLineRunningRight = styled(DynamicLine)`
 margin-left: 32px;
 margin-right: 0px;
 `
@@ -542,7 +545,7 @@ export default function Projects() {
 
             <SplitBar style={{ width: '100%', display: 'flex', marginBottom: 50 }}>
               <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>me in bullet points</span>
-              <DynamicLine />
+              <DynamicLineRunningRight />
             </SplitBar>
           </div>
 
@@ -559,13 +562,12 @@ export default function Projects() {
 
           <SplitBar style={{ width: '100%', display: 'flex' }}>
             <span style={{ whiteSpace: 'nowrap' }}>projects</span>
-            <DynamicLine />
+            <DynamicLineRunningRight />
           </SplitBar>
 
           <div
             style={{ display: 'flex', flexDirection: 'column' }}
-            role="tablist"
-            aria-multiselectable="true">
+            >
             
             {ProjectsData.filter((x) => (x.type === 'personal')).map((e, i) => (
             <div key={"personal" + i}>
@@ -589,13 +591,12 @@ export default function Projects() {
 
           <SplitBar style={{ width: '100%', display: 'flex' }}>
             <span style={{ whiteSpace: 'nowrap' }}>work</span>
-            <DynamicLine />
+            <DynamicLineRunningRight />
           </SplitBar>
 
           <div
             style={{ display: 'flex', flexDirection: 'column' }}
-            role="tablist"
-            aria-multiselectable="true">
+            >
             
             {ProjectsData.filter((x) => (x.type === 'business')).reverse().map((e, i) => (<div key={"business" + i}>
 
@@ -620,7 +621,7 @@ export default function Projects() {
               <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>
                 my tools
               </span>
-              <DynamicLine />
+              <DynamicLineRunningRight />
             </SplitBar>
           </div>
 
@@ -653,6 +654,15 @@ export default function Projects() {
                 <li>Lighthouse</li></ul>
             </div>
           </ToolBox>
+
+
+          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
+            <SplitBar style={{marginBottom: 0}}>
+              <DynamicLine/>
+            </SplitBar>
+          </div>
+
+
           <Footer />
         </Main>
 

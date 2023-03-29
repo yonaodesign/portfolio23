@@ -203,8 +203,7 @@ export default function DetailsCard(props: Props) {
         //   //   setOpened(!opened);
         //   // }
         // }}
-        onClick={() => { setOpened(!opened) }} role="tab" aria-selected="true" aria-controls="section1" tabIndex="0"
-      > {year} / {title}<SubTitle>{subtitle}</SubTitle></Title>
+        onClick={() => { setOpened(!opened) }}> {year} / {title}<SubTitle>{subtitle}</SubTitle></Title>
     </div>
 
     {opened && <Body role="tabpanel" id="section1" aria-hidden="false">
