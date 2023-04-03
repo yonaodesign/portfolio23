@@ -17,11 +17,16 @@ const Title = styled.button`
 text-align: left;
 width: 100%;
 font-size: 26px;
-line-height: 40px;
 font-family: trap;
 font-weight: 600;
 margin: 0px;
 transition: 0.5s;
+border: none;
+border-top: none;
+border-bottom: 1px dotted #001FAA;
+background-color: transparent;
+cursor: pointer;
+color: #001AFF;
 
 &:hover {
   background-color: #001FAA;
@@ -32,56 +37,32 @@ transition: 0.5s;
     color: #ffffff;
   }
 
-border: none;
-border-top: 1px dotted #001FAA;
-border-bottom: 1px dotted #001FAA;
-background-color: transparent;
-cursor: pointer;
-color: #001AFF;
+
 
 @media (min-width: 1000px) {
   line-height: 72px;
   font-size: 40px;
-  }`
+  }
+  
+@media (max-width: 999px) {
+  line-height: 40px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}  
+  `
 const SubTitle = styled.span`
 font-weight: 100;
-margin-left: 18px;`
+margin-left: 18px;
+
+@media (max-width: 1000px) {
+  margin-left: 8px;
+}`
 
 const Body = styled.div`
 transition: 2s;
 overflow: hidden;
-
 `
 
-const TagLine = styled.h1`
-font-size: 48px;
-font-weight: 400;
-line-height: 72px;
-`
-
-const SubTagLine = styled(TagLine)`
-font-size: 30px;
-font-weight: 600;
-line-height: 1.2;
-font-family: trap;
-margin-bottom: 0px;
-padding-bottom: 0px;
-
-@media (min-width: 1000px) {
-    font-size: 50px;
-    }
-`
-
-const SubSubTagLine = styled(TagLine)`
-font-size: 30px;
-font-weight: 100;
-line-height: 1.2;
-font-family: trap;
-margin-top: 0px;
-padding-top: 0px;
-@media (min-width: 1000px) {
-    font-size: 50px;
-    }`
 
 const CardButton = styled.a`
 transition: 0.5s;
@@ -167,7 +148,8 @@ type Props = {
   projectDescription: string | any,
   technicalDescription: string | any,
   reflections: string | any,
-  year: string | any
+  year: string | any,
+  order: number
 }
 
 
@@ -188,7 +170,8 @@ export default function DetailsCard(props: Props) {
     projectDescription,
     technicalDescription,
     reflections,
-    year
+    year,
+    order
   } = props;
 
   const [opened, setOpened] = useState(false)
@@ -196,17 +179,17 @@ export default function DetailsCard(props: Props) {
   return (<SingleCard>
     <div style={{ cursor: 'pointer' }}>
       <Title
-        // onKeyDown={(event)=>{
-        //   if (event.keyCode === 13) setOpened(!opened);
-        //   // if (event.keyCode === 32) {
-        //   //   event.preventDefault();
-        //   //   setOpened(!opened);
-        //   // }
-        // }}
-        onClick={() => { setOpened(!opened) }}> {year} / {title}<SubTitle>{subtitle}</SubTitle></Title>
+        onClick={() => { setOpened(!opened) }}
+        style={order == 0  ? {borderTop: '1px dotted #001FAA'} : {borderTop: 'none'}}
+        // style={{borderTop: order == 0 ? '1px dotted #001FAA' : '1px dotted #001FAA'}}
+        
+        
+        >
+        {year} / {title}<SubTitle>{subtitle}</SubTitle>
+      </Title>
     </div>
 
-    {opened && <Body role="tabpanel" id="section1" aria-hidden="false">
+    {opened && <Body role="tabpanel" id="section1" aria-hidden="false" >
 
       <RESPONSIVEOUTERBOX style={{ display: 'flex', width: '100%', justifyContent: 'space-between' }}>
         <RESPONSIVEBOX>

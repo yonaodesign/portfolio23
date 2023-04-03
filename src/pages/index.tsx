@@ -5,9 +5,12 @@ import Head from 'next/head'
 import styled from 'styled-components'
 import Footer from './components/Footer'
 
+import {RxHamburgerMenu, RxCross1} from 'react-icons/rx'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 // import { useEffect, useState } from 'react'
 import DetailsCard from './components/DetailsCard'
+import { useState } from 'react'
+import Link from 'next/link'
 
 const BG_GraphicSphere = styled.div`
 background-color: white;
@@ -58,6 +61,11 @@ color: #001AFF;
 font-size: 18px;
 overflow-x: hidden;
 
+@media (max-width: 1000px) {
+  height: ${(props)=>(props.fsMenu ? '100vh' : '100%')};
+  overflow-y: ${(props)=>(props.fsMenu ? 'hidden' : 'scroll')};
+}
+
 p {
   font-weight: 400;
   line-height: 27.2px;
@@ -83,21 +91,6 @@ font-weight: 600;
   font-size: 100px;
   }`
 
-// const Title = styled.h2`
-// font-size: 26px;
-// font-weight: 400;
-// line-height: 40px;
-// font-family: trap;
-// font-weight: 600;
-// margin: 0px;
-
-// @media (min-width: 1000px) {
-//   line-height: 72px;
-//   font-size: 40px;
-//   }` 
-// const SubTitle = styled.span`
-// font-weight: 100;
-// margin-left: 18px;`
 const DynamicLine = styled.hr`
 background-color: #001AFF;
 border: none;
@@ -117,25 +110,59 @@ margin-left: 0px;
 margin-right: 32px;`
 
 const NavBar = styled.div`
-color: #001AFF;`
+color: #001AFF;
 
-// const OnlyOnBigScreenNavBar = styled.div`
-// display: none;
-// @media (min-width: 1000px) {
-//   display: block;
-//   }`
+span {
+  a {
+    @media (max-width: 1000px) {display: none}
+    
+    &:hover {
+      border-bottom: 1px solid blue;
+      }}}
+}`
 
-// const OnlyOnSmallScreenNavBar = styled.div`
-// display: block;
-// @media (min-width: 1000px) {
-//   display: none;
-//   }` 
+
+const StyledLink = styled(Link)`
+color: blue;
+text-decoration: none;
+cursor: pointer;
+border-bottom: 1px solid transparent;
+&: hover {
+  border-bottom: 1px solid blue;}
+
+}
+`
+
+const Hamburger = styled.span `
+cursor: pointer;
+display: none;
+@media (max-width: 1000px) {display: flex}`
+
+const FullScreenMenu = styled.div`
+@media (max-width: 1000px) {
+transition: 0.5s;
+z-index: 10;
+position: fixed;
+left: 0px;
+right: 0px;
+top: 0px;
+bottom: 0px;
+background-color: rgba(255,255,255,0.5);
+backdrop-filter: blur(20px);
+display: flex;
+justify-content: center;
+align-items: center;}
+display: none;
+
+`
+
 
 const SplitBar = styled(NavBar)`
 width: 100%;
 display: flex;
 margin-top: 100px;
 margin-bottom: 100px;
+font-size: 30px;
 
 @media (min-width: 1000px) {
   font-size: 50px;
@@ -159,6 +186,12 @@ transition: 1s;
 border: 1px solid transparent;
 
 :hover {
+  border: 1px solid #001FAA;
+  color: #001FAA;
+  background: #ffffff;
+}
+
+:focus-visible {
   border: 1px solid #001FAA;
   color: #001FAA;
   background: #ffffff;
@@ -496,6 +529,7 @@ app instead of a no-code base.
 
 export default function Projects() {
 
+  const [fsMenu, setFsMenu] = useState(false);  
 
   return (
     <>
@@ -504,15 +538,40 @@ export default function Projects() {
         <meta name="description" content="Jonas Volny's Personal Website." />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Wrapper style={{ width: '100wv', overflowX: 'hidden' }}>
+
+      {/* <div style={{height: 40, width: '100%', backgroundColor: 'white', boxShadow: '0px 0px 20px #b7b7b7', color: '#001FAA', alignItems: 'center', display: 'flex'}}>
+        <Main style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
+          LOL LOL
+        </Main>
+        </div> */}
+
+{fsMenu && <FullScreenMenu>
+                <div style={{lineHeight: 3, fontSize: 24, color: 'blue', display: 'flex', flexDirection: 'column' }}>
+                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#about'}>about</StyledLink></span>
+                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#personal'}>projects</StyledLink></span>
+                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#work'}>work</StyledLink></span>
+                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#mytools'}>my tools</StyledLink></span>
+              </div>
+</FullScreenMenu>}
+
+      <Wrapper fsMenu={fsMenu} style={{ width: '100wv', overflowX: 'hidden'}}>
 
         <Main>
+
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
-
-            <NavBar style={{ width: '100%', display: 'flex' }}>
-              <DynamicLineRunningLeft /><span style={{ whiteSpace: 'nowrap' }}>portfolio 2023</span>
-            </NavBar>
-
+            <NavBar style={{ width: '100%', display: 'flex', justifyContent: 'space-between', zIndex: 100 }}>
+              {/* <span style={{whiteSpace: 'nowrap'}}>portfolio 2023</span> */}
+              {/* <span style={{fontFamily: 'trap', fontWeight: 400, border: '1px solid #001fAA', minWidth: 32, minHeight: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 500}}>jv</span> */}
+                <StyledLink href={'/'}>Portfolio 2023</StyledLink>
+              {/* <DynamicLineRunningLeft /> */}
+              <span style={{display: 'flex', gap: 12}}>
+                <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>about</span></StyledLink>
+                <StyledLink href={'/#personal'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>projects</span></StyledLink>
+                <StyledLink href={'/#work'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>work</span></StyledLink>
+                <StyledLink href={'/#mytools'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>my tools</span></StyledLink>
+              </span>
+              <Hamburger onClick={()=>{setFsMenu(!fsMenu)}}>{fsMenu ? <RxCross1/> : <RxHamburgerMenu/>}</Hamburger>
+              </NavBar>
           </div>
 
 
@@ -543,7 +602,7 @@ export default function Projects() {
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
 
 
-            <SplitBar style={{ width: '100%', display: 'flex', marginBottom: 50 }}>
+            <SplitBar style={{ width: '100%', display: 'flex', marginBottom: 50 }} id={'about'}>
               <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>me in bullet points</span>
               <DynamicLineRunningRight />
             </SplitBar>
@@ -560,18 +619,19 @@ export default function Projects() {
 
           </ul>
 
-          <SplitBar style={{ width: '100%', display: 'flex' }}>
+          <SplitBar style={{ width: '100%', display: 'flex' }} id={'personal'}>
             <span style={{ whiteSpace: 'nowrap' }}>projects</span>
             <DynamicLineRunningRight />
           </SplitBar>
 
-          <div
+          <div 
             style={{ display: 'flex', flexDirection: 'column' }}
             >
             
             {ProjectsData.filter((x) => (x.type === 'personal')).map((e, i) => (
             <div key={"personal" + i}>
               <DetailsCard
+                order={i}
                 title={e.title}
                 hashtags={e.hashtags}
                 annotation={e.annotation}
@@ -589,7 +649,7 @@ export default function Projects() {
           </div>
 
 
-          <SplitBar style={{ width: '100%', display: 'flex' }}>
+          <SplitBar style={{ width: '100%', display: 'flex' }} id={'work'}>
             <span style={{ whiteSpace: 'nowrap' }}>work</span>
             <DynamicLineRunningRight />
           </SplitBar>
@@ -601,6 +661,7 @@ export default function Projects() {
             {ProjectsData.filter((x) => (x.type === 'business')).reverse().map((e, i) => (<div key={"business" + i}>
 
               <DetailsCard
+                order={i}
                 title={e.title}
                 hashtags={e.hashtags}
                 annotation={e.annotation}
@@ -616,7 +677,7 @@ export default function Projects() {
             ))}
           </div>
 
-          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
+          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }} id={'mytools'}>
             <SplitBar>
               <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>
                 my tools
