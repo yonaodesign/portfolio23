@@ -21,6 +21,7 @@ position: absolute;
 border-radius: 500px;
 transform: translateX(50%);
 overflow: hidden;
+transition:5s;;
 
 @media (min-width: 1000px) {
   width: 500px;
@@ -31,6 +32,7 @@ overflow: hidden;
 `
 
 const BG_GraphicSphereShadow = styled.div`
+transition: 5s;
 background: radial-gradient(#d9d9d9 10%, transparent 60%);
 width: 120vw;
 height: 120vw;
@@ -117,7 +119,7 @@ span {
     @media (max-width: 1000px) {display: none}
     
     &:hover {
-      border-bottom: 1px solid blue;
+      // border-bottom: 1px solid blue;
       }}}
 }`
 
@@ -128,7 +130,9 @@ text-decoration: none;
 cursor: pointer;
 border-bottom: 1px solid transparent;
 &: hover {
-  border-bottom: 1px solid blue;}
+  // border-bottom: 1px solid blue;
+  text-decoration: underline;
+}
 
 }
 `
@@ -560,6 +564,8 @@ export default function Projects() {
 
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
             <NavBar style={{ width: '100%', display: 'flex', justifyContent: 'space-between', zIndex: 100 }}>
+
+
               {/* <span style={{whiteSpace: 'nowrap'}}>portfolio 2023</span> */}
               {/* <span style={{fontFamily: 'trap', fontWeight: 400, border: '1px solid #001fAA', minWidth: 32, minHeight: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 500}}>jv</span> */}
                 <StyledLink href={'/'}>Portfolio 2023</StyledLink>
