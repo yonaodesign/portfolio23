@@ -21,7 +21,6 @@ position: absolute;
 border-radius: 500px;
 transform: translateX(50%);
 overflow: hidden;
-transition:5s;;
 
 @media (min-width: 1000px) {
   width: 500px;
@@ -32,7 +31,6 @@ transition:5s;;
 `
 
 const BG_GraphicSphereShadow = styled.div`
-transition: 5s;
 background: radial-gradient(#d9d9d9 10%, transparent 60%);
 width: 120vw;
 height: 120vw;
