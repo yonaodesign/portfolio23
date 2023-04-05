@@ -78,7 +78,30 @@ max-width: 1000px;
 margin: 0px auto;
 // overflow-x: hidden;
 `
+const LOGO = styled.span`
+font-family: trap; 
+font-weight: 100; 
+display: flex;
+gap: 3px;
+align-items: center;
+background-color: #001aff; 
+min-width: 32px; 
+min-height: 32px; 
+display: flex; 
+align-items: center; 
+justify-content: center; 
+border-radius: 0px; 
+padding: 0px 8px;
+letter-spacing: -1px;
+color: white;
+transition: 0.5s;
 
+
+&:hover {
+  color: #001aff; 
+  background-color: white;
+}
+`
 
 const TagLine = styled.h1`
 font-size: 50px;
@@ -561,17 +584,29 @@ export default function Projects() {
         <Main>
 
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
-            <NavBar style={{ width: '100%', display: 'flex', justifyContent: 'space-between', zIndex: 100 }}>
+            <NavBar style={{ width: '100%', display: 'flex', justifyContent: 'space-between', zIndex: 100, alignItems: 'center' }}>
 
 
               {/* <span style={{whiteSpace: 'nowrap'}}>portfolio 2023</span> */}
-              {/* <span style={{fontFamily: 'trap', fontWeight: 400, border: '1px solid #001fAA', minWidth: 32, minHeight: 32, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 500}}>jv</span> */}
-                <StyledLink href={'/'}>Portfolio 2023</StyledLink>
+              <StyledLink href="/">
+                            <LOGO>
+                            <span style={{fontWeight: 400}}>jonas</span>
+                            <span>volny</span>
+                            </LOGO>
+                            </StyledLink>
+{/* 
+<StyledLink href="/">
+<svg width="35" height="23" viewBox="0 0 35 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0H26.8605H27.6744L25.8914 3.25581L18.7603 15.6071L20.549 18.7053L31.3485 8.53871e-06L35 0L34.1682 1.62792L21.9589 22.775H20.549H19.1392L16.8806 18.863L14.6219 22.775H13.2121H11.8023L4.46537 10.0671L3.4593 8.43915H7.28498L13.2121 18.7053L15.0008 15.6071L11.8023 10.0671L10.7849 8.43915H14.6219L16.8806 12.3513L22.1319 3.25581H3.4593H1.8314L0 0Z"
+  fill="#001AFF"/>
+</svg>
+</StyledLink> */}
+                {/* <StyledLink href={'/'}>Portfolio 2023</StyledLink> */}
               {/* <DynamicLineRunningLeft /> */}
               <span style={{display: 'flex', gap: 12}}>
                 <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>about</span></StyledLink>
                 <StyledLink href={'/#personal'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>projects</span></StyledLink>
-                <StyledLink href={'/#work'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>work</span></StyledLink>
+                <StyledLink href={'/#work'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>work</span></StyledLink> 
                 <StyledLink href={'/#mytools'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>my tools</span></StyledLink>
               </span>
               <Hamburger onClick={()=>{setFsMenu(!fsMenu)}}>{fsMenu ? <RxCross1/> : <RxHamburgerMenu/>}</Hamburger>
