@@ -642,7 +642,7 @@ export default function Projects() {
 
 
             <SplitBar style={{ width: '100%', display: 'flex', marginBottom: 50 }} id={'about'}>
-              <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>me in bullet points</span>
+              <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>my skills</span>
               <DynamicLineRunningRight />
             </SplitBar>
           </div>
