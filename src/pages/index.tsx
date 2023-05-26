@@ -1,13 +1,10 @@
 // @ts-ignore
 import Head from 'next/head'
-// import { Inter } from '@next/font/google'
-// const inter = Inter({ subsets: ['latin'] })
 import styled from 'styled-components'
 import Footer from './components/Footer'
 
-import {RxHamburgerMenu, RxCross1} from 'react-icons/rx'
+import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
-// import { useEffect, useState } from 'react'
 import DetailsCard from './components/DetailsCard'
 import { useState } from 'react'
 import Link from 'next/link'
@@ -62,8 +59,8 @@ font-size: 18px;
 overflow-x: hidden;
 
 @media (max-width: 1000px) {
-  height: ${(props)=>(props.fsMenu ? '100vh' : '100%')};
-  overflow-y: ${(props)=>(props.fsMenu ? 'hidden' : 'scroll')};
+  height: ${(props) => (props.fsMenu ? '100vh' : '100%')};
+  overflow-y: ${(props) => (props.fsMenu ? 'hidden' : 'scroll')};
 }
 
 p {
@@ -154,11 +151,10 @@ border-bottom: 1px solid transparent;
   // border-bottom: 1px solid blue;
   text-decoration: underline;
 }
-
 }
 `
 
-const Hamburger = styled.span `
+const Hamburger = styled.span`
 cursor: pointer;
 display: none;
 @media (max-width: 1000px) {display: flex}`
@@ -178,9 +174,7 @@ display: flex;
 justify-content: center;
 align-items: center;}
 display: none;
-
 `
-
 
 const SplitBar = styled(NavBar)`
 width: 100%;
@@ -234,7 +228,8 @@ flex-direction: row;
 justify-content: space-between;
 }`
 
-const ProjectsData = [{
+const ProjectsData = [
+  {
   title: 'Japanible',
   type: 'personal',
   year: '2022',
@@ -298,6 +293,23 @@ const ProjectsData = [{
     { text: 'Live site', href: 'https://japanible.com', aria: "Link to Japanible.com, that opens in a new window." },
   ]
 },
+
+{
+  title: 'BACKSLACK',
+  type: 'personal',
+  year: '2023',
+  subtitle: 'Archiving Slack Conversations',
+  hashtags: [],
+  annotation: 'BACKSLACK is a small application using Slack App Bot token to gather data through API and export them to Markdown, HTML, and RTF.',
+  fullText: ``,
+  projectDescription: '<p>BACKSLACK is a small application to make conversations saving externally easier.</p>',
+  technicalDescription: '<p>Slack App Bot token is used to gather data through API, and export them to Markdown, HTML, and RTF. </p>',
+  reflections: ``,
+  cta: [
+    { text: 'Live site', href: 'https://backslack.onrender.com', aria: "Link to backslack.onrender.com, that opens in a new window." },
+  ]
+},
+
 {
   title: 'SMOSS',
   type: 'business',
@@ -383,10 +395,6 @@ app instead of a no-code base.
 <p><i>I don't have permission to link the project, post code, screenshot or a video.</i></p>`,
   cta: []
 },
-
-
-
-
 {
   title: 'Business Site',
   type: 'business',
@@ -469,8 +477,8 @@ app instead of a no-code base.
 
 </p>
 `,
-  cta: [{ text: 'Live site', href: 'http://www.sensyo-ltd.co.jp', aria: "Link to Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window."  },
-        { text: 'Web archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/', aria: "Link to an archived version of Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window."  },]
+  cta: [{ text: 'Live site', href: 'http://www.sensyo-ltd.co.jp', aria: "Link to Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window." },
+  { text: 'Web archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/', aria: "Link to an archived version of Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window." },]
 
 },
 
@@ -546,7 +554,7 @@ app instead of a no-code base.
 </p>
 `,
 
-  cta: [{ text: 'Live site', href: 'http://www.cher.jp/en', aria: "Link to a landing page of a brand called PUR CHER. Link opens in a new window."  },]
+  cta: [{ text: 'Live site', href: 'http://www.cher.jp/en', aria: "Link to a landing page of a brand called PUR CHER. Link opens in a new window." },]
 }
 ]
 
@@ -554,7 +562,7 @@ app instead of a no-code base.
 
 export default function Projects() {
 
-  const [fsMenu, setFsMenu] = useState(false);  
+  const [fsMenu, setFsMenu] = useState(false);
 
   return (
     <>
@@ -570,16 +578,16 @@ export default function Projects() {
         </Main>
         </div> */}
 
-{fsMenu && <FullScreenMenu>
-                <div style={{lineHeight: 3, fontSize: 24, color: 'blue', display: 'flex', flexDirection: 'column' }}>
-                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#about'}>about</StyledLink></span>
-                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#personal'}>projects</StyledLink></span>
-                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#work'}>work</StyledLink></span>
-                <span onClick={()=>{setFsMenu(!fsMenu)}} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30}}><StyledLink href={'/#mytools'}>my tools</StyledLink></span>
-              </div>
-</FullScreenMenu>}
+      {fsMenu && <FullScreenMenu>
+        <div style={{ lineHeight: 3, fontSize: 24, color: 'blue', display: 'flex', flexDirection: 'column' }}>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#about'}>about</StyledLink></span>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#personal'}>projects</StyledLink></span>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#work'}>work</StyledLink></span>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#mytools'}>my tools</StyledLink></span>
+        </div>
+      </FullScreenMenu>}
 
-      <Wrapper fsMenu={fsMenu} style={{ width: '100wv', overflowX: 'hidden'}}>
+      <Wrapper fsMenu={fsMenu} style={{ width: '100wv', overflowX: 'hidden' }}>
 
         <Main>
 
@@ -589,28 +597,28 @@ export default function Projects() {
 
               {/* <span style={{whiteSpace: 'nowrap'}}>portfolio 2023</span> */}
               <StyledLink href="/">
-                            <LOGO>
-                            <span style={{fontWeight: 400}}>jonas</span>
-                            <span>volny</span>
-                            </LOGO>
-                            </StyledLink>
-{/* 
+                <LOGO>
+                  <span style={{ fontWeight: 400 }}>jonas</span>
+                  <span>volny</span>
+                </LOGO>
+              </StyledLink>
+              {/* 
 <StyledLink href="/">
 <svg width="35" height="23" viewBox="0 0 35 23" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M0 0H26.8605H27.6744L25.8914 3.25581L18.7603 15.6071L20.549 18.7053L31.3485 8.53871e-06L35 0L34.1682 1.62792L21.9589 22.775H20.549H19.1392L16.8806 18.863L14.6219 22.775H13.2121H11.8023L4.46537 10.0671L3.4593 8.43915H7.28498L13.2121 18.7053L15.0008 15.6071L11.8023 10.0671L10.7849 8.43915H14.6219L16.8806 12.3513L22.1319 3.25581H3.4593H1.8314L0 0Z"
   fill="#001AFF"/>
 </svg>
 </StyledLink> */}
-                {/* <StyledLink href={'/'}>Portfolio 2023</StyledLink> */}
+              {/* <StyledLink href={'/'}>Portfolio 2023</StyledLink> */}
               {/* <DynamicLineRunningLeft /> */}
-              <span style={{display: 'flex', gap: 12}}>
-                <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>about</span></StyledLink>
-                <StyledLink href={'/#personal'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>projects</span></StyledLink>
-                <StyledLink href={'/#work'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>work</span></StyledLink> 
-                <StyledLink href={'/#mytools'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer'}}>my tools</span></StyledLink>
+              <span style={{ display: 'flex', gap: 12 }}>
+                <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>about</span></StyledLink>
+                <StyledLink href={'/#personal'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>projects</span></StyledLink>
+                <StyledLink href={'/#work'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>work</span></StyledLink>
+                <StyledLink href={'/#mytools'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>my tools</span></StyledLink>
               </span>
-              <Hamburger onClick={()=>{setFsMenu(!fsMenu)}}>{fsMenu ? <RxCross1/> : <RxHamburgerMenu/>}</Hamburger>
-              </NavBar>
+              <Hamburger onClick={() => { setFsMenu(!fsMenu) }}>{fsMenu ? <RxCross1 /> : <RxHamburgerMenu />}</Hamburger>
+            </NavBar>
           </div>
 
 
@@ -663,26 +671,26 @@ export default function Projects() {
             <DynamicLineRunningRight />
           </SplitBar>
 
-          <div 
+          <div
             style={{ display: 'flex', flexDirection: 'column' }}
-            >
-            
+          >
+
             {ProjectsData.filter((x) => (x.type === 'personal')).map((e, i) => (
-            <div key={"personal" + i}>
-              <DetailsCard
-                order={i}
-                title={e.title}
-                hashtags={e.hashtags}
-                annotation={e.annotation}
-                subtitle={e.subtitle}
-                image={e.image}
-                fullText={e.fullText}
-                year={e.year}
-                projectDescription={e.projectDescription}
-                technicalDescription={e.technicalDescription}
-                reflections={e.reflections}
-                cta={e.cta} />
-            </div>
+              <div key={"personal" + i}>
+                <DetailsCard
+                  order={i}
+                  title={e.title}
+                  hashtags={e.hashtags}
+                  annotation={e.annotation}
+                  subtitle={e.subtitle}
+                  image={e.image}
+                  fullText={e.fullText}
+                  year={e.year}
+                  projectDescription={e.projectDescription}
+                  technicalDescription={e.technicalDescription}
+                  reflections={e.reflections}
+                  cta={e.cta} />
+              </div>
             ))}
 
           </div>
@@ -695,8 +703,8 @@ export default function Projects() {
 
           <div
             style={{ display: 'flex', flexDirection: 'column' }}
-            >
-            
+          >
+
             {ProjectsData.filter((x) => (x.type === 'business')).reverse().map((e, i) => (<div key={"business" + i}>
 
               <DetailsCard
@@ -757,8 +765,8 @@ export default function Projects() {
 
 
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
-            <SplitBar style={{marginBottom: 0}}>
-              <DynamicLine/>
+            <SplitBar style={{ marginBottom: 0 }}>
+              <DynamicLine />
             </SplitBar>
           </div>
 
@@ -767,12 +775,12 @@ export default function Projects() {
         </Main>
 
       </Wrapper>
-        <script async src="//static.getclicky.com/101403805.js"></script>
+      <script async src="//static.getclicky.com/101403805.js"></script>
       <noscript>
         <p>
           <img alt="Clicky" width="1" height="1" src="//in.getclicky.com/101403805ns.gif" />
-          </p>
-        </noscript>
+        </p>
+      </noscript>
     </>
   )
 }
