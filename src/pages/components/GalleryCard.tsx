@@ -29,7 +29,7 @@ const DisplayImage = styled.div`
 // &:hover {
 //   filter: grayscale(0%);
 }
-`
+` 
 
 const GalleryCard: React.FC = (props) => {
   if (props.payload !==undefined) return (
