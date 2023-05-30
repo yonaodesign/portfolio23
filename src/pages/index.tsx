@@ -206,7 +206,7 @@ position: relative;
 width: calc(100vw - 100px);
 margin-bottom: 100px; 
 border-radius: 20px 0px 0px 20px;
-background: url("/media/IMG_2281 1.png");
+background: url("/media/cover.webp");
 background-size: cover;
 background-position: center;
 background-repeat: no-repeat;
@@ -247,7 +247,7 @@ export default function Projects() {
 
   const onScroll = useCallback(e => {
     const { pageYOffset, scrollY } = window;
-    console.log("yOffset", pageYOffset, "scrollY", scrollY);
+    // console.log("yOffset", pageYOffset, "scrollY", scrollY);
     setScrollY(window.pageYOffset);
 }, []);
 
