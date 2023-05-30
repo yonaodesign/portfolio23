@@ -14,6 +14,16 @@ body, html {
   border-radius: 3px;
 }
 
+*::-moz-selection { /* Code for Firefox */
+  color: black;
+  background: papayawhip;
+}
+
+::selection {
+  color: black;
+  background: papayawhip;
+}
+
 @font-face {
   font-family: trap;
   font-weight: 100;
@@ -28,5 +38,31 @@ body, html {
   font-display: swap;
 }
 
+h4 {font-size: 32px;
+font-family: Trap;
+font-weight: 600;}
+
 li {list-style-type: "\30FB";
-  margin-bottom: 18px}
+  margin-bottom: 18px;
+  margin-left: 0px;}
+
+ul {margin-left: 0px;
+padding-left: 15px;}
+
+section {
+  padding: 0px 100px;
+  margin: 0px;
+}
+
+.collapsable {
+  display: inline-block;
+  /* color: white; */
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  opacity: 0;
+  width: 0px;
+}
+
+h1, h2, h3, h4, p, span, li {cursor: default}
