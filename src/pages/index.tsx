@@ -333,7 +333,9 @@ useEffect(() => {
                 <CoverImage>
                   <div style={{zIndex: 2, borderRadius: '20px 0px 0px 20px',  position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'soft-light', opacity: 0.5}}></div>
 
-                  <div style={{zIndex: 3, borderRadius: '20px 0px 0px 20px', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'color', opacity: scrollY > 400 ? 0 : 1, transition: '1s'}}></div>
+                  <div style={{zIndex: 3, borderRadius: '20px 0px 0px 20px', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'color',
+                  // opacity: scrollY > 400 ? 0 : 1,
+                  transition: '1s'}}></div>
                 </CoverImage>
                 
           </section>
