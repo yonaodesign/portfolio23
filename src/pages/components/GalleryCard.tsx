@@ -32,7 +32,7 @@ const DisplayImage = styled.div`
 ` 
 
 const GalleryCard: React.FC = (props) => {
-  if (props.payload !==undefined) return (
+  if (props.payload) return (
     <Wrapper style={{width: '100%',
     padding: 10,
     // border: '1px solid #e2e2e2',

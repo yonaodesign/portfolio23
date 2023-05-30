@@ -2,7 +2,7 @@ const galleryData = [
   {
     projectName: "zumen+",
     projectDescription: "An application for archiving and sharing technical documentation.",
-    projectGalleryImage: "media/Image 1.png",
+    projectGalleryImage: "../media/Image 1.png",
     projectSlug: 'zumen',
     projectColor: '#001AFF'
   },
@@ -16,21 +16,21 @@ const galleryData = [
   {
     projectName: "Japanible",
     projectDescription: "A small public web2 blogging platform for Japan enthusiasts.",
-    projectGalleryImage: "media/Image 5.png",
+    projectGalleryImage: "../media/Image 5.png",
     projectSlug: 'japanible',
     projectColor: '#FF0000'
   },
   {
     projectName: "PUR CHER",
     projectDescription: "A SPA product landing page.",
-    projectGalleryImage: "media/Image 2.png",
+    projectGalleryImage: "../media/Image 2.png",
     projectSlug: 'purcher',
     projectColor: 'papayawhip'
   },
   {
     projectName: "Sensyo Co., Ltd.",
     projectDescription: "A vanilla redesign of a Metal Surface Finisher website.",
-    projectGalleryImage: "media/Image 3.png",
+    projectGalleryImage: "../media/Image 3.png",
     projectSlug: 'sensyo',
     projectColor: '#00D1FF'
   },
@@ -44,7 +44,7 @@ const galleryData = [
   {
     projectName: "SMOSS",
     projectDescription: "A no-code application that helps manage production in real-time-ish with a step-by-step system.",
-    projectGalleryImage: "media/Image 4.png",
+    projectGalleryImage: "../media/Image 4.png",
     projectSlug: 'smoss',
     projectColor: 'indianred'
   },
