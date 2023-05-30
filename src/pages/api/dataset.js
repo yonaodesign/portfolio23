@@ -28,8 +28,8 @@ const ProjectsData = [
     projectTechnicalCommentary: 'For this originally portfolio project I chose React.js and Firebase, because I wanted to learn how to work with Firebase platform. However, I would have chosen Next.js and other storage and database nowadays. I want to rewrite the project into Next.js in the future, however right now, I am hosting it on Render.com and I am using Prerenderer for SEO.',
     projectProblemsAndSolutions: 'The biggest challenge was to implement a WYSIWYG editor for blog posts, I have tried many options out there and settled with this one. Current biggest challenge of this project is the server side rendering that is not included in CRA.',
     projectLessonsLearnt: '',
-    projectMobilePhoto: ['shotjapanible1.png', 'shotjapanible2.png', 'shotjapanible4.png'],
-    projectDesktopPhoto: ['shotjapanible5.png', 'shotjapanible3.png'],
+    projectMobilePhoto: ['shotjapanible1.webp', 'shotjapanible2.webp', 'shotjapanible4.webp'],
+    projectDesktopPhoto: ['shotjapanible5.webp', 'shotjapanible3.webp'],
  
   },
 
@@ -59,7 +59,7 @@ const ProjectsData = [
     `,
     projectLessonsLearnt: 'During the project, I gained valuable insights and skills, such as working with file manipulation using blobs, filtering large datasets efficiently, and integrating AWS services into the application.',
     projectMobilePhoto: [],
-    projectDesktopPhoto: ['shotzumen1.png','shotzumen2.png','shotzumen3.png','shotzumen4.png'],
+    projectDesktopPhoto: ['shotzumen1.webp','shotzumen2.webp','shotzumen3.webp','shotzumen4.webp'],
   },
   {
     projectSlug: 'crm',
@@ -84,7 +84,7 @@ const ProjectsData = [
     projectTechnicalCommentary: `To develop this project, I opted for React as the frontend framework due to its component-based architecture, enabling the creation of reusable UI components. For handling relational data, PostgreSQL was chosen as the database management system. Additionally, the Google Maps API was utilized to integrate maps and location-related features into the application.`,
     projectProblemsAndSolutions: `The initial challenges I faced included setting up authentication and efficiently rendering thousands of markers on the Google Maps API. Overcoming these hurdles allowed me to enhance the application's functionality and create a seamless user experience.`,
     projectLessonsLearnt: '',
-    projectMobilePhoto: ['crm.png'],
+    projectMobilePhoto: ['crm.webp'],
 
   },
   {
@@ -337,7 +337,7 @@ const ProjectsData = [
     projectTechnicalCommentary: 'For this project, I relied on HTML, CSS, and Vanilla JavaScript due to their simplicity and the possibility of enabling non-technical team members to contribute to website development.',
     projectProblemsAndSolutions: 'To ensure easy content editing and allow any team member to post news, I implemented a vanilla stack. Additionally, I incorporated a headless MicroCMS for seamless content management.',
     projectLessonsLearnt: '',
-    projectMobilePhoto: ['shotss1.png', 'shotss2.png'],
+    projectMobilePhoto: ['shotss1.webp', 'shotss2.webp'],
     projectDesktopPhoto: [],
   
   },
@@ -424,7 +424,7 @@ const ProjectsData = [
     projectTechnicalCommentary: 'To build this project, I utilized Next.js, React-Hook-Form, and Styled-Components for the frontend. For the contact form, Nodemailer was implemented. Moreover, I challenged myself by incorporating TypeScript into the project.',
     projectProblemsAndSolutions: '',
     projectLessonsLearnt: 'Throughout this project, I acquired knowledge on sending emails with Node.js and basic TypeScript usage.',
-    projectMobilePhoto: ['shotcher1.png', 'shotcher2.png'],
+    projectMobilePhoto: ['shotcher1.webp', 'shotcher2.webp'],
     projectDesktopPhoto: [],
   }
   ]

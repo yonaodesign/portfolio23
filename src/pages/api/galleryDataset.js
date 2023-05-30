@@ -4,7 +4,7 @@ const galleryData = [
     projectDescription: "An application for archiving and sharing technical documentation.",
     projectGalleryImage: "zumen.webp",
     projectSlug: 'zumen',
-    projectColor: '#001AFF'
+    projectColor: 'dodgerblue'
   },
   {
     projectName: "mini crm",
