@@ -180,11 +180,11 @@ export default function DetailsCard(props: Props) {
     <div style={{ cursor: 'pointer' }}>
       <Title
         onClick={() => { setOpened(!opened) }}
-        style={order == 0  ? {borderTop: '1px dotted #001FAA'} : {borderTop: 'none'}}
-        // style={{borderTop: order == 0 ? '1px dotted #001FAA' : '1px dotted #001FAA'}}
-        
-        
-        >
+        style={order == 0 ? { borderTop: '1px dotted #001FAA' } : { borderTop: 'none' }}
+      // style={{borderTop: order == 0 ? '1px dotted #001FAA' : '1px dotted #001FAA'}}
+
+
+      >
         {year} / {title}<SubTitle>{subtitle}</SubTitle>
       </Title>
     </div>
@@ -207,8 +207,8 @@ export default function DetailsCard(props: Props) {
           <div style={{ display: 'flex' }}>
             {cta.map((e, i: Number) => (<CardButton key={i} href={e.href} target={'_blank'} aria-label={e.aria}>{e.text}</CardButton>))}
           </div>
-          <span style={{width: 100}}>
-            {JSON.stringify([props.hashtags, props.projectDescription, props. technicalDescription, props.reflections], null, 2)}
+          <span style={{ width: 100 }}>
+            {JSON.stringify([props.hashtags, props.projectDescription, props.technicalDescription, props.reflections], null, 2)}
           </span>
         </RESPONSIVEBOX>
       </RESPONSIVEOUTERBOX>

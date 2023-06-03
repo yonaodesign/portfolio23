@@ -29,37 +29,38 @@ const DisplayImage = styled.div`
 // &:hover {
 //   filter: grayscale(0%);
 }
-` 
+`
 
 const GalleryCard: React.FC = (props) => {
   if (props.payload) return (
-    <Wrapper style={{width: '100%',
-    padding: 10,
-    // border: '1px solid #e2e2e2',
-    borderRadius: 20
+    <Wrapper style={{
+      width: '100%',
+      padding: 10,
+      // border: '1px solid #e2e2e2',
+      borderRadius: 20
     }}>
       {/* <pre>
         {JSON.stringify(, null, 1)}
       </pre> */}
 
-<StyledLink href={`/project/${props.payload.projectSlug}`}>
-    <DisplayImage style={{
-      color: 'white',
-      width: '100%', 
-      aspectRatio: '2/1.3', 
-      backgroundImage: `url("/${props.payload.projectGalleryImage}")`, 
-      borderRadius: 10, 
-      backgroundSize: 'cover'
-    }}/>
+      <StyledLink href={`/project/${props.payload.projectSlug}`}>
+        <DisplayImage style={{
+          color: 'white',
+          width: '100%',
+          aspectRatio: '2/1.3',
+          backgroundImage: `url("/${props.payload.projectGalleryImage}")`,
+          borderRadius: 10,
+          backgroundSize: 'cover'
+        }} />
       </StyledLink>
-    <h4 style={{marginBottom: 15}}>{props.payload.projectName}</h4>
-    <span>{props.payload.projectDescription}</span>
-    <div style={{marginTop: 20}}>
-    <StyledLink href={`/project/${props.payload.projectSlug}`}>
-      View project →
-    </StyledLink>
+      <h4 style={{ marginBottom: 15 }}>{props.payload.projectName}</h4>
+      <span>{props.payload.projectDescription}</span>
+      <div style={{ marginTop: 20 }}>
+        <StyledLink href={`/project/${props.payload.projectSlug}`}>
+          View project →
+        </StyledLink>
       </div>
-  </Wrapper>
+    </Wrapper>
   )
 }
 

@@ -9,7 +9,7 @@ import Footer from './components/Footer'
 
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
-import {IoContrast} from 'react-icons/io5'
+import { IoContrast } from 'react-icons/io5'
 import DetailsCard from './components/DetailsCard'
 import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
@@ -242,23 +242,23 @@ column-gap: 50px;
 
 export default function Projects() {
   const [fsMenu, setFsMenu] = useState(false);
-  const [scrollY, setScrollY] =useState('')
+  const [scrollY, setScrollY] = useState('')
 
 
   const onScroll = useCallback(e => {
     const { pageYOffset, scrollY } = window;
     // console.log("yOffset", pageYOffset, "scrollY", scrollY);
     setScrollY(window.pageYOffset);
-}, []);
+  }, []);
 
-useEffect(() => {
-  window.addEventListener("scroll", onScroll, { passive: true });
-  return () => {
-     window.removeEventListener("scroll", onScroll, { passive: true });
-  }
-}, [onScroll]);
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+    }
+  }, [onScroll]);
 
-//
+  //
 
   return (
     <>
@@ -268,8 +268,8 @@ useEffect(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-{/* FULL SCREEN MENU */}
-{fsMenu && <FullScreenMenu>
+      {/* FULL SCREEN MENU */}
+      {fsMenu && <FullScreenMenu>
         <div style={{ lineHeight: 3, fontSize: 24, color: '#000000', display: 'flex', flexDirection: 'column' }}>
           <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#about'}>About Me</StyledLink></span>
           <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#projects'}>Projects</StyledLink></span>
@@ -278,84 +278,98 @@ useEffect(() => {
         </div>
       </FullScreenMenu>}
 
-{/* LEFT SIDE MENU */}
-<PermanentSideMenu 
->
-<div >
-    <StyledLink href="https://www.linkedin.com/in/jonas-volny/" target="_blank" aria-label="Link to Jonas' LinkedIn profile">LinkedIn</StyledLink>
-    <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">GitHub</StyledLink>
-    {/* <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">Dribbble</StyledLink> */}
+      {/* LEFT SIDE MENU */}
+      <PermanentSideMenu
+      >
+        <div >
+          <StyledLink href="https://www.linkedin.com/in/jonas-volny/" target="_blank" aria-label="Link to Jonas' LinkedIn profile">LinkedIn</StyledLink>
+          <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">GitHub</StyledLink>
+          {/* <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">Dribbble</StyledLink> */}
 
-  </div>
-</PermanentSideMenu>
+        </div>
+      </PermanentSideMenu>
 
-{/* FULL BODY WRAPPER */}
-<Wrapper fsMenu={fsMenu} style={{ width: '100%', overflowX: 'hidden' }}>
+      {/* FULL BODY WRAPPER */}
+      <Wrapper fsMenu={fsMenu} style={{ width: '100%', overflowX: 'hidden' }}>
 
 
-  {/* <div style={{width: 800, height: 800, position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'blue', zIndex: 100, borderRadius: 1000, mixBlendMode: 'difference'}}>O</div> */}
+        {/* <div style={{width: 800, height: 800, position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'blue', zIndex: 100, borderRadius: 1000, mixBlendMode: 'difference'}}>O</div> */}
 
-  
-{/* NAVIGATION */}
-            <NavBar style={{ position: 'fixed', left: 30, right: 30, top: 20, display: 'flex', justifyContent: 'space-between', zIndex: 10, alignItems: 'center',
-            // mixBlendMode: 'difference', backgroundColor: 'white', webkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text' 
-            }}>
-              <StyledLink style={{cursor: 'pointer'}} href="/">
-                <LOGO style={{cursor: 'pointer'}}>
-                  <span style={{cursor: 'pointer'}}>J<CollapsableText style={{transition: '1s'}} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
-                  <span style={{cursor: 'pointer'}}>V<CollapsableText style={{transition: '1s'}} className={scrollY > 100 ? 'collapsable' : ''}>olny</CollapsableText></span>
-                </LOGO>
-              </StyledLink>
 
-                <span style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                  <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>About Me</span></StyledLink>
-                  <StyledLink href={'/#projects'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Projects</span></StyledLink>
-                  <StyledLink href={'/#contact'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Contact</span></StyledLink>
-                  {/* <StyledLink href={'/#projects'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}><IoContrast style={{transform: 'translateY(3px)'}}/></span></StyledLink> */}
-                </span>
+        {/* NAVIGATION */}
+        <NavBar style={{
+          position: 'fixed', left: 30, right: 30, top: 20, display: 'flex', justifyContent: 'space-between', zIndex: 10, alignItems: 'center',
+          // mixBlendMode: 'difference', backgroundColor: 'white', webkitTextFillColor: 'transparent', WebkitBackgroundClip: 'text' 
+        }}>
+          <StyledLink style={{ cursor: 'pointer' }} href="/">
+            <LOGO style={{ cursor: 'pointer' }}>
+              <span style={{ cursor: 'pointer' }}>J<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
+              <span style={{ cursor: 'pointer' }}>V<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>olny</CollapsableText></span>
+            </LOGO>
+          </StyledLink>
 
-              <Hamburger onClick={() => { setFsMenu(!fsMenu) }}>{fsMenu ? <RxCross1 /> : <RxHamburgerMenu />}</Hamburger>
-            </NavBar>
+          <span style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>About Me</span></StyledLink>
+            <StyledLink href={'/#projects'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Projects</span></StyledLink>
+            <StyledLink href={'/#contact'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Contact</span></StyledLink>
+            {/* <StyledLink href={'/#projects'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}><IoContrast style={{transform: 'translateY(3px)'}}/></span></StyledLink> */}
+          </span>
 
-          <section style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#fff'}}>
-                <PreTagLine>
-                    Frontend Developer
-                  </PreTagLine>
+          <Hamburger onClick={() => { setFsMenu(!fsMenu) }}>{fsMenu ? <RxCross1 /> : <RxHamburgerMenu />}</Hamburger>
+        </NavBar>
 
-                <TagLine style={{marginTop: 30, marginBottom: 30 }}>
-                    Jonas Volny
-                </TagLine>
-                
-                <span style={{ fontSize: '20px', marginBottom: 150, maxWidth: 600 }}>
-                      Hello, my name is Jonas Volny and Im a Prague based developer. I build things on the web.
-                </span>
+        <section style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#fff' }}>
+          <PreTagLine>
+            Frontend Developer
+          </PreTagLine>
 
-                <CoverImage>
-                  <div style={{zIndex: 2, borderRadius: '20px 0px 0px 20px',  position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'soft-light', opacity: 0.5}}></div>
+          <TagLine style={{ marginTop: 30, marginBottom: 30 }}>
+            Jonas Volny
+          </TagLine>
 
-                  <div style={{zIndex: 3, borderRadius: '20px 0px 0px 20px', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'color',
-                  // opacity: scrollY > 400 ? 0 : 1,
-                  transition: '1s'}}></div>
-                </CoverImage>
-                
-          </section>
+          <span style={{ fontSize: '20px', marginBottom: 150, maxWidth: 600 }}>
+            Hello, my name is Jonas Volny and Im a Prague based developer. I build things on the web.
+          </span>
 
-          <section id="about" style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#f5f5f5', gap: 50}}>
+          <CoverImage>
+            <div style={{ zIndex: 2, borderRadius: '20px 0px 0px 20px', position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'soft-light', opacity: 0.5 }}></div>
+
+            <div style={{
+              zIndex: 3, borderRadius: '20px 0px 0px 20px', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'color',
+              // opacity: scrollY > 400 ? 0 : 1,
+              transition: '1s'
+            }}></div>
+          </CoverImage>
+
+        </section>
+        <StyledSectionProjects id="projects">
+          <h4>What I&apos;ve been working on</h4>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <StyledProjectsGrid>
+              {galleryData.map((item, index) => (
+                <GalleryCard key={`galleryItemNo${index}`} payload={item} />
+              ))}
+
+            </StyledProjectsGrid>
+          </div>
+        </StyledSectionProjects>
+
+        <section id="about" style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#f5f5f5', gap: 50 }}>
           <h4>About Me</h4>
           <TwoColumnTextDiv>
-<p style={{marginTop: 0}}>
-  Hello! I’m Jonas. I love building things that make a difference.</p>
-<p>My first experience with programming was when I was 11. I build a website to showcase some of the games I made with Game Maker v5.
-  {/* I met with some critique online, “there’s no way, you’ve made this.” Being little kid I took it too personally, eventhough  */}
-  {' '}Learning HTML & CSS I occasionally made websites for friends, however the passion was supressed for a long time.</p>
-<p>I always loved learning and when I was deciding what route to take, I chose Asian studies, as being something completely unknown with a lot of to learn. From zero to being promoted in a fully Japanese company, felt like my drive and dedication was rewarded.</p>
-<p>At some point, I was asked to improve in-house processes. Knowing that there’re solutions like Game Maker for Software, I decided to use a no-code solution. The learning was fun, but the joy of collegues actually using it was even more rewarding. I refound my passion for building in a field that keeps expanding every day and there is no treshold like in Japanaese langauge.</p>
-<p>Since then, I’ve been learning Javascript, React, Node and more. I’m looking for a role where I can help a company to achieve customers goals.</p>
-                    </TwoColumnTextDiv>    
-                    
-                                    
+            <p style={{ marginTop: 0 }}>
+              Hello! I’m Jonas. I love building things that make a difference.</p>
+            <p>My first experience with programming was when I was 11. I build a website to showcase some of the games I made with Game Maker v5.
+              {/* I met with some critique online, “there’s no way, you’ve made this.” Being little kid I took it too personally, eventhough  */}
+              {' '}Learning HTML & CSS I occasionally made websites for friends, however the passion was supressed for a long time.</p>
+            <p>I always loved learning and when I was deciding what route to take, I chose Asian studies, as being something completely unknown with a lot of to learn. From zero to being promoted in a fully Japanese company, felt like my drive and dedication was rewarded.</p>
+            <p>At some point, I was asked to improve in-house processes. Knowing that there’re solutions like Game Maker for Software, I decided to use a no-code solution. The learning was fun, but the joy of collegues actually using it was even more rewarding. I refound my passion for building in a field that keeps expanding every day and there is no treshold like in Japanaese langauge.</p>
+            <p>Since then, I’ve been learning Javascript, React, Node and more. I’m looking for a role where I can help a company to achieve customers goals.</p>
+          </TwoColumnTextDiv>
 
-                                       <h4>Sum Up</h4> 
+
+
+          {/* <h4>Sum Up</h4> 
                                         <TwoColumnTextDiv>
                                        
 
@@ -369,8 +383,10 @@ useEffect(() => {
                             <li>I am fluent in English, Japanese, and Czech.</li>
 
                       </ul>
-                    </TwoColumnTextDiv>
-                                        {/* <div style={{width: '100%'}}>
+                    </TwoColumnTextDiv> */}
+
+
+          {/* <div style={{width: '100%'}}>
 
 
                       <h4>My Skills</h4>
@@ -383,71 +399,61 @@ useEffect(() => {
                             <li>Git</li>
                       </ul>
                     </div> */}
-          </section>
+        </section>
 
-<StyledSectionTools>
-<div style={{width: '100%'}}>
-          <h4>Development</h4>
-          <ul>
-            <li>React.js</li>
-            <li>HTML, CSS & JS ES6</li>
-            <li>SQL (PostgreSQL), NoSQL</li>
-            <li>Firebase, Vercel, Render</li>
-            <li>Node.js</li>
-            <li>AWS S3, Firebase Storage</li>
-
-          </ul>
-        </div>
-
-
-        <div style={{width: '100%'}}>
-          <h4>Visual</h4>
-          <ul>
-            <li>Basic UX/UI</li>
-            <li>Wireframing & Prototyping</li>
-            <li>Figma</li>
-            <li>Adobe Photoshop</li>
-            <li>Adobe Premiere</li>
-          </ul>
-        </div>
-
-
-        <div style={{width: '100%'}}>
-          <h4>SEO</h4><ul>
-            <li>Technical SEO</li>
-            <li>Content SEO</li>
-            <li>MEO</li>
-            <li>Google Analytics</li>
-            <li>SEMrush</li>
-            <li>Lighthouse</li>
+        <StyledSectionTools>
+          <div style={{ width: '100%' }}>
+            <h4>Development</h4>
+            <ul>
+              <li>React.js</li>
+              <li>HTML, CSS & JS ES6</li>
+              <li>SQL (PostgreSQL), NoSQL</li>
+              <li>Firebase, Vercel, Render</li>
+              <li>Node.js</li>
+              <li>AWS S3, Firebase Storage</li>
 
             </ul>
-        </div>
-      </StyledSectionTools>
-
-          <StyledSectionProjects id="projects">
-            <h4>What I&apos;ve been working on</h4>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-                <StyledProjectsGrid>
-                    {galleryData.map((item, index)=>(
-                      <GalleryCard key={`galleryItemNo${index}`} payload={item}/>
-                    ))}
-
-                </StyledProjectsGrid>
-                </div>
-          </StyledSectionProjects>
+          </div>
 
 
+          <div style={{ width: '100%' }}>
+            <h4>Visual</h4>
+            <ul>
+              <li>Basic UX/UI</li>
+              <li>Wireframing & Prototyping</li>
+              <li>Figma</li>
+              <li>Adobe Photoshop</li>
+              <li>Adobe Premiere</li>
+            </ul>
+          </div>
+
+
+          <div style={{ width: '100%' }}>
+            <h4>SEO</h4><ul>
+              <li>Technical SEO</li>
+              <li>Content SEO</li>
+              <li>MEO</li>
+              <li>Google Analytics</li>
+              <li>SEMrush</li>
+              <li>Lighthouse</li>
+
+            </ul>
+          </div>
+        </StyledSectionTools>
 
 
 
 
-          {/* <SplitBar style={{ width: '100%', display: 'flex' }} id={'personal'}>
+
+
+
+
+        {/* <SplitBar style={{ width: '100%', display: 'flex' }} id={'personal'}>
             <span style={{ whiteSpace: 'nowrap' }}>projects</span>
             <DynamicLineRunningRight />
           </SplitBar> */}
 
-          {/* <div
+        {/* <div
             style={{ display: 'flex', flexDirection: 'column' }}
           >
 
@@ -472,7 +478,7 @@ useEffect(() => {
           </div> */}
 
 
-          {/* <SplitBar style={{ width: '100%', display: 'flex' }} id={'work'}>
+        {/* <SplitBar style={{ width: '100%', display: 'flex' }} id={'work'}>
             <span style={{ whiteSpace: 'nowrap' }}>work</span>
             <DynamicLineRunningRight />
           </SplitBar>
@@ -509,13 +515,13 @@ useEffect(() => {
             </SplitBar>
           </div> */}
 
-  
 
-          <section id="contact" style={{ display: 'flex', flexDirection: 'row', padding: '100px', backgroundColor: '#e2e2e2', gap: 50}}>
-            <ContactForm/>
-          </section>
 
-          <Main>
+        <section id="contact" style={{ display: 'flex', flexDirection: 'row', padding: '100px', backgroundColor: '#e2e2e2', gap: 50 }}>
+          <ContactForm />
+        </section>
+
+        <Main>
 
         </Main>
         <Footer />

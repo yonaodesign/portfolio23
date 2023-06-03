@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import BREAKPOINTS from '../api/breakpoints'
 
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
-import {IoContrast} from 'react-icons/io5'
+import { IoContrast } from 'react-icons/io5'
 import { useState, useCallback, useEffect } from 'react'
 import Link from 'next/link'
 
@@ -222,33 +222,33 @@ const StyledMobileSection = styled.div`
 export default function Projects() {
 
   const [fsMenu, setFsMenu] = useState(false);
-  const [scrollY, setScrollY] =useState('')
+  const [scrollY, setScrollY] = useState('')
 
   const router = useRouter();
 
   const { projectId } = router.query;
-  
-  const currentProjectData = galleryData.filter((entry)=>(entry.projectSlug == projectId))
+
+  const currentProjectData = galleryData.filter((entry) => (entry.projectSlug == projectId))
   const currentProjectDataId = galleryData.map(e => e.projectSlug).indexOf(projectId)
 
-  const previousProjectData = currentProjectDataId === 0 ? galleryData[galleryData.length-1] : galleryData[currentProjectDataId-1]
-  const nextProjectData = currentProjectDataId === galleryData.length-1 ? galleryData[0] : galleryData[currentProjectDataId+1]
+  const previousProjectData = currentProjectDataId === 0 ? galleryData[galleryData.length - 1] : galleryData[currentProjectDataId - 1]
+  const nextProjectData = currentProjectDataId === galleryData.length - 1 ? galleryData[0] : galleryData[currentProjectDataId + 1]
 
-  const currentProjectDescriptions = ProjectsData.filter((entry)=>(entry.projectSlug == projectId))
+  const currentProjectDescriptions = ProjectsData.filter((entry) => (entry.projectSlug == projectId))
 
 
   const onScroll = useCallback(e => {
     const { pageYOffset, scrollY } = window;
     // console.log("yOffset", pageYOffset, "scrollY", scrollY);
     setScrollY(window.pageYOffset);
-}, []);
+  }, []);
 
-useEffect(() => {
-  window.addEventListener("scroll", onScroll, { passive: true });
-  return () => {
-     window.removeEventListener("scroll", onScroll, { passive: true });
-  }
-}, [onScroll]);
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll, { passive: true });
+    }
+  }, [onScroll]);
 
   if (!currentProjectData[0] && currentProjectDescriptions[0]) return (<h1>Missing Project Data</h1>)
   if (currentProjectData[0] && !currentProjectDescriptions[0]) return (<h1>Missing Project Description</h1>)
@@ -260,8 +260,8 @@ useEffect(() => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
 
-{/* FULL SCREEN MENU */}
-{fsMenu && <FullScreenMenu>
+      {/* FULL SCREEN MENU */}
+      {fsMenu && <FullScreenMenu>
         <div style={{ lineHeight: 3, fontSize: 24, color: '#000000', display: 'flex', flexDirection: 'column' }}>
           <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#about'}>About Me</StyledLink></span>
           <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#projects'}>Projects</StyledLink></span>
@@ -269,105 +269,115 @@ useEffect(() => {
         </div>
       </FullScreenMenu>}
 
-{/* LEFT SIDE MENU */}
-<PermanentSideMenu>
-<div>
-    <StyledLink href="https://www.linkedin.com/in/jonas-volny/" target="_blank" aria-label="Link to Jonas' LinkedIn profile">LinkedIn</StyledLink>
-    <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">GitHub</StyledLink>
-    {/* <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">Dribbble</StyledLink> */}
-</div>
-</PermanentSideMenu>
+      {/* LEFT SIDE MENU */}
+      <PermanentSideMenu>
+        <div>
+          <StyledLink href="https://www.linkedin.com/in/jonas-volny/" target="_blank" aria-label="Link to Jonas' LinkedIn profile">LinkedIn</StyledLink>
+          <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">GitHub</StyledLink>
+          {/* <StyledLink href="https://github.com/yonaodesign" target="_blank" aria-label="Link to Jonas' Github profile">Dribbble</StyledLink> */}
+        </div>
+      </PermanentSideMenu>
 
-{/* FULL BODY WRAPPER */}
-<Wrapper fsMenu={fsMenu} style={{ width: '100%', overflowX: 'hidden' }}>
-  
-{/* NAVIGATION */}
-            <NavBar style={{ position: 'fixed', left: 30, right: 30, top: 20, display: 'flex', justifyContent: 'space-between', zIndex: 10, alignItems: 'center',
-            }}>
-              <StyledLink style={{cursor: 'pointer'}} href="/">
-                <LOGO>
-                  <span style={{cursor: 'pointer'}}>J<CollapsableText style={{transition: '1s'}} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
-                  <span style={{cursor: 'pointer'}}>V<CollapsableText style={{transition: '1s'}} className={scrollY > 100 ? 'collapsable' : ''}>olny</CollapsableText></span>
-                </LOGO>
-              </StyledLink>
+      {/* FULL BODY WRAPPER */}
+      <Wrapper fsMenu={fsMenu} style={{ width: '100%', overflowX: 'hidden' }}>
 
-                <span style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                  <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>About Me</span></StyledLink>
-                  <StyledLink href={'/#projects'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Projects</span></StyledLink>
-                  <StyledLink href={'/#contact'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Contact</span></StyledLink>
-                </span>
+        {/* NAVIGATION */}
+        <NavBar style={{
+          position: 'fixed', left: 30, right: 30, top: 20, display: 'flex', justifyContent: 'space-between', zIndex: 10, alignItems: 'center',
+        }}>
+          <StyledLink style={{ cursor: 'pointer' }} href="/">
+            <LOGO>
+              <span style={{ cursor: 'pointer' }}>J<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
+              <span style={{ cursor: 'pointer' }}>V<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>olny</CollapsableText></span>
+            </LOGO>
+          </StyledLink>
 
-              <Hamburger onClick={() => { setFsMenu(!fsMenu) }}>{fsMenu ? <RxCross1 /> : <RxHamburgerMenu />}</Hamburger>
-            </NavBar>
+          <span style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+            <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>About Me</span></StyledLink>
+            <StyledLink href={'/#projects'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Projects</span></StyledLink>
+            <StyledLink href={'/#contact'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Contact</span></StyledLink>
+          </span>
 
-
-
-          <section style={{ display: 'flex', flexDirection: 'column', backgroundColor: !!currentProjectData && currentProjectData ? currentProjectData[0]?.projectColor : 'white'  }}>
-                <PreTagLine>
-                      {(currentProjectDescriptions[0].projectTagLine || currentProjectData[0].projectDescription) ?? []}
-                </PreTagLine>
-
-                <TagLine style={{marginTop: 30, marginBottom: 30 }}>
-                  {currentProjectData[0].projectName ?? []}
-                </TagLine>
-
-                <span style={{ fontSize: '20px', marginBottom: 150, maxWidth: 600 }}>
-                  {(currentProjectDescriptions[0].projectAnnotation || currentProjectData[0].projectDescription) ?? []}
-                </span>
-
-                <CoverImage style={{backgroundImage: `url("/${currentProjectData[0].projectGalleryImage}")`,}}>
-                  <div style={{borderRadius: '20px 0px 0px 20px', zIndex: 2,  position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'soft-light', opacity: 0.5}}></div>
-
-                  {/* <div style={{borderRadius: '20px 0px 0px 20px', zIndex: 3, width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'color', opacity: scrollY > 400 ? 0 : 1, transition: '5s'}}></div> */}
-                </CoverImage>
-          </section>
+          <Hamburger onClick={() => { setFsMenu(!fsMenu) }}>{fsMenu ? <RxCross1 /> : <RxHamburgerMenu />}</Hamburger>
+        </NavBar>
 
 
 
-          <StyledWhyAndChallengedSection>
-                    <div style={{width: '100%'}}>
-                      <h4>Why</h4>
-                      <p>{HTMLReactParser(currentProjectDescriptions[0].projectPurposeAndGoal ?? [])}</p>
-                    </div>    
+        <section style={{ display: 'flex', flexDirection: 'column', backgroundColor: !!currentProjectData && currentProjectData ? currentProjectData[0]?.projectColor : 'white' }}>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', width: '80%' }}>
+              <PreTagLine>
+                {(currentProjectDescriptions[0].projectTagLine || currentProjectData[0].projectDescription) ?? []}
+              </PreTagLine>
 
-                    {/* <MobileShot index={1} fileUrl={"shotjapanible1.png"}></MobileShot>        */}
-                    <div style={{width: '100%'}}>
-                      <h4>Challenges & Reflections</h4>
-                      <p>{HTMLReactParser(currentProjectDescriptions[0].projectProblemsAndSolutions ?? [])}</p>
-                      <p>{HTMLReactParser(currentProjectDescriptions[0].projectLessonsLearnt ?? [])}</p>
-                    </div>
-          </StyledWhyAndChallengedSection>
+              <TagLine style={{ marginTop: 30, marginBottom: 30 }}>
+                {currentProjectData[0].projectName ?? []}
+              </TagLine>
 
-          {currentProjectDescriptions[0].projectDesktopPhoto?.length > 0 ? (
-            <section style={{padding: '100px'}}>
-              {currentProjectDescriptions[0].projectDesktopPhoto.map((entry, index)=>(
+              <span style={{ fontSize: '20px', marginBottom: 150, maxWidth: 600 }}>
+                {(currentProjectDescriptions[0].projectAnnotation || currentProjectData[0].projectDescription) ?? []}
+              </span>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '20%', alignItems: 'flex-end', fontWeight: 400, fontSize: 18 }}>
+              <div>{currentProjectDescriptions[0].year ?? []}</div>
+              <div>{currentProjectDescriptions[0].type[0].toUpperCase() + currentProjectDescriptions[0].type.slice(1) + ' project' ?? []}</div>
+              {/* <div>Hashtags: {currentProjectDescriptions[0].hashtags ?? []}</div> */}
+              {currentProjectDescriptions[0].cta.map((e) => (<div><a target="_blank" href={e.href}>{e.text} →</a></div>)) ?? []}
+            </div>
+          </div>
+          <CoverImage style={{ backgroundImage: `url("/${currentProjectData[0].projectGalleryImage}")`, }}>
+            <div style={{ borderRadius: '20px 0px 0px 20px', zIndex: 2, position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'soft-light', opacity: 0.5 }}></div>
+
+            {/* <div style={{borderRadius: '20px 0px 0px 20px', zIndex: 3, width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'color', opacity: scrollY > 400 ? 0 : 1, transition: '5s'}}></div> */}
+          </CoverImage>
+        </section>
+
+
+
+        <StyledWhyAndChallengedSection>
+          <div style={{ width: '100%' }}>
+            <h4>Why</h4>
+            <p>{HTMLReactParser(currentProjectDescriptions[0].projectPurposeAndGoal ?? [])}</p>
+          </div>
+
+          {/* <MobileShot index={1} fileUrl={"shotjapanible1.png"}></MobileShot>        */}
+          <div style={{ width: '100%' }}>
+            <h4>Challenges & Reflections</h4>
+            <p>{HTMLReactParser(currentProjectDescriptions[0].projectProblemsAndSolutions ?? [])}</p>
+            <p>{HTMLReactParser(currentProjectDescriptions[0].projectLessonsLearnt ?? [])}</p>
+          </div>
+        </StyledWhyAndChallengedSection>
+
+        {currentProjectDescriptions[0].projectDesktopPhoto?.length > 0 ? (
+          <section style={{ padding: '100px' }}>
+            {currentProjectDescriptions[0].projectDesktopPhoto.map((entry, index) => (
               <DesktopShot index={index} fileUrl={entry} key={`desktopShop${index}`}></DesktopShot>
             ))}</section>) : <></>}
 
-          <section style={{padding: '100px', backgroundColor: '#ffffff', gap: 50}}>
-            <h4>Stack</h4>
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <div style={{width: '100%'}}>
-            <p>{HTMLReactParser(currentProjectDescriptions[0].projectTechnicalCommentary ?? [])}</p>
+        <section style={{ padding: '100px', backgroundColor: '#ffffff', gap: 50 }}>
+          <h4>Stack</h4>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
+            <div style={{ width: '100%' }}>
+              <p>{HTMLReactParser(currentProjectDescriptions[0].projectTechnicalCommentary ?? [])}</p>
             </div>
 
 
-           
 
-            </div>
-          </section>
 
-          {currentProjectDescriptions[0].projectMobilePhoto ? (
+          </div>
+        </section>
+
+        {currentProjectDescriptions[0].projectMobilePhoto ? (
           <StyledMobileSection>
-            {currentProjectDescriptions[0].projectMobilePhoto.slice(0,2).map((entry, index)=>(
-                <MobileShot index={index} fileUrl={entry} key={`mobileShot${index}`}></MobileShot>
+            {currentProjectDescriptions[0].projectMobilePhoto.slice(0, 2).map((entry, index) => (
+              <MobileShot index={index} fileUrl={entry} key={`mobileShot${index}`}></MobileShot>
             ))}</StyledMobileSection>) : <></>}
 
-           
 
 
 
-    {/* <section style={{ display: 'flex', flexDirection: 'row', padding: '100px 100px', gap: 50}}>
+
+        {/* <section style={{ display: 'flex', flexDirection: 'row', padding: '100px 100px', gap: 50}}>
 
     <div style={{width: '100%'}}>
               <h4>Development</h4>
@@ -400,17 +410,17 @@ useEffect(() => {
             </div>
           </section> */}
 
-          <section style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#e2e2e2', gap: 50}}>
-                      <div style={{display: 'flex', gap: 15, flexDirection: 'row', alignItems: 'center'}}><h4>Other Projects</h4><StyledLink style={{fontWeight: 600}} href={'../#projects'}>Show All →</StyledLink></div>
-                      
-                      <StyledOtherProjectsGrid>
-                        <GalleryCard key={`galleryItemNo${0}`} payload={previousProjectData}/>
-                        <GalleryCard key={`galleryItemNo${0}`} payload={nextProjectData}/>
-                      </StyledOtherProjectsGrid>
+        <section style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#e2e2e2', gap: 50 }}>
+          <div style={{ display: 'flex', gap: 15, flexDirection: 'row', alignItems: 'center' }}><h4>Other Projects</h4><StyledLink style={{ fontWeight: 600 }} href={'../#projects'}>Show All →</StyledLink></div>
 
-          </section>
+          <StyledOtherProjectsGrid>
+            <GalleryCard key={`galleryItemNo${0}`} payload={previousProjectData} />
+            <GalleryCard key={`galleryItemNo${0}`} payload={nextProjectData} />
+          </StyledOtherProjectsGrid>
 
-          <Main>
+        </section>
+
+        <Main>
 
           {/* <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }}>
             <SplitBar style={{ marginBottom: 0 }}>
@@ -419,10 +429,10 @@ useEffect(() => {
           </div> */}
 
 
-          
+
         </Main>
         <Footer />
-      </Wrapper>
+      </Wrapper >
       {/* <script async src="//static.getclicky.com/101403805.js"></script>
       <noscript>
         <p>

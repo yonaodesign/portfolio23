@@ -31,6 +31,7 @@ transition: 1s;
   justify-content: flex-start;
   color: white;
   width: 90%;
+ 
   aspect-ratio: 16/10;
   background-image: ${({ fileUrl }) => `url("/projects/${fileUrl}")`};
   border: 2px solid #e2e2e2;
@@ -58,16 +59,16 @@ transition: 1s;
 const DesktopShot: React.FC = (props) => {
   return (
     <Wrapper>
-          <Device fileUrl={props.fileUrl}>
-              <div style={{width: '100%', height: '20px', backgroundColor: '#e2e2e2', display: 'flex', alignItems:'center', justifyContent: 'flex-start'}}>
-                <div style={{display: 'flex', alignItems:'center', gap: 4, height: '100%', marginLeft: 5}}>
-                  
-                      {['#FF605C', '#FFBD44', '#00CA4E'].map((e, i) => (<div key={`titleBarCircle${i}`} style={{ height: '40%', aspectRatio: '1/1', backgroundColor: e, borderRadius: 500}}></div>))}
-                  
-                </div>
-              </div>
-            </Device>
-          </Wrapper>
+      <Device fileUrl={props.fileUrl}>
+        <div style={{ width: '100%', height: '20px', backgroundColor: '#e2e2e2', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: '100%', marginLeft: 5 }}>
+
+            {['#FF605C', '#FFBD44', '#00CA4E'].map((e, i) => (<div key={`titleBarCircle${i}`} style={{ height: '40%', aspectRatio: '1/1', backgroundColor: e, borderRadius: 500 }}></div>))}
+
+          </div>
+        </div>
+      </Device>
+    </Wrapper>
   )
 }
 

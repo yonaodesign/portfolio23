@@ -60,10 +60,10 @@ const Drop = styled.div`
 const MobileShot: React.FC = (props) => {
   return (
     <Wrapper>
-          <Device fileUrl={props.fileUrl}>
-            <Drop/>
-    </Device>
-  </Wrapper>
+      <Device fileUrl={props.fileUrl}>
+        <Drop />
+      </Device>
+    </Wrapper>
   )
 }
 
