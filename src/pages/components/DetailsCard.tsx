@@ -180,12 +180,14 @@ export default function DetailsCard(props: Props) {
     <div style={{ cursor: 'pointer' }}>
       <Title
         onClick={() => { setOpened(!opened) }}
-        style={order == 0  ? {borderTop: '1px dotted #001FAA', display: 'flex', justifyContent: 'space-between'} : {borderTop: 'none', display: 'flex', justifyContent: 'space-between'}}
-        // style={{borderTop: order == 0 ? '1px dotted #001FAA' : '1px dotted #001FAA'}}
-        
-        
-        >
-        <div>{year} / {title}<SubTitle>{subtitle}</SubTitle></div> <div>{!opened && '+'}{opened && '-'}</div>
+        style={order == 0 ? { borderTop: '1px dotted #001FAA', display: 'flex', justifyContent: 'space-between' } : { borderTop: 'none', display: 'flex', justifyContent: 'space-between' }}
+      // style={{borderTop: order == 0 ? '1px dotted #001FAA' : '1px dotted #001FAA'}}
+
+
+      >
+        <div>
+          {/* {year} /  */}
+          {title}<SubTitle>{subtitle}</SubTitle></div> <div>{!opened && '+'}{opened && '−'}</div>
       </Title>
     </div>
 
@@ -207,9 +209,9 @@ export default function DetailsCard(props: Props) {
           <div style={{ display: 'flex' }}>
             {cta.map((e, i: Number) => (<CardButton key={i} href={e.href} target={'_blank'} aria-label={e.aria}>{e.text}</CardButton>))}
           </div>
-          <span style={{width: 100}}>
+          {/* <span style={{width: 100}}>
             {JSON.stringify([props.hashtags, props.projectDescription, props. technicalDescription, props.reflections], null, 2)}
-          </span>
+          </span> */}
         </RESPONSIVEBOX>
       </RESPONSIVEOUTERBOX>
     </Body>}

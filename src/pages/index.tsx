@@ -230,14 +230,14 @@ justify-content: space-between;
 
 const ProjectsData = [
   {
-  title: 'Japanible',
-  type: 'personal',
-  year: '2022',
-  subtitle: 'Community Blogging Platform',
-  hashtags: ['blog', 'react.js', 'firebase'],
-  image: '/media/Group 15.png',
-  annotation: 'Japanible is a web 2 public blogging platform, catering to individuals who have something to say or are interested about Japan, its culture, and language.',
-  fullText: `<div>
+    title: 'Japanible',
+    type: 'personal',
+    year: '2022',
+    subtitle: 'Community Blogging Platform',
+    hashtags: ['blog', 'react.js', 'firebase'],
+    image: '/media/Group 15.png',
+    annotation: 'Japanible is a web 2 public blogging platform, catering to individuals who have something to say or are interested about Japan, its culture, and language.',
+    fullText: `<div>
   <p>Japanible is a community blogging platform that I created as a solo project,
   catering to individuals interested in Japan, its culture, and language. The
   <b>goal
@@ -279,45 +279,46 @@ const ProjectsData = [
     my skills and take on new challenges in the future.
 </p>
         </div>`,
-  projectDescription: '<p>Japanible is a web 2 public blogging platform, catering to individuals who have something to say or are interested about Japan, its culture, and language.</p>',
-  technicalDescription: '<p>The goal of this project was to learn working with Firebase by creating a CRUD application utilizing React.js (CRA).</p>',
-  reflections: `<p>During the course of this project, I gained hands-on experience working with React.js components, structure, and routing. I also gained proficiency in working with Firebase Auth, Firebase DB, serverless functions, and deployment. The functionality of Japanible includes the ability for users to sign in via OAuth (Google Provider), write and save drafts of articles, edit existing articles, write comments on articles, and browse articles created by other users.</p>
+    projectDescription: '<p>Japanible is a web 2 public blogging platform, catering to individuals who have something to say or are interested about Japan, its culture, and language.</p>',
+    technicalDescription: '<p>The goal of this project was to learn working with Firebase by creating a CRUD application utilizing React.js (CRA).</p>',
+    reflections: `<p>During the course of this project, I gained hands-on experience working with React.js components, structure, and routing. I also gained proficiency in working with Firebase Auth, Firebase DB, serverless functions, and deployment. The functionality of Japanible includes the ability for users to sign in via OAuth (Google Provider), write and save drafts of articles, edit existing articles, write comments on articles, and browse articles created by other users.</p>
 
       <p>One of the key challenges I faced during the project was implementing a WYSIWYG editor. I am proud to say that I was able to successfully overcome this challenge and implement the editor effectively.</p>
       
       <p>Looking back, I realize that blog was not ideal project for this technology. A Create React App (CRA) is not an ideal solution for a blogging site that requires high SEO ranking. In retrospect, I would have used Next.js or Remix next time. Additionally, while Firebase provides a simple solution, I would have opted to implement Auth myself, used a database like Mongo or Postgres, and deployed the application to Render. I would also use packages such as react-hook-form or similar package to improve the form handling.</p>
       
       <p>Overall, Japanible was a challenging and rewarding project that allowed me to expand my skills in React.js and Firebase. I am excited to continue to develop my skills and take on new challenges in the future.</p>`,
-  cta: [
-    // { text: 'Video', href: '/img.png' },
-    { text: 'Live site', href: 'https://japanible.com', aria: "Link to Japanible.com, that opens in a new window." },
-  ]
-},
+    cta: [
+      // { text: 'Video', href: '/img.png' },
+      { text: 'Live site', href: 'https://japanible.com', aria: "Link to Japanible.com, that opens in a new window." },
+    ]
+  },
 
-{
-  title: 'BACKSLACK',
-  type: 'personal',
-  year: '2023',
-  subtitle: 'Archiving Slack Conversations',
-  hashtags: [],
-  annotation: 'BACKSLACK is a small application using Slack App Bot token to gather data through API and export them to Markdown, HTML, and RTF.',
-  fullText: ``,
-  projectDescription: '<p>BACKSLACK is a small application to make conversations saving externally easier.</p>',
-  technicalDescription: '<p>Slack App Bot token is used to gather data through API, and export them to Markdown, HTML, and RTF. </p>',
-  reflections: ``,
-  cta: [
-    { text: 'Live site', href: 'https://backslack.onrender.com', aria: "Link to backslack.onrender.com, that opens in a new window." },
-  ]
-},
+  {
+    title: 'backslack',
+    type: 'personal',
+    year: '2023',
+    subtitle: 'Archiving Slack Conversations',
+    image: '/media/bs.png',
+    hashtags: [],
+    annotation: 'BACKSLACK is a small application using Slack App Bot token to gather data through API and export them to Markdown, HTML, and RTF.',
+    fullText: ``,
+    projectDescription: '<p>BACKSLACK is a small application to make conversations saving externally easier.</p>',
+    technicalDescription: '<p>Slack App Bot token is used to gather data through API, and export them to Markdown, HTML, and RTF. </p>',
+    reflections: ``,
+    cta: [
+      { text: 'Live site', href: 'https://backslack.onrender.com', aria: "Link to backslack.onrender.com, that opens in a new window." },
+    ]
+  },
 
-{
-  title: 'SMOSS',
-  type: 'business',
-  year: '2021',
-  subtitle: 'No-code Production App',
-  hashtags: ['no-code', 'reallifeproject'],
-  image: '/media/smoss.png',
-  projectDescription: `<p>
+  {
+    title: 'SMOSS',
+    type: 'business',
+    year: '2021',
+    subtitle: 'No-code Production App',
+    hashtags: ['no-code', 'reallifeproject'],
+    image: '/media/smoss.png',
+    projectDescription: `<p>
   
   The system is designed to streamline and automate the
   production process, making it more efficient and effective. During this project, I gained
@@ -328,11 +329,11 @@ const ProjectsData = [
 
 </p>
 `,
-  technicalDescription: `<p>This project is an in-house production management system and production system that I have
+    technicalDescription: `<p>This project is an in-house production management system and production system that I have
 developed using <b>Google Appsheet</b> as an UI and <b>Google Sheets</b> as an database. </p>`,
 
 
-  reflections: `<p>
+    reflections: `<p>
 The technical challenges that I faced during this project were related to my lack of
 knowledge on how to make apps. To overcome this, I researched the best tool and learnt it. I
 found it to be fun and this motivated me to learn how to code. The target audience for this
@@ -341,7 +342,7 @@ in real-time without telephone. The app is still being used by one of the factor
 two years. And it was developed by myself. In future I plan to redo the application as a web
 app instead of a no-code base.
 </p>`,
-  fullText: `<p>
+    fullText: `<p>
   This project is an in-house production management system and production system that I have
   developed using <b>Google Appsheet</b> as an UI and <b>Google Sheets</b> as an database. 
   The system is designed to streamline and automate the
@@ -371,40 +372,40 @@ app instead of a no-code base.
 </p>
 <p><i>I don't have permission to link the project, post code, or a video. I'm attaching a
       screenshot, that has been shared in mass media.</i></p>`,
-  cta: []
-},
-{
-  title: 'SSKS',
-  type: 'business',
-  year: '2021',
-  subtitle: 'No-code Procurement App',
-  hashtags: ['no-code', 'reallifeproject'],
-  image: '/media/Group 3.webp',
-  projectDescription: `<p>This project is an in-house procurement management system that I have developed using Google
+    cta: []
+  },
+  {
+    title: 'SSKS',
+    type: 'business',
+    year: '2021',
+    subtitle: 'No-code Procurement App',
+    hashtags: ['no-code', 'reallifeproject'],
+    image: '/media/Group 3.webp',
+    projectDescription: `<p>This project is an in-house procurement management system that I have developed using Google
   Appsheet. It is using a ticket-based confirmation system for in-house order flow management with notifications through Slack API.
   This system also includes tracking of inbound and outbound amount of resources with
   timestamps, and checking the amount of resources in the warehouse in real-time.</p>`,
-  technicalDescription: `<p>Google Appsheet, Google Sheets, Slack API.</p>`,
-  reflections: `<p>Having limited options with no-code solutions  , I decided to learn javascript and make my own apps.</p>`,
-  fullText: `<p>
+    technicalDescription: `<p>Google Appsheet, Google Sheets, Slack API.</p>`,
+    reflections: `<p>Having limited options with no-code solutions  , I decided to learn javascript and make my own apps.</p>`,
+    fullText: `<p>
   This project is an in-house procurement management system that I have developed using Google
   Appsheet. It is using a ticket-based confirmation system for in-house order flow management with notifications through Slack API.
   This system also includes tracking of inbound and outbound amount of resources with
   timestamps, and checking the amount of resources in the warehouse in real-time.
 </p>
 <p><i>I don't have permission to link the project, post code, screenshot or a video.</i></p>`,
-  cta: []
-},
-{
-  title: 'Business Site',
-  type: 'business',
+    cta: []
+  },
+  {
+    title: 'Business Site',
+    type: 'business',
 
-  year: '2022',
-  subtitle: 'Redesign',
-  hashtags: ['reallifeproject ', 'headlesscms ', 'html ', 'css ', 'vanillajs', '3rdpartyjs'],
-  image: '/media/sensyo.png',
+    year: '2022',
+    subtitle: 'Redesign',
+    hashtags: ['reallifeproject ', 'headlesscms ', 'html ', 'css ', 'vanillajs', '3rdpartyjs'],
+    image: '/media/sensyo.png',
 
-  projectDescription: `<p>
+    projectDescription: `<p>
   This project was a redesign of the main sales channel website for an
   Osaka-based Metal Surface Finisher. The goal of the project was to
   give the website a more modern feel and have a more global appeal.
@@ -420,10 +421,10 @@ app instead of a no-code base.
 </p>
 
 `,
-  technicalDescription: `<p>
+    technicalDescription: `<p>
   HTML, CSS, Vanilla JS, MicroCMS (Japanese Headless CMS).
   </p>`,
-  reflections: `<p>
+    reflections: `<p>
   In addition to the website redesign, a new logo was also needed for
   the company. I had a help with the logo and we worked together to
   create a fresh, modern design.
@@ -443,7 +444,7 @@ app instead of a no-code base.
 
 
 
-  fullText: `<p>
+    fullText: `<p>
   This project was a redesign of the main sales channel website for an
   Osaka-based Metal Surface Finisher. The goal of the project was to
   give the website a more modern feel and have a more global appeal.
@@ -477,24 +478,24 @@ app instead of a no-code base.
 
 </p>
 `,
-  cta: [{ text: 'Live site', href: 'http://www.sensyo-ltd.co.jp', aria: "Link to Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window." },
-  { text: 'Web archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/', aria: "Link to an archived version of Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window." },]
+    cta: [{ text: 'Live site', href: 'http://www.sensyo-ltd.co.jp', aria: "Link to Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window." },
+    { text: 'Web archive', href: 'http://web.archive.org/web/20230401000722/http://sensyo-ltd.co.jp/', aria: "Link to an archived version of Japanese only website of Japanese Manufacturer called Sensyo Company Limited. Link opens in a new window." },]
 
-},
-
-
+  },
 
 
-{
-  title: 'Product Landing SPA',
-  type: 'business',
 
-  year: '2023',
-  subtitle: 'Design & Code',
-  hashtags: ['spa ', 'reallifeproject ', 'next.js ', 'typescript ', 'styled-components ', 'vercel '],
-  image: '/media/PC.png',
 
-  projectDescription: `<p>
+  {
+    title: 'Product Landing SPA',
+    type: 'business',
+
+    year: '2023',
+    subtitle: 'Design & Code',
+    hashtags: ['spa ', 'reallifeproject ', 'next.js ', 'typescript ', 'styled-components ', 'vercel '],
+    image: '/media/PC.png',
+
+    projectDescription: `<p>
   This project is a Single Page Application (SPA) for a product, designed to
   provide a simple and user-friendly way to showcase the product and its features.
   </p><p>
@@ -504,10 +505,10 @@ app instead of a no-code base.
   users with quick access to important information about the product and its
   features.
   </p>`,
-  technicalDescription: `<p>
+    technicalDescription: `<p>
   Next.js, Styled-components for styling, Nodemail for sending emails.
   </p>`,
-  reflections: `<p>
+    reflections: `<p>
   The application was built using Next.js and React-Hook-Form, a package for
   easily creating forms in React. During this project, I also learnt how to send
   emails with Node.js and some basics of TypeScript.
@@ -523,7 +524,7 @@ app instead of a no-code base.
 </p>`,
 
 
-  fullText: `<p>
+    fullText: `<p>
   This project is a Single Page Application (SPA) for a product, designed to
   provide a simple and user-friendly way to showcase the product and its features.
   The application was built using Next.js and React-Hook-Form, a package for
@@ -554,8 +555,8 @@ app instead of a no-code base.
 </p>
 `,
 
-  cta: [{ text: 'Live site', href: 'http://www.cher.jp/en', aria: "Link to a landing page of a brand called PUR CHER. Link opens in a new window." },]
-}
+    cta: [{ text: 'Live site', href: 'http://www.cher.jp/en', aria: "Link to a landing page of a brand called PUR CHER. Link opens in a new window." },]
+  }
 ]
 
 
@@ -635,7 +636,7 @@ export default function Projects() {
             </TagLine>
 
             <span style={{ fontSize: '20px', marginBottom: 50 }}>
-            I love building things that make a difference.
+              I love building things that make a difference.
             </span>
 
             <span style={{ display: 'flex' }}>
@@ -649,7 +650,7 @@ export default function Projects() {
 
 
             <SplitBar style={{ width: '100%', display: 'flex', marginBottom: 50 }} id={'about'}>
-              <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>My Skills</span>
+              <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>About Me</span>
               <DynamicLineRunningRight />
             </SplitBar>
           </div>
