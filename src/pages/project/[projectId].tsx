@@ -322,7 +322,7 @@ export default function Projects() {
               <div>{currentProjectDescriptions[0].year ?? []}</div>
               <div>{currentProjectDescriptions[0].type[0].toUpperCase() + currentProjectDescriptions[0].type.slice(1) + ' project' ?? []}</div>
               {/* <div>Hashtags: {currentProjectDescriptions[0].hashtags ?? []}</div> */}
-              {currentProjectDescriptions[0].cta.map((e) => (<div><a target="_blank" href={e.href}>{e.text} →</a></div>)) ?? []}
+              {currentProjectDescriptions[0].cta.map((item, index) => (<div key={'cta' + index}><a target="_blank" rel="noreferrer" href={item.href}>{item.text} →</a></div>)) ?? []}
             </div>
           </div>
           <CoverImage style={{ backgroundImage: `url("/${currentProjectData[0].projectGalleryImage}")`, }}>
