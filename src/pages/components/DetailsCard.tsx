@@ -180,12 +180,12 @@ export default function DetailsCard(props: Props) {
     <div style={{ cursor: 'pointer' }}>
       <Title
         onClick={() => { setOpened(!opened) }}
-        style={order == 0  ? {borderTop: '1px dotted #001FAA'} : {borderTop: 'none'}}
+        style={order == 0  ? {borderTop: '1px dotted #001FAA', display: 'flex', justifyContent: 'space-between'} : {borderTop: 'none', display: 'flex', justifyContent: 'space-between'}}
         // style={{borderTop: order == 0 ? '1px dotted #001FAA' : '1px dotted #001FAA'}}
         
         
         >
-        {year} / {title}<SubTitle>{subtitle}</SubTitle>
+        <div>{year} / {title}<SubTitle>{subtitle}</SubTitle></div> <div>{!opened && '+'}{opened && '-'}</div>
       </Title>
     </div>
 

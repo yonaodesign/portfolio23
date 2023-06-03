@@ -314,7 +314,7 @@ const ProjectsData = [
   title: 'SMOSS',
   type: 'business',
   year: '2021',
-  subtitle: 'No-code Production Management System',
+  subtitle: 'No-code Production App',
   hashtags: ['no-code', 'reallifeproject'],
   image: '/media/smoss.png',
   projectDescription: `<p>
@@ -377,7 +377,7 @@ app instead of a no-code base.
   title: 'SSKS',
   type: 'business',
   year: '2021',
-  subtitle: 'No-code Procurement Management System',
+  subtitle: 'No-code Procurement App',
   hashtags: ['no-code', 'reallifeproject'],
   image: '/media/Group 3.webp',
   projectDescription: `<p>This project is an in-house procurement management system that I have developed using Google
@@ -486,11 +486,11 @@ app instead of a no-code base.
 
 
 {
-  title: 'Product Landing Page',
+  title: 'Product Landing SPA',
   type: 'business',
 
   year: '2023',
-  subtitle: 'Design',
+  subtitle: 'Design & Code',
   hashtags: ['spa ', 'reallifeproject ', 'next.js ', 'typescript ', 'styled-components ', 'vercel '],
   image: '/media/PC.png',
 
@@ -580,10 +580,10 @@ export default function Projects() {
 
       {fsMenu && <FullScreenMenu>
         <div style={{ lineHeight: 3, fontSize: 24, color: 'blue', display: 'flex', flexDirection: 'column' }}>
-          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#about'}>about</StyledLink></span>
-          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#personal'}>projects</StyledLink></span>
-          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#work'}>work</StyledLink></span>
-          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#mytools'}>my tools</StyledLink></span>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#about'}>About Me</StyledLink></span>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#personal'}>Projects</StyledLink></span>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#work'}>Work</StyledLink></span>
+          <span onClick={() => { setFsMenu(!fsMenu) }} style={{ whiteSpace: 'nowrap', cursor: 'pointer', paddingRight: 30 }}><StyledLink href={'/#mytools'}>My Tools</StyledLink></span>
         </div>
       </FullScreenMenu>}
 
@@ -612,10 +612,10 @@ export default function Projects() {
               {/* <StyledLink href={'/'}>Portfolio 2023</StyledLink> */}
               {/* <DynamicLineRunningLeft /> */}
               <span style={{ display: 'flex', gap: 12 }}>
-                <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>about</span></StyledLink>
-                <StyledLink href={'/#personal'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>projects</span></StyledLink>
-                <StyledLink href={'/#work'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>work</span></StyledLink>
-                <StyledLink href={'/#mytools'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>my tools</span></StyledLink>
+                <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>About Me</span></StyledLink>
+                <StyledLink href={'/#personal'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>Projects</span></StyledLink>
+                <StyledLink href={'/#work'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>Work</span></StyledLink>
+                <StyledLink href={'/#mytools'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer' }}>My Tools</span></StyledLink>
               </span>
               <Hamburger onClick={() => { setFsMenu(!fsMenu) }}>{fsMenu ? <RxCross1 /> : <RxHamburgerMenu />}</Hamburger>
             </NavBar>
@@ -631,12 +631,11 @@ export default function Projects() {
               Hi,<br />
               I&apos;m Jonas,<br />
               a creative<br />
-              & developer.
+              developer.
             </TagLine>
 
             <span style={{ fontSize: '20px', marginBottom: 50 }}>
-              I help small and middle sized
-              businesses to take on the world.
+            I love building things that make a difference.
             </span>
 
             <span style={{ display: 'flex' }}>
@@ -650,7 +649,7 @@ export default function Projects() {
 
 
             <SplitBar style={{ width: '100%', display: 'flex', marginBottom: 50 }} id={'about'}>
-              <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>my skills</span>
+              <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>My Skills</span>
               <DynamicLineRunningRight />
             </SplitBar>
           </div>
@@ -667,7 +666,7 @@ export default function Projects() {
           </ul>
 
           <SplitBar style={{ width: '100%', display: 'flex' }} id={'personal'}>
-            <span style={{ whiteSpace: 'nowrap' }}>projects</span>
+            <span style={{ whiteSpace: 'nowrap' }}>Projects</span>
             <DynamicLineRunningRight />
           </SplitBar>
 
@@ -697,7 +696,7 @@ export default function Projects() {
 
 
           <SplitBar style={{ width: '100%', display: 'flex' }} id={'work'}>
-            <span style={{ whiteSpace: 'nowrap' }}>work</span>
+            <span style={{ whiteSpace: 'nowrap' }}>Work</span>
             <DynamicLineRunningRight />
           </SplitBar>
 
@@ -727,7 +726,7 @@ export default function Projects() {
           <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }} id={'mytools'}>
             <SplitBar>
               <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>
-                my tools
+                My Tools
               </span>
               <DynamicLineRunningRight />
             </SplitBar>
