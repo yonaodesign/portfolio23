@@ -24,10 +24,34 @@ border-bottom: 1px solid transparent;
 `
 
 const DisplayImage = styled.div`
-// filter: grayscale(100%);
+filter: grayscale(0%);
+transition: 0.5s;
 
-// &:hover {
-//   filter: grayscale(0%);
+
+&:hover {
+  filter: grayscale(100%);
+  &::after {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    content: "${("View project →")}";
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    }
+
+}
+
+&::after {
+content: '';
+display: flex;
+border-radius: 10px;
+width: 100%;
+height: 100%;
+justify-content: center;
+align-items: center;
+transition: 0.5s;
 }
 `
 

@@ -17,6 +17,7 @@ import GalleryCard from '../components/GalleryCard';
 import DesktopShot from '../components/DesktopShot';
 import MobileShot from '../components/MobileShot';
 import Image from 'next/image';
+import CoverShot from '../components/CoverShot';
 
 
 
@@ -286,8 +287,8 @@ export default function Projects() {
           position: 'fixed', left: 30, right: 30, top: 20, display: 'flex', justifyContent: 'space-between', zIndex: 10, alignItems: 'center',
         }}>
           <StyledLink style={{ cursor: 'pointer' }} href="/">
-            <LOGO>
-              <span style={{ cursor: 'pointer' }}>J<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
+          <LOGO style={{ cursor: 'pointer' }}>
+              <span style={{ transition: '0.5s', cursor: 'pointer', width: scrollY > 100 ? '9px' : '45px' }}>J<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
               <span style={{ cursor: 'pointer' }}>V<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>olny</CollapsableText></span>
             </LOGO>
           </StyledLink>
@@ -314,23 +315,32 @@ export default function Projects() {
                 {currentProjectData[0].projectName ?? []}
               </TagLine>
 
-              <span style={{ fontSize: '20px', marginBottom: 150, maxWidth: 600 }}>
+              <span style={{ fontSize: '20px', marginBottom: 100, maxWidth: 600 }}>
                 {(currentProjectDescriptions[0].projectAnnotation || currentProjectData[0].projectDescription) ?? []}
               </span>
             </div>
-            <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '20%', alignItems: 'flex-end', fontWeight: 400, fontSize: 18 }}>
+            {/* <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '20%', alignItems: 'flex-end', fontWeight: 400, fontSize: 18 }}>
               <div>{currentProjectDescriptions[0].year ?? []}</div>
               <div>{currentProjectDescriptions[0].type[0].toUpperCase() + currentProjectDescriptions[0].type.slice(1) + ' project' ?? []}</div>
-              {/* <div>Hashtags: {currentProjectDescriptions[0].hashtags ?? []}</div> */}
               {currentProjectDescriptions[0].cta.map((item, index) => (<div key={'cta' + index}><a target="_blank" rel="noreferrer" href={item.href}>{item.text} →</a></div>)) ?? []}
-            </div>
+            </div> */}
           </div>
-          <CoverImage style={{ backgroundImage: `url("/${currentProjectData[0].projectGalleryImage}")`, }}>
+          {/* <CoverImage style={{ backgroundImage: `url("/${currentProjectData[0].projectGalleryImage}")`, }}>
             <div style={{ borderRadius: '20px 0px 0px 20px', zIndex: 2, position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'soft-light', opacity: 0.5 }}></div>
+          </CoverImage> */}
 
-            {/* <div style={{borderRadius: '20px 0px 0px 20px', zIndex: 3, width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'color', opacity: scrollY > 400 ? 0 : 1, transition: '5s'}}></div> */}
-          </CoverImage>
+          {currentProjectDescriptions[0].projectDesktopPhoto?.slice(0,1).map(
+            (entry, index) => (
+            <CoverShot index={index} fileUrl={entry} key={`desktopShop${index}`}></CoverShot>
+            )
+            )
+            ?? []}
+
         </section>
+
+
+
+        
 
 
 
@@ -348,9 +358,9 @@ export default function Projects() {
           </div>
         </StyledWhyAndChallengedSection>
 
-        {currentProjectDescriptions[0].projectDesktopPhoto?.length > 0 ? (
+        {currentProjectDescriptions[0].projectDesktopPhoto?.length > 1 ? (
           <section style={{ padding: '100px' }}>
-            {currentProjectDescriptions[0].projectDesktopPhoto.map((entry, index) => (
+            {currentProjectDescriptions[0].projectDesktopPhoto?.slice(1).map((entry, index) => (
               <DesktopShot index={index} fileUrl={entry} key={`desktopShop${index}`}></DesktopShot>
             ))}</section>) : <></>}
 

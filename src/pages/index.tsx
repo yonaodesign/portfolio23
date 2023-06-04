@@ -1,26 +1,19 @@
-// @ts-ignore
-import Head from 'next/head'
-import styled from 'styled-components'
-import BREAKPOINTS from './api/breakpoints'
-// import { useTheme } from 'styled-components'
-
-
-import Footer from './components/Footer'
-
-import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
-import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
-import { IoContrast } from 'react-icons/io5'
-import DetailsCard from './components/DetailsCard'
-import { useState, useCallback, useEffect } from 'react'
-import Link from 'next/link'
-import ProjectsData from './api/dataset'
 import galleryData from './api/galleryDataset'
+
+import { useState, useCallback, useEffect } from 'react'
+import Head from 'next/head'
+import Link from 'next/link'
+import styled from 'styled-components'
+
+import BREAKPOINTS from './api/breakpoints'
+import Footer from './components/Footer'
+import MyToolsSection from './components/MyToolsSection'
+import ContactSection from './components/ContactSection'
 import GalleryCard from './components/GalleryCard'
 
-
-import HTMLReactParser from 'html-react-parser'
-import ContactForm from './components/contactform'
-import Image from 'next/image'
+// import { useTheme } from 'styled-components'
+import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
+import { IoContrast } from 'react-icons/io5'
 
 const Wrapper = styled.div`
 position: relative;
@@ -62,18 +55,8 @@ div {
   gap: 30px;
 }`
 
-const Main = styled.main`
-
-margin-left: 100px;
-margin-right: 100px;
-max-width: 100%;
-// max-width: 1400px;
-// overflow-x: hidden;
-`
 const LOGO = styled.span`
 font-family: trap; 
-
-
 // font-weight: 100; 
 display: flex;
 gap: 3px;
@@ -161,15 +144,6 @@ align-items: center;}
 display: none;
 `
 
-const StyledSectionTools = styled.section`
-  display: flex;
-  flex-direction: row;
-  padding: 100px 100px;
-  gap: 50px;
-
-  @media (max-width: ${BREAKPOINTS.medium}px) {
-    flex-direction: column;}
-`
 
 const StyledSectionProjects = styled.section`
   display: flex;
@@ -239,11 +213,13 @@ column-gap: 50px;
 }
 `
 
+const SyntaxWrapper = styled.span`
+display: inline;
+white-space: nowrap`
 
 export default function Projects() {
   const [fsMenu, setFsMenu] = useState(false);
   const [scrollY, setScrollY] = useState('')
-
 
   const onScroll = useCallback(e => {
     const { pageYOffset, scrollY } = window;
@@ -291,11 +267,6 @@ export default function Projects() {
 
       {/* FULL BODY WRAPPER */}
       <Wrapper fsMenu={fsMenu} style={{ width: '100%', overflowX: 'hidden' }}>
-
-
-        {/* <div style={{width: 800, height: 800, position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', backgroundColor: 'blue', zIndex: 100, borderRadius: 1000, mixBlendMode: 'difference'}}>O</div> */}
-
-
         {/* NAVIGATION */}
         <NavBar style={{
           position: 'fixed', left: 30, right: 30, top: 20, display: 'flex', justifyContent: 'space-between', zIndex: 10, alignItems: 'center',
@@ -303,7 +274,7 @@ export default function Projects() {
         }}>
           <StyledLink style={{ cursor: 'pointer' }} href="/">
             <LOGO style={{ cursor: 'pointer' }}>
-              <span style={{ cursor: 'pointer' }}>J<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
+              <span style={{ transition: '0.5s', cursor: 'pointer', width: scrollY > 100 ? '9px' : '45px' }}>J<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
               <span style={{ cursor: 'pointer' }}>V<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>olny</CollapsableText></span>
             </LOGO>
           </StyledLink>
@@ -328,7 +299,7 @@ export default function Projects() {
           </TagLine>
 
           <span style={{ fontSize: '20px', marginBottom: 150, maxWidth: 600 }}>
-            Hello, my name is Jonas Volny and Im a Prague based developer. I build things on the web.
+            Hello, my name is Jonas Volny and Im <SyntaxWrapper>a Prague</SyntaxWrapper> based developer. <SyntaxWrapper>I build</SyntaxWrapper> <SyntaxWrapper>things on the web.</SyntaxWrapper>
           </span>
 
           <CoverImage>
@@ -366,14 +337,8 @@ export default function Projects() {
             <p>At some point, I was asked to improve in-house processes. Knowing that there’re solutions like Game Maker for Software, I decided to use a no-code solution. The learning was fun, but the joy of collegues actually using it was even more rewarding. I refound my passion for building in a field that keeps expanding every day and there is no treshold like in Japanaese langauge.</p>
             <p>Since then, I’ve been learning Javascript, React, Node and more. I’m looking for a role where I can help a company to achieve customers goals.</p>
           </TwoColumnTextDiv>
-
-
-
           {/* <h4>Sum Up</h4> 
-                                        <TwoColumnTextDiv>
-                                       
-
-                      
+          <TwoColumnTextDiv>
                       <ul style={{ display: 'flex', flexDirection: 'column', marginTop: 0 }}>
                             <li>I have a diverse background in art, languages, and manufacturing industry.</li>
                             <li>I specialize in building applications in a JS based environment.</li>
@@ -384,154 +349,13 @@ export default function Projects() {
 
                       </ul>
                     </TwoColumnTextDiv> */}
-
-
-          {/* <div style={{width: '100%'}}>
-
-
-                      <h4>My Skills</h4>
-                      <ul style={{ display: 'flex', flexDirection: 'column' }}>
-                            <li>React</li>
-                            <li>Javascript ES6</li>
-                            <li>HTML, CSS, Styled-components</li>
-                            <li>SQL, NoSQL</li>
-                            <li>NodeJS</li>
-                            <li>Git</li>
-                      </ul>
-                    </div> */}
         </section>
 
-        <StyledSectionTools>
-          <div style={{ width: '100%' }}>
-            <h4>Development</h4>
-            <ul>
-              <li>React.js</li>
-              <li>HTML, CSS & JS ES6</li>
-              <li>SQL (PostgreSQL), NoSQL</li>
-              <li>Firebase, Vercel, Render</li>
-              <li>Node.js</li>
-              <li>AWS S3, Firebase Storage</li>
 
-            </ul>
-          </div>
-
-
-          <div style={{ width: '100%' }}>
-            <h4>Visual</h4>
-            <ul>
-              <li>Basic UX/UI</li>
-              <li>Wireframing & Prototyping</li>
-              <li>Figma</li>
-              <li>Adobe Photoshop</li>
-              <li>Adobe Premiere</li>
-            </ul>
-          </div>
-
-
-          <div style={{ width: '100%' }}>
-            <h4>SEO</h4><ul>
-              <li>Technical SEO</li>
-              <li>Content SEO</li>
-              <li>MEO</li>
-              <li>Google Analytics</li>
-              <li>SEMrush</li>
-              <li>Lighthouse</li>
-
-            </ul>
-          </div>
-        </StyledSectionTools>
-
-
-
-
-
-
-
-
-        {/* <SplitBar style={{ width: '100%', display: 'flex' }} id={'personal'}>
-            <span style={{ whiteSpace: 'nowrap' }}>projects</span>
-            <DynamicLineRunningRight />
-          </SplitBar> */}
-
-        {/* <div
-            style={{ display: 'flex', flexDirection: 'column' }}
-          >
-
-            {ProjectsData.filter((x) => (x.type === 'personal')).map((e, i) => (
-              <div key={"personal" + i}>
-                <DetailsCard
-                  order={i}
-                  title={e.title}
-                  hashtags={e.hashtags}
-                  annotation={e.annotation}
-                  subtitle={e.subtitle}
-                  image={e.image}
-                  fullText={e.fullText}
-                  year={e.year}
-                  projectDescription={e.projectDescription}
-                  technicalDescription={e.technicalDescription}
-                  reflections={e.reflections}
-                  cta={e.cta} />
-              </div>
-            ))}
-
-          </div> */}
-
-
-        {/* <SplitBar style={{ width: '100%', display: 'flex' }} id={'work'}>
-            <span style={{ whiteSpace: 'nowrap' }}>work</span>
-            <DynamicLineRunningRight />
-          </SplitBar>
-
-          <div
-            style={{ display: 'flex', flexDirection: 'column' }}
-          >
-
-            {ProjectsData.filter((x) => (x.type === 'business')).reverse().map((e, i) => (<div key={"business" + i}>
-
-              <DetailsCard
-                order={i}
-                title={e.title}
-                hashtags={e.hashtags}
-                annotation={e.annotation}
-                subtitle={e.subtitle}
-                image={e.image}
-                fullText={e.fullText}
-                year={e.year}
-                projectDescription={e.projectDescription}
-                technicalDescription={e.technicalDescription}
-                reflections={e.reflections}
-                cta={e.cta} />
-            </div>
-            ))}
-          </div>
-
-          <div style={{ marginTop: 12, display: 'flex', width: '100%', justifyContent: 'space-between', fontSize: '20px', alignItems: 'center' }} id={'mytools'}>
-            <SplitBar>
-              <span style={{ display: 'flex', whiteSpace: 'nowrap' }}>
-                my tools
-              </span>
-              <DynamicLineRunningRight />
-            </SplitBar>
-          </div> */}
-
-
-
-        <section id="contact" style={{ display: 'flex', flexDirection: 'row', padding: '100px', backgroundColor: '#e2e2e2', gap: 50 }}>
-          <ContactForm />
-        </section>
-
-        <Main>
-
-        </Main>
+        <MyToolsSection id="tools"/>
+        <ContactSection id="contact"/>
         <Footer />
       </Wrapper>
-      {/* <script async src="https://static.getclicky.com/101403805.js"></script>
-      <noscript>
-        <p>
-          <Image alt="Clicky" width="1" height="1" src="https://in.getclicky.com/101403805ns.gif" />
-        </p>
-      </noscript> */}
     </>
   )
 }

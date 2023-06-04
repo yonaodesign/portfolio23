@@ -44,8 +44,8 @@ const ProjectsData = [
       "shotjapanible1.webp",
       "shotjapanible2.webp",
       "shotjapanible4.webp",
-    ],
-    projectDesktopPhoto: ["shotjapanible5.webp", "shotjapanible3.webp"],
+    ], 
+    projectDesktopPhoto: ["japanibleGallery.png", "shotjapanible3.webp"],
   },
 
   {
@@ -152,6 +152,7 @@ const ProjectsData = [
     projectProblemsAndSolutions: `The primary challenge in this project was deciphering the structure of the Slack API. Particularly, fetching data from private channels proved to be a struggle. By seeking assistance on platforms like Stack Overflow, I was able to find answers outside the official documentation, enabling the successful completion of this feature.`,
     projectLessonsLearnt:
       "Effective communication with backend engineers played a crucial role throughout the project.",
+      projectDesktopPhoto: ["backslackGallery.webp"]
   },
   {
     projectSlug: "b2b",
@@ -168,12 +169,12 @@ const ProjectsData = [
     reflections: ``,
     cta: [
       // { text: 'Video', href: '/img.png' },
-      {
-        type: "link",
-        text: "Live site",
-        href: "https://japanible.com",
-        aria: "Link to Japanible.com, that opens in a new window.",
-      },
+      // {
+      //   type: "link",
+      //   text: "Live site",
+      //   href: "https://japanible.com",
+      //   aria: "Link to Japanible.com, that opens in a new window.",
+      // },
     ],
     projectTagLine: "Business Matching Platform",
     projectAnnotation:
