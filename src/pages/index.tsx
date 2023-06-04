@@ -1,6 +1,9 @@
 import galleryData from './api/galleryDataset'
+import { ThemePreferenceContext, themesMap } from './_app'
 
-import { useState, useCallback, useEffect } from 'react'
+
+
+import { useState, useCallback, useEffect, useContext } from 'react'
 import Head from 'next/head'
 import Link from 'next/link'
 import styled from 'styled-components'
@@ -11,9 +14,9 @@ import MyToolsSection from './components/MyToolsSection'
 import ContactSection from './components/ContactSection'
 import GalleryCard from './components/GalleryCard'
 
-// import { useTheme } from 'styled-components'
 import { RxHamburgerMenu, RxCross1 } from 'react-icons/rx'
 import { IoContrast } from 'react-icons/io5'
+import ThemeSettings from './components/ThemeSettings'
 
 const Wrapper = styled.div`
 position: relative;
@@ -30,6 +33,8 @@ overflow-x: hidden;
   height: ${(props) => (props.fsMenu ? '100vh' : '100%')};
   overflow-y: ${(props) => (props.fsMenu ? 'hidden' : 'scroll')};
 }
+
+
 
 p {
   color: ${({ theme }) => theme.text};
@@ -78,6 +83,9 @@ transition: 0.5s;
   // text-decoration: underline;
 }
 `
+
+
+
 const PreTagLine = styled.span`
 margin-top: 200px;
 max-width: 600px;
@@ -153,8 +161,15 @@ const StyledSectionProjects = styled.section`
   background-color: #f5f5f5;
   // color: #ffffff;
 
-  @media (max-width: ${BREAKPOINTS.medium}px) {
-  }
+  // @media (max-width: ${BREAKPOINTS.mobile}px) {
+  //   padding: 100px 30px;
+  // }
+`
+
+const Section = styled.section`
+// @media (max-width: ${BREAKPOINTS.mobile}px) {
+//   padding: 100px 30px;
+// }
 `
 
 const StyledProjectsGrid = styled.div`
@@ -218,8 +233,18 @@ display: inline;
 white-space: nowrap`
 
 export default function Projects() {
+  const {
+    currentTheme,
+    setCurrentTheme
+    // setCurrentThemeAndSavePref,
+    // customTheme,
+    // setCustomTheme,
+    // setCustomThemeAndSavePref,
+  } = useContext(ThemePreferenceContext)
+
   const [fsMenu, setFsMenu] = useState(false);
   const [scrollY, setScrollY] = useState('')
+  const [toggleAboutMeMyBackground, setToggleAboutMeMyBackground] = useState(false)
 
   const onScroll = useCallback(e => {
     const { pageYOffset, scrollY } = window;
@@ -289,7 +314,8 @@ export default function Projects() {
           <Hamburger onClick={() => { setFsMenu(!fsMenu) }}>{fsMenu ? <RxCross1 /> : <RxHamburgerMenu />}</Hamburger>
         </NavBar>
 
-        <section style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#fff' }}>
+
+        <Section style={{ display: 'flex', flexDirection: 'column', backgroundColor: '#fff' }}>
           <PreTagLine>
             Frontend Developer
           </PreTagLine>
@@ -312,7 +338,7 @@ export default function Projects() {
             }}></div>
           </CoverImage>
 
-        </section>
+        </Section>
         <StyledSectionProjects id="projects">
           <h4>What I&apos;ve been working on</h4>
           <div style={{ display: 'flex', flexDirection: 'row' }}>
@@ -325,35 +351,46 @@ export default function Projects() {
           </div>
         </StyledSectionProjects>
 
-        <section id="about" style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#f5f5f5', gap: 50 }}>
-          <h4>About Me</h4>
-          <TwoColumnTextDiv>
-            <p style={{ marginTop: 0 }}>
-              Hello! I’m Jonas. I love building things that make a difference.</p>
-            <p>My first experience with programming was when I was 11. I build a website to showcase some of the games I made with Game Maker v5.
-              {/* I met with some critique online, “there’s no way, you’ve made this.” Being little kid I took it too personally, eventhough  */}
-              {' '}Learning HTML & CSS I occasionally made websites for friends, however the passion was supressed for a long time.</p>
-            <p>I always loved learning and when I was deciding what route to take, I chose Asian studies, as being something completely unknown with a lot of to learn. From zero to being promoted in a fully Japanese company, felt like my drive and dedication was rewarded.</p>
-            <p>At some point, I was asked to improve in-house processes. Knowing that there’re solutions like Game Maker for Software, I decided to use a no-code solution. The learning was fun, but the joy of collegues actually using it was even more rewarding. I refound my passion for building in a field that keeps expanding every day and there is no treshold like in Japanaese langauge.</p>
-            <p>Since then, I’ve been learning Javascript, React, Node and more. I’m looking for a role where I can help a company to achieve customers goals.</p>
-          </TwoColumnTextDiv>
-          {/* <h4>Sum Up</h4> 
-          <TwoColumnTextDiv>
-                      <ul style={{ display: 'flex', flexDirection: 'column', marginTop: 0 }}>
-                            <li>I have a diverse background in art, languages, and manufacturing industry.</li>
-                            <li>I specialize in building applications in a JS based environment.</li>
-                            <li>I am constantly exploring both time-tested and latest trends and new technologies to find best answers.</li>
-                            <li>I care about saving businesses time with on point solutions and intuitive UX.</li>
-                            <li>I use Adobe Photoshop, Figma, and Adobe Premier.</li>
-                            <li>I am fluent in English, Japanese, and Czech.</li>
-
-                      </ul>
-                    </TwoColumnTextDiv> */}
-        </section>
+        <Section id="about" style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#e2e2e2', gap: 50 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+            <h4>About Me </h4>
+            <StyledLink style={{ fontWeight: 600 }} href="#about" onClick={() => { setToggleAboutMeMyBackground(!toggleAboutMeMyBackground) }}>{!toggleAboutMeMyBackground ? "Show longer →" : "Show shorter →"}</StyledLink>
+          </div>
 
 
-        <MyToolsSection id="tools"/>
-        <ContactSection id="contact"/>
+
+          {!toggleAboutMeMyBackground &&
+            <><TwoColumnTextDiv>
+              <ul style={{ display: 'flex', flexDirection: 'column', marginTop: 0 }}>
+                <li>I have a diverse background in art, languages, and manufacturing industry.</li>
+                <li>I specialize in building applications in a JS based environment.</li>
+                <li>I am constantly exploring both time-tested and latest trends and new technologies to find best answers.</li>
+                <li>I care about saving businesses time with on point solutions and intuitive UX.</li>
+                <li>I use Adobe Photoshop, Figma, and Adobe Premier.</li>
+                <li>I am fluent in English, Japanese, and Czech.</li>
+
+              </ul>
+
+            </TwoColumnTextDiv></>}
+
+          {toggleAboutMeMyBackground &&
+            <>
+              <TwoColumnTextDiv>
+                <p style={{ marginTop: 0 }}>
+                  Hello! I’m Jonas. I love building things that make a difference.</p>
+                <p>My first experience with programming was when I was 11. I build a website to showcase some of the games I made with Game Maker v5.
+                  {/* I met with some critique online, “there’s no way, you’ve made this.” Being little kid I took it too personally, eventhough  */}
+                  {' '}Learning HTML & CSS I occasionally made websites for friends, however the passion was supressed for a long time.</p>
+                <p>I always loved learning and when I was deciding what route to take, I chose Asian studies, as being something completely unknown with a lot of to learn. From zero to being promoted in a fully Japanese company, felt like my drive and dedication was rewarded.</p>
+                <p>At some point, I was asked to improve in-house processes. Knowing that there’re solutions like Game Maker for Software, I decided to use a no-code solution. The learning was fun, but the joy of collegues actually using it was even more rewarding. I refound my passion for building in a field that keeps expanding every day and there is no treshold like in Japanaese langauge.</p>
+                <p>Since then, I’ve been learning Javascript, React, Node and more. I’m looking for a role where I can help a company to achieve customers goals.</p>
+              </TwoColumnTextDiv>
+            </>}
+        </Section>
+
+
+        <MyToolsSection id="tools" />
+        <ContactSection id="contact" />
         <Footer />
       </Wrapper>
     </>

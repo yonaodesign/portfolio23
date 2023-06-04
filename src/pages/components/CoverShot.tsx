@@ -18,6 +18,11 @@ const Wrapper = styled.div`
     margin: -40px;
   }
 
+  @media (max-width: ${BREAKPOINTS.mobile}px) {
+    padding: 0px;
+    margin: 30px -40px;
+  }
+
   &:active {cursor: not-allowed}
 
 `;

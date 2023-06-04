@@ -119,7 +119,6 @@ const ProjectsData = [
     projectProblemsAndSolutions: `The initial challenges I faced included setting up authentication and efficiently rendering thousands of markers on the Google Maps API. Overcoming these hurdles allowed me to enhance the application's functionality and create a seamless user experience.`,
     projectLessonsLearnt: "",
     projectMobilePhoto: ["crm.webp"],
-    projectDesktopPhoto: ["crm.webp"],
   },
   {
     projectSlug: "backslack",
@@ -189,7 +188,7 @@ const ProjectsData = [
     `,
     projectLessonsLearnt:
       "Continuous learning remains a key aspect of my development journey.",
-    projectDesktopPhoto: ["b2bGallery.webp", "b2b1.png"],
+    projectDesktopPhoto: ["b2b2.png"],
   },
   {
     title: "SMOSS",
@@ -265,11 +264,9 @@ const ProjectsData = [
       "Due to my limited technical knowledge at the time, I chose a no-code application as the fastest and most efficient solution, akin to Excel macros. I selected AppSheet for its intuitive user experience. Since AppSheet utilizes Google APIs, integrating Google Sheets as a database for the project was seamless.",
     projectProblemsAndSolutions: `One of the technical challenges I faced during this project was my lack of knowledge in app development. To overcome this hurdle, I dedicated myself to researching and learning the best tools available. The target audience for this project was to create an app that could connect customer service, sales, procurement, and the manufacturing line in real-time, reducing the reliance on telephonic communication. The app continued to be used by two factories for almost two years.
 
-
     `,
     projectLessonsLearnt:
       "Developing no-code applications provided me with a simplified understanding of full-stack development, including data structuring and view creation. Additionally, the availability of documentation and forums discussing features such as barcode scanning prepared me for real-life development challenges.",
-    projectDesktopPhoto: ["smossGallery.png"],
   },
   {
     title: "SSKS",

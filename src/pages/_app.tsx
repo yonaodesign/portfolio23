@@ -1,24 +1,31 @@
 import '@/styles/globals.css'
+import React from 'react'
 import type { AppProps } from 'next/app'
-import { useState } from 'react'
+import { useState, createContext, useContext } from 'react'
 
-// import { ThemeProvider } from "styled-components"
-// import { lightTheme, darkTheme, GlobalStyles } from "../ThemeConfig" 
+import { ThemeProvider } from "styled-components"
+import { lightTheme, darkTheme, GlobalStyles } from "../ThemeConfig"
+
+const themesMap = {
+  lightTheme,
+  darkTheme
+}
+export const ThemePreferenceContext = React.createContext()
 
 export default function App({ Component, pageProps }: AppProps) {
-//   const [theme, setTheme] = useState("light") 
-//   const toggleTheme = () => {
-//     theme == 'light' ? setTheme('dark') : setTheme('light')
-// }
+  const [currentTheme, setCurrentTheme] = useState('light')
+
+  const theme = { ...GlobalStyles, colors: themesMap[currentTheme] }
+
 
 
   return (
-    // <ThemeProvider theme={theme == 'light' ? lightTheme : darkTheme}>
-    //   <GlobalStyles />
-    //     <button onClick={toggleTheme}>Switch Theme</button>
-      <Component {...pageProps}/>
-    // </ThemeProvider>
-    )
+    <ThemePreferenceContext.Provider value={{ currentTheme, setCurrentTheme }}>
+      <ThemeProvider theme={theme}>
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </ThemePreferenceContext.Provider>
+  )
 }
 
 

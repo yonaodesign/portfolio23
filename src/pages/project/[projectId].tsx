@@ -287,7 +287,7 @@ export default function Projects() {
           position: 'fixed', left: 30, right: 30, top: 20, display: 'flex', justifyContent: 'space-between', zIndex: 10, alignItems: 'center',
         }}>
           <StyledLink style={{ cursor: 'pointer' }} href="/">
-          <LOGO style={{ cursor: 'pointer' }}>
+            <LOGO style={{ cursor: 'pointer' }}>
               <span style={{ transition: '0.5s', cursor: 'pointer', width: scrollY > 100 ? '9px' : '45px' }}>J<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>onas</CollapsableText></span>
               <span style={{ cursor: 'pointer' }}>V<CollapsableText style={{ transition: '1s' }} className={scrollY > 100 ? 'collapsable' : ''}>olny</CollapsableText></span>
             </LOGO>
@@ -329,33 +329,38 @@ export default function Projects() {
             <div style={{ borderRadius: '20px 0px 0px 20px', zIndex: 2, position: 'absolute', width: '100%', height: '100%', backgroundColor: '#000000', mixBlendMode: 'soft-light', opacity: 0.5 }}></div>
           </CoverImage> */}
 
-          {currentProjectDescriptions[0].projectDesktopPhoto?.slice(0,1).map(
+          {currentProjectDescriptions[0].projectDesktopPhoto?.slice(0, 1).map(
             (entry, index) => (
-            <CoverShot index={index} fileUrl={entry} key={`desktopShop${index}`}></CoverShot>
+              <CoverShot index={index} fileUrl={entry} key={`desktopShop${index}`}></CoverShot>
             )
-            )
+          )
             ?? []}
-
         </section>
 
 
 
-        
+
 
 
 
         <StyledWhyAndChallengedSection>
           <div style={{ width: '100%' }}>
-            <h4>Why</h4>
+            <h4>What and Why</h4>
             <p>{HTMLReactParser(currentProjectDescriptions[0].projectPurposeAndGoal ?? [])}</p>
           </div>
 
           {/* <MobileShot index={1} fileUrl={"shotjapanible1.png"}></MobileShot>        */}
+
+
+
+
+
+
           <div style={{ width: '100%' }}>
-            <h4>Challenges & Reflections</h4>
-            <p>{HTMLReactParser(currentProjectDescriptions[0].projectProblemsAndSolutions ?? [])}</p>
-            <p>{HTMLReactParser(currentProjectDescriptions[0].projectLessonsLearnt ?? [])}</p>
+            <h4>How</h4>
+            <p>{HTMLReactParser(currentProjectDescriptions[0].projectTechnicalCommentary ?? [])}</p>
           </div>
+
         </StyledWhyAndChallengedSection>
 
         {currentProjectDescriptions[0].projectDesktopPhoto?.length > 1 ? (
@@ -365,15 +370,10 @@ export default function Projects() {
             ))}</section>) : <></>}
 
         <section style={{ padding: '100px', backgroundColor: '#ffffff', gap: 50 }}>
-          <h4>Stack</h4>
-          <div style={{ display: 'flex', flexDirection: 'row' }}>
-            <div style={{ width: '100%' }}>
-              <p>{HTMLReactParser(currentProjectDescriptions[0].projectTechnicalCommentary ?? [])}</p>
-            </div>
-
-
-
-
+          <div style={{ width: '100%' }}>
+            <h4>What Happened</h4>
+            <p>{HTMLReactParser(currentProjectDescriptions[0].projectProblemsAndSolutions ?? [])}</p>
+            <p>{HTMLReactParser(currentProjectDescriptions[0].projectLessonsLearnt ?? [])}</p>
           </div>
         </section>
 
