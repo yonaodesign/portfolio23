@@ -1,5 +1,5 @@
 import React from "react";
-import { ContactForm } from "./ContactForm";
+import { ContactFormComponent } from "./ContactFormComponent";
 
 export const ContactSection = ({ id }: { id: string }) => {
   return (
@@ -13,7 +13,7 @@ export const ContactSection = ({ id }: { id: string }) => {
         gap: 50,
       }}
     >
-      <ContactForm />
+      <ContactFormComponent />
     </section>
   );
 };

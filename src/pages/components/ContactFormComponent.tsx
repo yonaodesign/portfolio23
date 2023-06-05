@@ -54,7 +54,7 @@ const StyledButton = styled.input`
   }
 `;
 
-export const ContactForm = (): JSX.Element => {
+export const ContactFormComponent = () => {
   const [isProcessing, setIsProcessing] = useState<string>("false");
   const {
     register,
