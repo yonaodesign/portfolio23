@@ -3,8 +3,8 @@ import { OtherProjectsSection } from "../../components/OtherProjectsSection";
 import { NavBar } from "../../components/NavBar";
 import { FullScreenMenuComponent } from "../../components/FullScreenMenuComponent";
 import Head from "next/head";
-import ProjectsData from "../api/dataset";
-import galleryData from "../api/galleryDataset";
+import ProjectsData from "../api/ProjectDetailsDataset";
+import galleryData from "../api/ProjectGalleryDataset";
 
 import { useRouter } from "next/router";
 import { useState, useCallback, useEffect } from "react";

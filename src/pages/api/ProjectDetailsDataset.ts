@@ -37,7 +37,7 @@ const ProjectsData = [{
       "shotjapanible4.webp",
     ],
     projectDesktopPhoto: ["japanibleGallery.png", "shotjapanible3.webp"],
-  },
+  }, 
 
   {
     projectSlug: "zumen",

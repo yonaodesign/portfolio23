@@ -1,5 +1,5 @@
 import React from "react";
-import galleryData from "@/pages/api/galleryDataset";
+import galleryData from "@/pages/api/ProjectGalleryDataset";
 import styled from "styled-components";
 import BREAKPOINTS from "@/pages/api/breakpoints";
 import GalleryCard from "@/components/GalleryCard";
