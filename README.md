@@ -1,7 +1,7 @@
 ### Portfolio v2
 
-Deployed@ [portfolio23-rvi8.vercel.app
-](portfolio23-rvi8.vercel.app
+Deployed@ [https://portfolio23-rvi8.vercel.app
+]([portfolio23-rvi8.vercel.app](https://portfolio23-rvi8.vercel.app)
 )
 
 
