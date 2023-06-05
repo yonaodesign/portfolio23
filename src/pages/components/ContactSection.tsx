@@ -1,5 +1,5 @@
 import React from "react";
-import ContactForm from "./ContactForm";
+import { ContactForm } from "./ContactForm";
 
 export const ContactSection = ({ id }: { id: string }) => {
   return (

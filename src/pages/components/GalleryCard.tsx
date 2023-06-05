@@ -53,7 +53,7 @@ const DisplayImage = styled.div`
   }
 `;
 
-const GalleryCard = ({ payload, key }: { payload: any; key: string }) => {
+const GalleryCard = ({ payload }: { payload: any }) => {
   if (payload)
     return (
       <Wrapper

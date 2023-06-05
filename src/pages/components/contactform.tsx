@@ -54,7 +54,7 @@ const StyledButton = styled.input`
   }
 `;
 
-export default function ContactForm(): JSX.Element {
+export const ContactForm = (): JSX.Element => {
   const [isProcessing, setIsProcessing] = useState<string>("false");
   const {
     register,
@@ -114,4 +114,4 @@ export default function ContactForm(): JSX.Element {
       )}
     </FormWrapper>
   );
-}
+};
