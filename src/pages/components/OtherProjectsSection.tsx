@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { Section } from "../components/Section";
+import { Section } from "./Section";
 import BREAKPOINTS from "../api/breakpoints";
-import { StyledLink } from "../components/StyledLink";
-import GalleryCard from "../components/GalleryCard";
-import { HeadingWithCTABlock } from "../components/HeadingWithCTABlock";
+import { StyledLink } from "./StyledLink";
+import GalleryCard from "./GalleryCard";
+import { HeadingWithCTABlock } from "./HeadingWithCTABlock";
 
 const StyledOtherProjectsGrid = styled.div`
   display: flex;

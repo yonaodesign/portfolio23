@@ -1,5 +1,5 @@
 import { DesktopShotsSection } from "./../components/DesktopShotsSection";
-import { OtherProjectsSection } from "./OtherProjectsSection";
+import { OtherProjectsSection } from "../components/OtherProjectsSection";
 import { NavBar } from "./../components/NavBar";
 import { FullScreenMenuComponent } from "../components/FullScreenMenuComponent";
 import Head from "next/head";
