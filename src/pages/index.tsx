@@ -161,15 +161,16 @@ const StyledSectionProjects = styled.section`
   background-color: #f5f5f5;
   // color: #ffffff;
 
-  // @media (max-width: ${BREAKPOINTS.mobile}px) {
-  //   padding: 100px 30px;
-  // }
+@media (max-width: ${BREAKPOINTS.mobile}px) {
+  padding: 50px 40px 50px 100px;
+}
 `
 
 const Section = styled.section`
-// @media (max-width: ${BREAKPOINTS.mobile}px) {
-//   padding: 100px 30px;
-// }
+padding: 100px;
+@media (max-width: ${BREAKPOINTS.mobile}px) {
+  padding: 50px 40px 50px 100px;
+}
 `
 
 const StyledProjectsGrid = styled.div`
@@ -201,8 +202,9 @@ background-position: center;
 background-repeat: no-repeat;
 
 &:hover {
-  transform: scale(1.01)
+  transform: scale(1.01);
 }
+  &:active {cursor: not-allowed}
 
 aspect-ratio: 2/0.75; 
 
@@ -231,6 +233,18 @@ column-gap: 50px;
 const SyntaxWrapper = styled.span`
 display: inline;
 white-space: nowrap`
+
+const HeadingAndCTAWithBreak =styled.div`
+display: flex;
+align-items: center;
+gap: 20px;
+
+@media (max-width: ${BREAKPOINTS.mobile}px){
+  flex-direction: column;
+  align-items: flex-start;
+}
+`
+
 
 export default function Projects() {
   const {
@@ -325,7 +339,7 @@ export default function Projects() {
           </TagLine>
 
           <span style={{ fontSize: '20px', marginBottom: 150, maxWidth: 600 }}>
-            Hello, my name is Jonas Volny and Im <SyntaxWrapper>a Prague</SyntaxWrapper> based developer. <SyntaxWrapper>I build</SyntaxWrapper> <SyntaxWrapper>things on the web.</SyntaxWrapper>
+          <SyntaxWrapper>Hello,</SyntaxWrapper> my name is <SyntaxWrapper>Jonas Volny</SyntaxWrapper> and Im <SyntaxWrapper>a Prague based</SyntaxWrapper> developer. <SyntaxWrapper>I build</SyntaxWrapper> <SyntaxWrapper>things on the web.</SyntaxWrapper>
           </span>
 
           <CoverImage>
@@ -352,10 +366,10 @@ export default function Projects() {
         </StyledSectionProjects>
 
         <Section id="about" style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#e2e2e2', gap: 50 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+          <HeadingAndCTAWithBreak>
             <h4>About Me </h4>
-            <StyledLink style={{ fontWeight: 600 }} href="#about" onClick={() => { setToggleAboutMeMyBackground(!toggleAboutMeMyBackground) }}>{!toggleAboutMeMyBackground ? "Show longer →" : "Show shorter →"}</StyledLink>
-          </div>
+            <a style={{ fontWeight: 600, cursor: 'pointer' }} onClick={() => { setToggleAboutMeMyBackground(!toggleAboutMeMyBackground) }}>{!toggleAboutMeMyBackground ? "Show longer version →" : "Show shorter version →"}</a>
+          </HeadingAndCTAWithBreak>
 
 
 

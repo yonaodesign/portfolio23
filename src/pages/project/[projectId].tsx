@@ -43,6 +43,14 @@ p {
   margin-bottom: 16px}
 `
 
+const Section = styled.section`
+transition: 3s;
+padding: 100px;
+@media (max-width: ${BREAKPOINTS.mobile}px) {
+  padding: 50px 40px 50px 100px;
+}
+`
+
 
 const PermanentSideMenu = styled.div`
   // filter: invert(1);
@@ -171,6 +179,7 @@ gap: 50px;
 
 @media (max-width: ${BREAKPOINTS.medium}px) {
   flex-direction: column;
+  padding: 50px 40px 50px 100px;
 }`
 
 const StyledOtherProjectsGrid = styled.div`
@@ -217,13 +226,29 @@ const StyledMobileSection = styled.div`
     grid-template-columns: 1fr;
 
   }
-`;
+`
+
+const HeadingAndCTAWithBreak =styled.div`
+display: flex;
+align-items: center;
+gap: 20px;
+
+@media (max-width: ${BREAKPOINTS.mobile}px){
+  flex-direction: column;
+  align-items: flex-start;
+}
+`
 
 
 export default function Projects() {
 
   const [fsMenu, setFsMenu] = useState(false);
-  const [scrollY, setScrollY] = useState('')
+  const [scrollY, setScrollY] = useState('');
+  const [loadedBg, setLoadedBg] = useState(false);
+
+  useEffect(()=>{
+    setTimeout(()=>setLoadedBg(true), 1000);
+  },[])
 
   const router = useRouter();
 
@@ -293,6 +318,8 @@ export default function Projects() {
             </LOGO>
           </StyledLink>
 
+
+
           <span style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
             <StyledLink href={'/#about'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>About Me</span></StyledLink>
             <StyledLink href={'/#projects'}><span style={{ whiteSpace: 'nowrap', cursor: 'pointer', }}>Projects</span></StyledLink>
@@ -304,10 +331,14 @@ export default function Projects() {
 
 
 
-        <section style={{ display: 'flex', flexDirection: 'column', backgroundColor: !!currentProjectData && currentProjectData ? currentProjectData[0]?.projectColor : 'white' }}>
+        <Section style={{ display: 'flex', flexDirection: 'column', backgroundColor: loadedBg ? currentProjectData[0]?.projectColor : 'white' }}>
+        
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '80%' }}>
+            
               <PreTagLine>
+                
+                  
                 {(currentProjectDescriptions[0].projectTagLine || currentProjectData[0].projectDescription) ?? []}
               </PreTagLine>
 
@@ -335,7 +366,7 @@ export default function Projects() {
             )
           )
             ?? []}
-        </section>
+        </Section>
 
 
 
@@ -369,13 +400,13 @@ export default function Projects() {
               <DesktopShot index={index} fileUrl={entry} key={`desktopShop${index}`}></DesktopShot>
             ))}</section>) : <></>}
 
-        <section style={{ padding: '100px', backgroundColor: '#ffffff', gap: 50 }}>
+        <Section style={{backgroundColor: '#ffffff', gap: 50 }}>
           <div style={{ width: '100%' }}>
             <h4>What Happened</h4>
             <p>{HTMLReactParser(currentProjectDescriptions[0].projectProblemsAndSolutions ?? [])}</p>
             <p>{HTMLReactParser(currentProjectDescriptions[0].projectLessonsLearnt ?? [])}</p>
           </div>
-        </section>
+        </Section>
 
         {currentProjectDescriptions[0].projectMobilePhoto ? (
           <StyledMobileSection>
@@ -420,15 +451,18 @@ export default function Projects() {
             </div>
           </section> */}
 
-        <section style={{ display: 'flex', flexDirection: 'column', padding: '100px', backgroundColor: '#e2e2e2', gap: 50 }}>
-          <div style={{ display: 'flex', gap: 15, flexDirection: 'row', alignItems: 'center' }}><h4>Other Projects</h4><StyledLink style={{ fontWeight: 600 }} href={'../#projects'}>Show All →</StyledLink></div>
+        <Section style={{backgroundColor: '#e2e2e2'}}>
+          <HeadingAndCTAWithBreak>
+            <h4>Other Projects</h4>
+            <StyledLink style={{ fontWeight: 600 }} href={'../#projects'}>Show All Projects →</StyledLink>
+            </HeadingAndCTAWithBreak>
 
           <StyledOtherProjectsGrid>
             <GalleryCard key={`galleryItemNo${0}`} payload={previousProjectData} />
             <GalleryCard key={`galleryItemNo${0}`} payload={nextProjectData} />
           </StyledOtherProjectsGrid>
 
-        </section>
+        </Section>
 
         <Main>
 
