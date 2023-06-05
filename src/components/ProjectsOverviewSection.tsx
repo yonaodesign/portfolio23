@@ -2,7 +2,7 @@ import React from "react";
 import galleryData from "@/pages/api/galleryDataset";
 import styled from "styled-components";
 import BREAKPOINTS from "@/pages/api/breakpoints";
-import GalleryCard from "@/pages/components/GalleryCard";
+import GalleryCard from "@/components/GalleryCard";
 
 const StyledProjectsGrid = styled.div`
   display: inline-grid;

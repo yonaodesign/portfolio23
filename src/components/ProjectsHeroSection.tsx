@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Section } from "./Section";
-import BREAKPOINTS from "../api/breakpoints";
-import CoverShot from "../components/CoverShot";
+import BREAKPOINTS from "../pages/api/breakpoints";
+import CoverShot from "./CoverShot";
 
 const PreTagLine = styled.span`
   margin-top: 200px;

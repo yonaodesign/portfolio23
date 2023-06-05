@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Section } from "./Section";
-import BREAKPOINTS from "../api/breakpoints";
+import BREAKPOINTS from "../pages/api/breakpoints";
 import { StyledLink } from "./StyledLink";
 import GalleryCard from "./GalleryCard";
 import { HeadingWithCTABlock } from "./HeadingWithCTABlock";

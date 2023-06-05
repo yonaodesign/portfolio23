@@ -1,16 +1,16 @@
 import Head from "next/head";
 import { useState, useCallback, useEffect } from "react";
 
-import { ProjectsOverviewSection } from "./components/ProjectsOverviewSection";
-import { AboutMeSection } from "./components/AboutMeSection";
-import { IndexHeroSection } from "./components/IndexHeroSection";
-import { PermanentSideMenu } from "./components/PermanentSideMenu";
-import { FullScreenMenuComponent } from "./components/FullScreenMenuComponent";
-import { NavBar } from "./components/NavBar";
-import { ContentWrapper } from "./components/ContentWrapper";
-import { Footer } from "./components/Footer";
-import { MyToolsSection } from "./components/MyToolsSection";
-import { ContactSection } from "./components/ContactSection";
+import { ProjectsOverviewSection } from "../components/ProjectsOverviewSection";
+import { AboutMeSection } from "../components/AboutMeSection";
+import { IndexHeroSection } from "../components/IndexHeroSection";
+import { PermanentSideMenu } from "../components/PermanentSideMenu";
+import { FullScreenMenuComponent } from "../components/FullScreenMenuComponent";
+import { NavBar } from "../components/NavBar";
+import { ContentWrapper } from "../components/ContentWrapper";
+import { Footer } from "../components/Footer";
+import { MyToolsSection } from "../components/MyToolsSection";
+import { ContactSection } from "../components/ContactSection";
 
 export default function Projects() {
   const [isFullscreenMenuOn, setIsFullscreenMenuOn] = useState<boolean>(false);

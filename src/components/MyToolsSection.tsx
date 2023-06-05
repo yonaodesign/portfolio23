@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BREAKPOINTS from "../api/breakpoints";
+import BREAKPOINTS from "../pages/api/breakpoints";
 
 const StyledSectionTools = styled.section`
   display: flex;

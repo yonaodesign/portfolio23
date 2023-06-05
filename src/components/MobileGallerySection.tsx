@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BREAKPOINTS from "../api/breakpoints";
+import BREAKPOINTS from "../pages/api/breakpoints";
 import { MobileShot } from "./MobileShot";
 
 const StyledMobileSection = styled.div`

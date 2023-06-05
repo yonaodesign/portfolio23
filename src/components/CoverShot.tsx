@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import BREAKPOINTS from "../api/breakpoints";
+import BREAKPOINTS from "../pages/api/breakpoints";
 
 const Wrapper = styled.div`
   transition: 0s;

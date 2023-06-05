@@ -1,7 +1,7 @@
-import { DesktopShotsSection } from "./../components/DesktopShotsSection";
-import { OtherProjectsSection } from "../components/OtherProjectsSection";
-import { NavBar } from "./../components/NavBar";
-import { FullScreenMenuComponent } from "../components/FullScreenMenuComponent";
+import { DesktopShotsSection } from "../../components/DesktopShotsSection";
+import { OtherProjectsSection } from "../../components/OtherProjectsSection";
+import { NavBar } from "../../components/NavBar";
+import { FullScreenMenuComponent } from "../../components/FullScreenMenuComponent";
 import Head from "next/head";
 import ProjectsData from "../api/dataset";
 import galleryData from "../api/galleryDataset";
@@ -9,13 +9,13 @@ import galleryData from "../api/galleryDataset";
 import { useRouter } from "next/router";
 import { useState, useCallback, useEffect } from "react";
 
-import { Footer } from "../components/Footer";
-import { PermanentSideMenu } from "../components/PermanentSideMenu";
-import { ContentWrapper } from "../components/ContentWrapper";
-import { WhyAndChallengesSection } from "../components/StyledWhy";
-import { WhatHappenedSection } from "../components/WhatHappenedSection";
-import { ProjectsHeroSection } from "../components/ProjectsHeroSection";
-import { MobileGallerySection } from "../components/MobileGallerySection";
+import { Footer } from "../../components/Footer";
+import { PermanentSideMenu } from "../../components/PermanentSideMenu";
+import { ContentWrapper } from "../../components/ContentWrapper";
+import { WhyAndChallengesSection } from "../../components/StyledWhy";
+import { WhatHappenedSection } from "../../components/WhatHappenedSection";
+import { ProjectsHeroSection } from "../../components/ProjectsHeroSection";
+import { MobileGallerySection } from "../../components/MobileGallerySection";
 
 export default function Projects() {
   const router = useRouter();

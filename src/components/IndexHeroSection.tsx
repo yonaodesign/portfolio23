@@ -1,7 +1,7 @@
 import React from "react";
 import { Section } from "./Section";
 import styled from "styled-components";
-import BREAKPOINTS from "../api/breakpoints";
+import BREAKPOINTS from "../pages/api/breakpoints";
 
 const PreTagLine = styled.span`
   margin-top: 200px;

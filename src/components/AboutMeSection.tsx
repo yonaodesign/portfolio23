@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Section } from "./Section";
-import { HeadingWithCTABlock } from "../components/HeadingWithCTABlock";
-import BREAKPOINTS from "../api/breakpoints";
+import { HeadingWithCTABlock } from "./HeadingWithCTABlock";
+import BREAKPOINTS from "../pages/api/breakpoints";
 
 const TwoColumnTextDiv = styled.div`
   width: 100%;

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BREAKPOINTS from "../api/breakpoints";
+import BREAKPOINTS from "../pages/api/breakpoints";
 import HTMLReactParser from "html-react-parser";
 import { Section } from "./Section";
 
