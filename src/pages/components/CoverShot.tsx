@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import BREAKPOINTS from '../api/breakpoints';
 
 const Wrapper = styled.div`
+transition: 0s;
   // background-color: azure;
   // background-color: #f8f8f8;
   // border-radius: 20px;

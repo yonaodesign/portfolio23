@@ -44,7 +44,7 @@ p {
 `
 
 const Section = styled.section`
-transition: 3s;
+// transition: 3s;
 padding: 100px;
 @media (max-width: ${BREAKPOINTS.mobile}px) {
   padding: 50px 40px 50px 100px;
@@ -116,6 +116,7 @@ font-weight: 400;
 line-height: 72px;
 font-family: trap;
 font-weight: 600;
+
 
 @media (min-width: 1000px) {
   font-size: 100px;
@@ -331,7 +332,7 @@ export default function Projects() {
 
 
 
-        <Section style={{ display: 'flex', flexDirection: 'column', backgroundColor: loadedBg ? currentProjectData[0]?.projectColor : 'white' }}>
+        <Section style={{ display: 'flex', flexDirection: 'column' }}>
         
           <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div style={{ display: 'flex', flexDirection: 'column', width: '80%' }}>
@@ -342,8 +343,14 @@ export default function Projects() {
                 {(currentProjectDescriptions[0].projectTagLine || currentProjectData[0].projectDescription) ?? []}
               </PreTagLine>
 
-              <TagLine style={{ marginTop: 30, marginBottom: 30 }}>
-                {currentProjectData[0].projectName ?? []}
+              <TagLine style={{ marginTop: 30, marginBottom: 30,
+                
+                color: loadedBg ? currentProjectData[0]?.projectColor : 'black', transition: '0.5s'
+                
+                }}>
+                {/* <span style={{boxShadow: `inset 0 -0.3em 0 0 ${currentProjectData[0]?.projectColor}`}}> */}
+                  {currentProjectData[0].projectName ?? []}
+                  {/* </span> */}
               </TagLine>
 
               <span style={{ fontSize: '20px', marginBottom: 100, maxWidth: 600 }}>
