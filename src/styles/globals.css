@@ -1,12 +1,14 @@
-body, html {
+body,
+html {
   margin: 0;
   padding: 0;
   scroll-behavior: smooth;
 }
+
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 *:focus-visible {
@@ -14,7 +16,8 @@ body, html {
   border-radius: 3px;
 }
 
-*::-moz-selection { /* Code for Firefox */
+*::-moz-selection {
+  /* Code for Firefox */
   color: black;
   background: papayawhip;
 }
@@ -38,16 +41,22 @@ body, html {
   font-display: swap;
 }
 
-h4 {font-size: 32px;
-font-family: Trap;
-font-weight: 600;}
+h4 {
+  font-size: 32px;
+  font-family: Trap;
+  font-weight: 600;
+}
 
-li {list-style-type: "\30FB";
+li {
+  list-style-type: "\30FB";
   margin-bottom: 18px;
-  margin-left: 0px;}
+  margin-left: 0px;
+}
 
-ul {margin-left: 0px;
-padding-left: 15px;}
+ul {
+  margin-left: 0px;
+  padding-left: 15px;
+}
 
 section {
   padding: 0px 100px;
@@ -65,4 +74,16 @@ section {
   width: 0px;
 }
 
-h1, h2, h3, h4, p, span, li {cursor: default}
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+li {
+  cursor: default
+}
+
+p {
+  line-height: 1.5
+}

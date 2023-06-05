@@ -1,15 +1,19 @@
-import React from 'react'
-import styled from 'styled-components'
-import BREAKPOINTS from '../api/breakpoints'
-import ContactForm from './contactform'
+import React from "react";
+import ContactForm from "./ContactForm";
 
-
-const ContactSection = (props) => {
+export const ContactSection = ({ id }: { id: string }) => {
   return (
-      <section id={props.id} style={{ display: 'flex', flexDirection: 'row', padding: '100px', backgroundColor: '#e2e2e2', gap: 50 }}>
-          <ContactForm />
-        </section>
-  )
-}
-
-export default ContactSection
+    <section
+      id={id}
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        padding: "100px",
+        backgroundColor: "#e2e2e2",
+        gap: 50,
+      }}
+    >
+      <ContactForm />
+    </section>
+  );
+};

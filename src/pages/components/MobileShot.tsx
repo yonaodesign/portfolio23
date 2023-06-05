@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import React from 'react'
-import styled from 'styled-components'
-import BREAKPOINTS from '../api/breakpoints';
+import Link from "next/link";
+import React from "react";
+import styled from "styled-components";
+import BREAKPOINTS from "../api/breakpoints";
 
 const Wrapper = styled.div`
   // background-color: papayawhip;
@@ -13,13 +13,18 @@ const Wrapper = styled.div`
   display: flex;
   justify-content: center;
 
-  &:active {cursor: not-allowed}
-
+  &:active {
+    cursor: not-allowed;
+  }
 `;
 
-const Device = styled.div`
+interface DeviceProps {
+  fileUrl: string;
+}
+
+const Device = styled.div<DeviceProps>`
   transition: 1s;
-  box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.2);
+  box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -39,10 +44,9 @@ const Device = styled.div`
   aspect-ratio: 9/19.5;
 
   &:hover {
-    box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.4);
     transform: scale(1.01);
   }
-
 
   @media (max-width: ${BREAKPOINTS.medium}px) {
     width: 100%;
@@ -57,14 +61,12 @@ const Drop = styled.div`
   border-radius: 0 0 10px 10px;
 `;
 
-const MobileShot: React.FC = (props) => {
+export const MobileShot = ({ fileUrl }: { fileUrl: string }) => {
   return (
     <Wrapper>
-      <Device fileUrl={props.fileUrl}>
+      <Device fileUrl={fileUrl}>
         <Drop />
       </Device>
     </Wrapper>
-  )
-}
-
-export default MobileShot
+  );
+};

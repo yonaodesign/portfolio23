@@ -1,7 +1,7 @@
-import Link from 'next/link'
-import React from 'react'
-import styled from 'styled-components'
-import BREAKPOINTS from '../api/breakpoints';
+import Link from "next/link";
+import React from "react";
+import styled from "styled-components";
+import BREAKPOINTS from "../api/breakpoints";
 
 const Wrapper = styled.div`
   // background-color: azure;
@@ -11,7 +11,6 @@ const Wrapper = styled.div`
   margin: 50px 0px;
   display: flex;
   justify-content: center;
-
 
   @media (max-width: ${BREAKPOINTS.medium}px) {
     padding: 0px;
@@ -23,13 +22,13 @@ const Wrapper = styled.div`
     margin: 30px -40px;
   }
 
-
-  &:active {cursor: not-allowed}
-
+  &:active {
+    cursor: not-allowed;
+  }
 `;
 
 const Device = styled.div`
-transition: 1s;
+  transition: 1s;
   box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
@@ -37,7 +36,7 @@ transition: 1s;
   justify-content: flex-start;
   color: white;
   width: 90%;
- 
+
   aspect-ratio: 16/10;
   background-image: ${({ fileUrl }) => `url("/projects/${fileUrl}")`};
   border: 2px solid #e2e2e2;
@@ -51,9 +50,8 @@ transition: 1s;
   outline: 1px solid gray;
 
   &:hover {
-    box-shadow: 0px 0px 50px 5px rgba(0,0,0,0.4);
+    box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.4);
     transform: scale(1.01);
-
   }
 
   @media (max-width: ${BREAKPOINTS.medium}px) {
@@ -62,20 +60,49 @@ transition: 1s;
   }
 `;
 
-const DesktopShot: React.FC = (props) => {
+interface Props {
+  fileUrl: string;
+}
+
+const DesktopShot = ({ fileUrl }: Props) => {
   return (
     <Wrapper>
-      <Device fileUrl={props.fileUrl}>
-        <div style={{ width: '100%', height: '20px', backgroundColor: '#e2e2e2', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 4, height: '100%', marginLeft: 5 }}>
-
-            {['#FF605C', '#FFBD44', '#00CA4E'].map((e, i) => (<div key={`titleBarCircle${i}`} style={{ height: '40%', aspectRatio: '1/1', backgroundColor: e, borderRadius: 500 }}></div>))}
-
+      <Device fileUrl={fileUrl}>
+        <div
+          style={{
+            width: "100%",
+            height: "20px",
+            backgroundColor: "#e2e2e2",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "flex-start",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 4,
+              height: "100%",
+              marginLeft: 5,
+            }}
+          >
+            {["#FF605C", "#FFBD44", "#00CA4E"].map((e, i) => (
+              <div
+                key={`titleBarCircle${i}`}
+                style={{
+                  height: "40%",
+                  aspectRatio: "1/1",
+                  backgroundColor: e,
+                  borderRadius: 500,
+                }}
+              ></div>
+            ))}
           </div>
         </div>
       </Device>
     </Wrapper>
-  )
-}
+  );
+};
 
-export default DesktopShot
+export default DesktopShot;
