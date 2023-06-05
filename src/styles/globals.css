@@ -1,8 +1,89 @@
-body,html {
+body,
+html {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
 }
+
 * {
   box-sizing: border-box;
-  font-family: BlinkMacSystemFont,-apple-system,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  scroll-behavior: smooth;
+  font-family: BlinkMacSystemFont, -apple-system, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+*:focus-visible {
+  outline: 5px solid rgb(50, 109, 205);
+  border-radius: 3px;
+}
+
+*::-moz-selection {
+  /* Code for Firefox */
+  color: black;
+  background: papayawhip;
+}
+
+::selection {
+  color: black;
+  background: papayawhip;
+}
+
+@font-face {
+  font-family: trap;
+  font-weight: 100;
+  src: url("/files/Trap-Light.otf") format("opentype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: trap;
+  font-weight: 600;
+  src: url("/files/Trap-SemiBold.otf") format("opentype");
+  font-display: swap;
+}
+
+h4 {
+  font-size: 32px;
+  font-family: Trap;
+  font-weight: 600;
+}
+
+li {
+  list-style-type: "\30FB";
+  margin-bottom: 18px;
+  margin-left: 0px;
+}
+
+ul {
+  margin-left: 0px;
+  padding-left: 15px;
+}
+
+section {
+  padding: 0px 100px;
+  margin: 0px;
+}
+
+.collapsable {
+  display: inline-block;
+  /* color: white; */
+  -webkit-transform: scaleX(0);
+  -moz-transform: scaleX(0);
+  -ms-transform: scaleX(0);
+  transform: scaleX(0);
+  opacity: 0;
+  width: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+p,
+span,
+li {
+  cursor: default
+}
+
+p {
+  line-height: 1.5
 }
