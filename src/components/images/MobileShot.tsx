@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import BREAKPOINTS from "../pages/api/breakpoints";
+import BREAKPOINTS from "@/utils/breakpoints";
 
 const Wrapper = styled.div`
   // background-color: papayawhip;

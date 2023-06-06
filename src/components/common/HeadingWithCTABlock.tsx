@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import BREAKPOINTS from "../pages/api/breakpoints";
+import BREAKPOINTS from "@/utils/breakpoints";
 
 export const HeadingWithCTABlock = styled.div`
   display: flex;

@@ -1,3 +1,4 @@
+import { IGalleryItem } from "@/pages/api/ProjectGalleryDataset";
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
@@ -53,37 +54,36 @@ const DisplayImage = styled.div`
   }
 `;
 
-const GalleryCard = ({ payload }: { payload: any }) => {
-  if (payload)
-    return (
-      <Wrapper
-        style={{
-          width: "100%",
-          padding: 10,
-          borderRadius: 20,
-        }}
-      >
+const GalleryCard = ({ payload }: { payload: IGalleryItem }) => {
+  return (
+    <Wrapper
+      style={{
+        width: "100%",
+        padding: 10,
+        borderRadius: 20,
+      }}
+    >
+      <StyledLink href={`/project/${payload.projectSlug}`}>
+        <DisplayImage
+          style={{
+            color: "white",
+            width: "100%",
+            aspectRatio: "2/1.3",
+            backgroundImage: `url("/${payload.projectGalleryImage}")`,
+            borderRadius: 10,
+            backgroundSize: "cover",
+          }}
+        />
+      </StyledLink>
+      <h4 style={{ marginBottom: 15 }}>{payload.projectName}</h4>
+      <span>{payload.projectDescription}</span>
+      <div style={{ marginTop: 20 }}>
         <StyledLink href={`/project/${payload.projectSlug}`}>
-          <DisplayImage
-            style={{
-              color: "white",
-              width: "100%",
-              aspectRatio: "2/1.3",
-              backgroundImage: `url("/${payload.projectGalleryImage}")`,
-              borderRadius: 10,
-              backgroundSize: "cover",
-            }}
-          />
+          View project →
         </StyledLink>
-        <h4 style={{ marginBottom: 15 }}>{payload.projectName}</h4>
-        <span>{payload.projectDescription}</span>
-        <div style={{ marginTop: 20 }}>
-          <StyledLink href={`/project/${payload.projectSlug}`}>
-            View project →
-          </StyledLink>
-        </div>
-      </Wrapper>
-    );
+      </div>
+    </Wrapper>
+  );
 };
 
 export default GalleryCard;

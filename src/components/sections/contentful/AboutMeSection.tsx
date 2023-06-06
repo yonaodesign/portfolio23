@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
-import { Section } from "./Section";
-import { HeadingWithCTABlock } from "./HeadingWithCTABlock";
-import BREAKPOINTS from "../pages/api/breakpoints";
+import { Section } from "@/components/common/Section";
+import { HeadingWithCTABlock } from "@/components/common/HeadingWithCTABlock";
+import BREAKPOINTS from "@/utils/breakpoints";
 
 const TwoColumnTextDiv = styled.div`
   width: 100%;
@@ -16,15 +16,12 @@ const TwoColumnTextDiv = styled.div`
 
 interface AboutMeSectionProps {
   idValue: string;
-  setToggleAboutMeMyBackground: React.Dispatch<React.SetStateAction<boolean>>;
-  toggleAboutMeMyBackground: boolean;
 }
 
-export function AboutMeSection({
-  idValue,
-  setToggleAboutMeMyBackground,
-  toggleAboutMeMyBackground,
-}: AboutMeSectionProps) {
+export function AboutMeSection({ idValue }: AboutMeSectionProps) {
+  const [toggleAboutMeMyBackground, setToggleAboutMeMyBackground] =
+    useState<boolean>(false);
+
   const toggleAboutMeMyBackgroundHandler = () =>
     setToggleAboutMeMyBackground(!toggleAboutMeMyBackground);
 

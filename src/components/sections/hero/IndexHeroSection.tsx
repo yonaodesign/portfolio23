@@ -1,7 +1,7 @@
 import React from "react";
-import { Section } from "./Section";
+import { Section } from "@/components/common/Section";
 import styled from "styled-components";
-import BREAKPOINTS from "../pages/api/breakpoints";
+import BREAKPOINTS from "@/utils/breakpoints";
 
 const PreTagLine = styled.span`
   margin-top: 200px;
@@ -64,7 +64,7 @@ const SyntaxWrapper = styled.span`
 
 export function IndexHeroSection({}) {
   return (
-    <Section bgColor="white">
+    <Section bgColor="white" idValue="hero">
       <PreTagLine>Frontend Developer</PreTagLine>
 
       <TagLine

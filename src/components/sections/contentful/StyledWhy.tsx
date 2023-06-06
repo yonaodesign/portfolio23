@@ -1,7 +1,8 @@
 import styled from "styled-components";
-import BREAKPOINTS from "../pages/api/breakpoints";
+import BREAKPOINTS from "@/utils/breakpoints";
 import HTMLReactParser from "html-react-parser";
-import { Section } from "./Section";
+import { Section } from "@/components/common/Section";
+import { IProject } from "@/pages/api/ProjectDetailsDataset";
 
 const TwoFlexBoxes = styled.div`
   display: flex;
@@ -15,7 +16,7 @@ const TwoFlexBoxes = styled.div`
 
 interface Props {
   bgColor: string;
-  currentProjectDescriptions: object;
+  currentProjectDescriptions: IProject[];
 }
 
 export const WhyAndChallengesSection = ({
@@ -28,18 +29,20 @@ export const WhyAndChallengesSection = ({
         <div style={{ width: "100%" }}>
           <h4>What and Why</h4>
           <p>
-            {HTMLReactParser(
-              currentProjectDescriptions[0].projectPurposeAndGoal ?? []
-            )}
+            {currentProjectDescriptions[0].projectPurposeAndGoal &&
+              HTMLReactParser(
+                currentProjectDescriptions[0].projectPurposeAndGoal
+              )}
           </p>
         </div>
 
         <div style={{ width: "100%" }}>
           <h4>How</h4>
           <p>
-            {HTMLReactParser(
-              currentProjectDescriptions[0].projectTechnicalCommentary ?? []
-            )}
+            {currentProjectDescriptions[0].projectTechnicalCommentary &&
+              HTMLReactParser(
+                currentProjectDescriptions[0].projectTechnicalCommentary
+              )}
           </p>
         </div>
       </TwoFlexBoxes>

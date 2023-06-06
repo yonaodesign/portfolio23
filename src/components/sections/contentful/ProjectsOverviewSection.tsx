@@ -1,8 +1,10 @@
 import React from "react";
-import galleryData from "@/pages/api/ProjectGalleryDataset";
 import styled from "styled-components";
-import BREAKPOINTS from "@/pages/api/breakpoints";
-import GalleryCard from "@/components/GalleryCard";
+
+import BREAKPOINTS from "@/utils/breakpoints";
+import { GalleryData } from "@/pages/api/ProjectGalleryDataset";
+
+import GalleryCard from "@/components/sections/contentful/GalleryCard";
 
 const StyledProjectsGrid = styled.div`
   display: inline-grid;
@@ -27,7 +29,11 @@ const StyledSection = styled.section`
   }
 `;
 
-export function ProjectsOverviewSection({ idValue }): JSX.Element {
+export function ProjectsOverviewSection({
+  idValue,
+}: {
+  idValue: string;
+}): JSX.Element {
   return (
     <StyledSection id={idValue}>
       <h4>What I&apos;ve been working on</h4>
@@ -38,7 +44,7 @@ export function ProjectsOverviewSection({ idValue }): JSX.Element {
         }}
       >
         <StyledProjectsGrid>
-          {galleryData.map((item, index) => (
+          {GalleryData.map((item, index) => (
             <GalleryCard key={`galleryItemNo${index}`} payload={item} />
           ))}
         </StyledProjectsGrid>

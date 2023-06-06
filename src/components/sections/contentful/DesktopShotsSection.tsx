@@ -1,9 +1,10 @@
 import React from "react";
-import DesktopShot from "./DesktopShot";
+import DesktopShot from "@/components/images/DesktopShot";
+import { IProject } from "@/pages/api/ProjectDetailsDataset";
 export function DesktopShotsSection({
   currentProjectDescriptions,
 }: {
-  currentProjectDescriptions: any;
+  currentProjectDescriptions: IProject[];
 }) {
   return (
     <section
@@ -15,7 +16,6 @@ export function DesktopShotsSection({
         ?.slice(1)
         .map((entry: string, index: number) => (
           <DesktopShot
-            index={index}
             fileUrl={entry}
             key={`desktopShop${index}`}
           ></DesktopShot>

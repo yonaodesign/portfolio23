@@ -55,7 +55,9 @@ const StyledButton = styled.input`
 `;
 
 export const ContactFormComponent = () => {
-  const [isProcessing, setIsProcessing] = useState<string>("false");
+  const [isProcessing, setIsProcessing] = useState<
+    "idle" | "processing" | "done"
+  >("idle");
   const {
     register,
     handleSubmit,

@@ -1,70 +1,66 @@
-import { DesktopShotsSection } from "../../components/DesktopShotsSection";
-import { OtherProjectsSection } from "../../components/OtherProjectsSection";
-import { NavBar } from "../../components/NavBar";
-import { FullScreenMenuComponent } from "../../components/FullScreenMenuComponent";
 import Head from "next/head";
-import ProjectsData from "../api/ProjectDetailsDataset";
-import galleryData from "../api/ProjectGalleryDataset";
-
 import { useRouter } from "next/router";
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 
-import { Footer } from "../../components/Footer";
-import { PermanentSideMenu } from "../../components/PermanentSideMenu";
-import { ContentWrapper } from "../../components/ContentWrapper";
-import { WhyAndChallengesSection } from "../../components/StyledWhy";
-import { WhatHappenedSection } from "../../components/WhatHappenedSection";
-import { ProjectsHeroSection } from "../../components/ProjectsHeroSection";
-import { MobileGallerySection } from "../../components/MobileGallerySection";
+import { ProjectsData } from "@/pages/api/ProjectDetailsDataset";
+import { GalleryData } from "@/pages/api/ProjectGalleryDataset";
+
+import { ContentWrapper } from "@/components/layout/ContentWrapper";
+
+import { NavBar } from "@/components/navigation/NavBar";
+import { PermanentSideMenu } from "@/components/navigation/PermanentSideMenu";
+import { FullScreenMenuComponent } from "@/components/navigation/FullScreenMenuComponent";
+
+import { WhyAndChallengesSection } from "@/components/sections/contentful/StyledWhy";
+import { WhatHappenedSection } from "@/components/sections/contentful/WhatHappenedSection";
+import { ProjectsHeroSection } from "@/components/sections/hero/ProjectsHeroSection";
+import { MobileGallerySection } from "@/components/sections/contentful/MobileGallerySection";
+import { DesktopShotsSection } from "@/components/sections/contentful/DesktopShotsSection";
+import { OtherProjectsSection } from "@/components/sections/contentful/OtherProjectsSection";
+
+import { Footer } from "@/components/footer/Footer";
 
 export default function Projects() {
   const router = useRouter();
   const { projectId } = router.query;
 
   const [isFullscreenMenuOn, setIsFullscreenMenuOn] = useState<boolean>(false);
-  const [scrollY, setScrollY] = useState<number>(0);
 
-  const currentProjectData = galleryData.filter(
-    (entry) => entry.projectSlug == projectId
+  // Get the data of the current project based on the project slug
+
+  const currentProjectData = GalleryData.filter(
+    (entry) => entry.projectSlug === projectId
   );
 
-  const currentProjectDataId = galleryData
-    .map((e) => e.projectSlug)
-    .indexOf(projectId);
+  // Find the index of the current project for previous and next project pagination
+  const currentProjectDescriptionIndex = GalleryData.map(
+    (e) => e.projectSlug
+  ).indexOf(projectId as string);
 
+  // Find the previous and next project based on the current project index
   const previousProjectData =
-    currentProjectDataId === 0
-      ? galleryData[galleryData.length - 1]
-      : galleryData[currentProjectDataId - 1];
+    currentProjectDescriptionIndex === 0
+      ? GalleryData[GalleryData.length - 1]
+      : GalleryData[currentProjectDescriptionIndex - 1];
 
   const nextProjectData =
-    currentProjectDataId === galleryData.length - 1
-      ? galleryData[0]
-      : galleryData[currentProjectDataId + 1];
+    currentProjectDescriptionIndex === GalleryData.length - 1
+      ? GalleryData[0]
+      : GalleryData[currentProjectDescriptionIndex + 1];
 
   const currentProjectDescriptions = ProjectsData.filter(
     (entry) => entry.projectSlug == projectId
   );
 
-  const fullscreenMenuHandler = () =>
+  const fullscreenMenuHandler: () => void = () =>
     setIsFullscreenMenuOn(!isFullscreenMenuOn);
 
-  const onScroll = useCallback((e) => {
-    const { pageYOffset, scrollY } = window;
-    setScrollY(window.pageYOffset);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll, { passive: true });
-    };
-  }, [onScroll]);
-
+  // Handle missing project data or descriptions
   if (!currentProjectData[0] && currentProjectDescriptions[0])
     return <h1>Missing Project Data</h1>;
   if (currentProjectData[0] && !currentProjectDescriptions[0])
     return <h1>Missing Project Description</h1>;
+
   if (currentProjectData[0] && currentProjectDescriptions[0])
     return (
       <>
@@ -82,7 +78,6 @@ export default function Projects() {
         )}
         <ContentWrapper isFullscreenMenuOn={isFullscreenMenuOn}>
           <NavBar
-            scrollY={scrollY}
             fullscreenMenuHandler={fullscreenMenuHandler}
             isFullscreenMenuOn={isFullscreenMenuOn}
           />
@@ -95,7 +90,8 @@ export default function Projects() {
             bgColor={"#f5f5f5"}
             currentProjectDescriptions={currentProjectDescriptions}
           />
-          {currentProjectDescriptions[0].projectDesktopPhoto?.length > 1 ? (
+          {currentProjectDescriptions[0]?.projectDesktopPhoto?.length &&
+          currentProjectDescriptions[0].projectDesktopPhoto.length > 1 ? (
             <DesktopShotsSection
               currentProjectDescriptions={currentProjectDescriptions}
             />

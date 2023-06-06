@@ -1,4 +1,12 @@
-const galleryData = [
+export interface IGalleryItem {
+  projectName: string;
+  projectDescription: string;
+  projectGalleryImage: string;
+  projectSlug: string;
+  projectColor: string;
+}
+
+export const GalleryData: IGalleryItem[] = [
   {
     projectName: "zumen+",
     projectDescription:
@@ -71,5 +79,3 @@ const galleryData = [
     projectColor: "#9EFF00",
   },
 ];
-
-export default galleryData;

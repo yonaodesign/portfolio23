@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Section } from "./Section";
-import BREAKPOINTS from "../pages/api/breakpoints";
-import { StyledLink } from "./StyledLink";
-import GalleryCard from "./GalleryCard";
-import { HeadingWithCTABlock } from "./HeadingWithCTABlock";
+
+import BREAKPOINTS from "@/utils/breakpoints";
+import { IGalleryItem } from "@/pages/api/ProjectGalleryDataset";
+
+import { StyledLink } from "@/components/common/StyledLink";
+import { Section } from "@/components/common/Section";
+import { HeadingWithCTABlock } from "@/components/common/HeadingWithCTABlock";
+import GalleryCard from "@/components/sections/contentful/GalleryCard";
 
 const StyledOtherProjectsGrid = styled.div`
   display: flex;
@@ -17,8 +20,8 @@ const StyledOtherProjectsGrid = styled.div`
 
 interface Props {
   bgColor: string;
-  previousProjectData: any;
-  nextProjectData: any;
+  previousProjectData: IGalleryItem;
+  nextProjectData: IGalleryItem;
 }
 
 export function OtherProjectsSection({
@@ -42,7 +45,7 @@ export function OtherProjectsSection({
 
       <StyledOtherProjectsGrid>
         <GalleryCard key={`galleryItemNo${0}`} payload={previousProjectData} />
-        <GalleryCard key={`galleryItemNo${0}`} payload={nextProjectData} />
+        <GalleryCard key={`galleryItemNo${1}`} payload={nextProjectData} />
       </StyledOtherProjectsGrid>
     </Section>
   );

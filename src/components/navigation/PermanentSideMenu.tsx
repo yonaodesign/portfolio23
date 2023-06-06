@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { StyledLink } from "./StyledLink";
+import { StyledLink } from "@/components/common/StyledLink";
 
 const Wrapper = styled.div`
   z-index: 100;

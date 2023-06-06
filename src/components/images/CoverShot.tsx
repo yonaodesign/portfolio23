@@ -1,13 +1,10 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import BREAKPOINTS from "../pages/api/breakpoints";
+import BREAKPOINTS from "@/utils/breakpoints";
 
 const Wrapper = styled.div`
-  // background-color: azure;
-  background-color: #f8f8f8;
-  // border-radius: 20px;
-  padding: 70px 50px;
+  transition: 0s;
   margin: 50px 0px;
   display: flex;
   justify-content: center;
@@ -26,8 +23,10 @@ const Wrapper = styled.div`
     cursor: not-allowed;
   }
 `;
-
-const Device = styled.div`
+interface DeviceProps {
+  fileUrl: string;
+}
+const Device = styled.div<DeviceProps>`
   transition: 1s;
   box-shadow: 0px 0px 50px 5px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -61,10 +60,11 @@ const Device = styled.div`
 `;
 
 interface Props {
+  index: number;
   fileUrl: string;
 }
 
-const DesktopShot = ({ fileUrl }: Props) => {
+const CoverShot = ({ index, fileUrl }: Props) => {
   return (
     <Wrapper>
       <Device fileUrl={fileUrl}>
@@ -105,4 +105,4 @@ const DesktopShot = ({ fileUrl }: Props) => {
   );
 };
 
-export default DesktopShot;
+export default CoverShot;

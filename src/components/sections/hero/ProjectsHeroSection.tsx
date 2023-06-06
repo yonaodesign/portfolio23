@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { Section } from "./Section";
-import BREAKPOINTS from "../pages/api/breakpoints";
-import CoverShot from "./CoverShot";
+import { Section } from "@/components/common/Section";
+import BREAKPOINTS from "@/utils/breakpoints";
+import CoverShot from "@/components/images/CoverShot";
+import { IProject } from "@/pages/api/ProjectDetailsDataset";
+import { IGalleryItem } from "@/pages/api/ProjectGalleryDataset";
 
 const PreTagLine = styled.span`
   margin-top: 200px;
@@ -28,8 +30,8 @@ const TagLine = styled.h1`
 
 interface Props {
   bgColor: string;
-  currentProjectDescriptions: any;
-  currentProjectData: any;
+  currentProjectDescriptions: IProject[];
+  currentProjectData: IGalleryItem[];
 }
 
 export const ProjectsHeroSection = ({
@@ -43,7 +45,7 @@ export const ProjectsHeroSection = ({
   }, []);
 
   return (
-    <Section bgColor={bgColor}>
+    <Section bgColor={bgColor} idValue="hero">
       <div style={{ display: "flex", flexDirection: "row" }}>
         <div
           style={{

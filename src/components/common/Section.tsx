@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import BREAKPOINTS from "../pages/api/breakpoints";
+import BREAKPOINTS from "@/utils/breakpoints";
 
 interface SectionWrapperProps {
   backgroundColor: string;
@@ -20,7 +20,7 @@ const SectionWrapper = styled.section<SectionWrapperProps>`
 interface SectionProps {
   idValue: string | undefined;
   bgColor: string;
-  children: any;
+  children: React.ReactNode;
 }
 
 export const Section: React.FC<SectionProps> = ({

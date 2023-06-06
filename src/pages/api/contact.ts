@@ -1,4 +1,4 @@
-export default function async (req:any, res:any) {
+export default function async (req: any, res: any) {
     const PARSEDDATA = req.body;
     
     let nodemailer = require('nodemailer')
@@ -11,7 +11,7 @@ export default function async (req:any, res:any) {
       },
       // secure: false,
       tls: {rejectUnauthorized: false},
-    //   tls: {
+    //   tls: { 
     //     ciphers:'SSLv3'
     // }
     })
@@ -25,7 +25,7 @@ export default function async (req:any, res:any) {
       ${PARSEDDATA.Email}</p>`
     }
   
-    transporter.sendMail(mailData, function (err:any, info:any) {
+    transporter.sendMail(mailData, function (err: any, info: any) {
       if(err) {
         console.log(err)
         res.sendStatus(500)

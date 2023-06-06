@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { StyledLink } from "./StyledLink";
+import { StyledLink } from "@/components/common/StyledLink";
 
 const FullScreenMenu = styled.div`
   @media (max-width: 1000px) {
@@ -20,7 +20,11 @@ const FullScreenMenu = styled.div`
   display: none;
 `;
 
-export function FullScreenMenuComponent({ fullscreenMenuHandler }) {
+interface IProps {
+  fullscreenMenuHandler: () => void;
+}
+
+export const FullScreenMenuComponent = ({ fullscreenMenuHandler }: IProps) => {
   return (
     <FullScreenMenu>
       <div
@@ -65,4 +69,4 @@ export function FullScreenMenuComponent({ fullscreenMenuHandler }) {
       </div>
     </FullScreenMenu>
   );
-}
+};

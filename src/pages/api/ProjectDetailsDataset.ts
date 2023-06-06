@@ -1,4 +1,33 @@
-const ProjectsData = [{
+export interface IProject {
+  projectSlug: string;
+  title: string;
+  type?: string;
+  year?: string;
+  subtitle?: string;
+  hashtags?: string[];
+  image?: string;
+  annotation?: string;
+  fullText?: string;
+  projectDescription?: string;
+  technicalDescription?: string;
+  reflections?: string;
+  cta?: {
+    type?: string;
+    text?: string;
+    href?: string;
+    aria?: string;
+  }[];
+  projectTagLine?: string;
+  projectAnnotation?: string;
+  projectPurposeAndGoal?: string;
+  projectTechnicalCommentary?: string;
+  projectProblemsAndSolutions?: string;
+  projectLessonsLearnt?: string;
+  projectMobilePhoto?: string[];
+  projectDesktopPhoto?: string[];
+}
+
+export const ProjectsData: IProject[] = [{
     projectSlug: "japanible",
     title: "Japanible",
     type: "personal",
@@ -235,7 +264,7 @@ const ProjectsData = [{
     projectTagLine: "My Starting Line",
     projectAnnotation: "A no-code application that helps managing production in-realish time with step-by-step system.",
     projectPurposeAndGoal: `This application marked the beginning of my journey as a developer. It originated from a simple question posed to me: 
-    <h4>"Jonas, couldn't you find a way to make this easier?"</h4>
+    <b>"Jonas, couldn't you find a way to make this easier?"</b>
     Rather than creating another Excel macro sheet, I set out to explore the best solution. Over the course of a month, I built an MVP while continuously collaborating with over five individuals to refine the features. The challenge of finding the optimal solution within a specific timeframe was energizing, and the eventual adoption of the application by teams for over a year and a half was highly rewarding. Although the application was eventually phased out, the positive feedback from colleagues and friends, who could no longer imagine working without it, remains a cherished memory.
     `,
     projectTechnicalCommentary: "Due to my limited technical knowledge at the time, I chose a no-code application as the fastest and most efficient solution, akin to Excel macros. I selected AppSheet for its intuitive user experience. Since AppSheet utilizes Google APIs, integrating Google Sheets as a database for the project was seamless.",
@@ -481,5 +510,3 @@ const ProjectsData = [{
     projectDesktopPhoto: ["cherGallery.png"],
   },
 ];
-
-module.exports = ProjectsData;

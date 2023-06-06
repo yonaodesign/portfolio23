@@ -1,6 +1,6 @@
-import React, { Dispatch } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import styled from "styled-components";
-import { StyledLink } from "./StyledLink";
+import { StyledLink } from "@/components/common/StyledLink";
 import { RxHamburgerMenu, RxCross1 } from "react-icons/rx";
 
 const Wrapper = styled.nav`
@@ -46,7 +46,32 @@ const Hamburger = styled.span`
   }
 `;
 
-export function NavBar({ scrollY, fullscreenMenuHandler, isFullscreenMenuOn }) {
+interface INavBarProps {
+  fullscreenMenuHandler: () => void;
+  isFullscreenMenuOn: boolean;
+}
+export function NavBar({
+  fullscreenMenuHandler,
+  isFullscreenMenuOn,
+}: INavBarProps) {
+  // Manipulate scroll event listener to update scrollY for logo toggling
+  const [scrollY, setScrollY] = useState<number>(0);
+
+  const onScroll = useCallback(() => {
+    setScrollY(window.pageYOffset);
+  }, []);
+
+  const eventOptions: AddEventListenerOptions = {
+    passive: true,
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", onScroll, eventOptions);
+    return () => {
+      window.removeEventListener("scroll", onScroll, eventOptions);
+    };
+  }, [onScroll]);
+
   return (
     <Wrapper
       style={{

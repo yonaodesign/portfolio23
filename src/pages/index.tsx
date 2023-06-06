@@ -1,37 +1,26 @@
 import Head from "next/head";
-import { useState, useCallback, useEffect } from "react";
+import { useState } from "react";
 
-import { ProjectsOverviewSection } from "../components/ProjectsOverviewSection";
-import { AboutMeSection } from "../components/AboutMeSection";
-import { IndexHeroSection } from "../components/IndexHeroSection";
-import { PermanentSideMenu } from "../components/PermanentSideMenu";
-import { FullScreenMenuComponent } from "../components/FullScreenMenuComponent";
-import { NavBar } from "../components/NavBar";
-import { ContentWrapper } from "../components/ContentWrapper";
-import { Footer } from "../components/Footer";
-import { MyToolsSection } from "../components/MyToolsSection";
-import { ContactSection } from "../components/ContactSection";
+import { ContentWrapper } from "@/components/layout/ContentWrapper";
+
+import { NavBar } from "@/components/navigation/NavBar";
+import { PermanentSideMenu } from "@/components/navigation/PermanentSideMenu";
+import { FullScreenMenuComponent } from "@/components/navigation/FullScreenMenuComponent";
+
+import { IndexHeroSection } from "@/components/sections/hero/IndexHeroSection";
+
+import { ProjectsOverviewSection } from "@/components/sections/contentful/ProjectsOverviewSection";
+import { AboutMeSection } from "@/components/sections/contentful/AboutMeSection";
+import { MyToolsSection } from "@/components/sections/contentful/MyToolsSection";
+import { ContactSection } from "@/components/sections/contentful/ContactSection";
+
+import { Footer } from "@/components/footer/Footer";
 
 export default function Projects() {
   const [isFullscreenMenuOn, setIsFullscreenMenuOn] = useState<boolean>(false);
-  const [scrollY, setScrollY] = useState<number>(0);
-  const [toggleAboutMeMyBackground, setToggleAboutMeMyBackground] =
-    useState<boolean>(false);
 
-  const fullscreenMenuHandler = () =>
+  const fullscreenMenuHandler = (): void =>
     setIsFullscreenMenuOn(!isFullscreenMenuOn);
-
-  const onScroll: React.UIEventHandler<HTMLElement> = useCallback((e) => {
-    const { pageYOffset, scrollY } = window;
-    setScrollY(window.pageYOffset);
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => {
-      window.removeEventListener("scroll", onScroll, { passive: true });
-    };
-  }, [onScroll]);
 
   return (
     <>
@@ -50,17 +39,12 @@ export default function Projects() {
 
       <ContentWrapper isFullscreenMenuOn={isFullscreenMenuOn}>
         <NavBar
-          scrollY={scrollY}
           fullscreenMenuHandler={fullscreenMenuHandler}
           isFullscreenMenuOn={isFullscreenMenuOn}
         />
         <IndexHeroSection />
         <ProjectsOverviewSection idValue="projects" />
-        <AboutMeSection
-          idValue="about"
-          setToggleAboutMeMyBackground={setToggleAboutMeMyBackground}
-          toggleAboutMeMyBackground={toggleAboutMeMyBackground}
-        />
+        <AboutMeSection idValue="about" />
         <MyToolsSection id="tools" />
         <ContactSection id="contact" />
         <Footer />
